@@ -1,0 +1,10 @@
+# alias
+alias v="nvim"
+alias del-dsstore="find . -name '.DS_Store' -type f -ls -delete"
+alias rm="rm -i"
+alias gs="git st"
+alias gg="git graph"
+alias gbd="git branch --merged | grep -v '*' | xargs -I % git branch -d %"
+alias gcp="git checkout . | git pull"
+alias ls="colorls"
+

@@ -20,12 +20,14 @@ path=(
     $path
 )
 
-export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
-export LESS=" -R -X -F"
-alias less='less -m -N -g -i -J --underline-special --SILENT'
+# export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+# export LESS=" -R -X -F"
+# alias less='less -m -N -g -i -J --underline-special --SILENT'
 #export PATH=/usr/local/miniconda3/bin:"$PATH"
 export PATH="$HOME/.pyenv/shims:$PATH" # python3系を使うために指定
 export PATH=~/.local/bin:$PATH
+
+# setting gopath
 export GOPATH=$HOME/.go
 
 # pyenv settings
