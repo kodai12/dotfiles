@@ -32,8 +32,8 @@ autocmd FileType python inoremap # X<C-H>#
 "------------------------
 " agit keymap
 "------------------------
-nmap <silent> <SPACE>av <Plug>Agit
-nmap <silent> <SPACE>avf <Plug>AgitFile
+nnoremap <silent> <SPACE>av <Plug>Agit
+nnoremap <silent> <SPACE>avf <Plug>AgitFile
 
 "------------------------
 " undotree keymap
