@@ -618,3 +618,10 @@ let g:DiffUnit = 'Char' " any single character
 let g:DiffColors = 3 " 16 colors in fixed order
 let g:DiffUpdate = 1
 '''
+
+[[plugins]]
+repo = 'reireias/vim-cheatsheet'
+hook_add = '''
+let g:cheatsheet#cheat_file = '~/.dotfiles/nvim/cheatsheet.md'
+nnoremap <SPACE>qq :Cheat<CR>
+'''
