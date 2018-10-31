@@ -1,0 +1,252 @@
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_source = 'denite.nvim'
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_source = 'denite.nvim'
+
+[[plugins]]
+repo = 'neoclide/denite-git'
+on_source = 'denite.nvim'
+hook_source = '''
+call dein#add('Shougo/denite.nvim')
+call dein#add('chemzqm/vim-easygit')
+call dein#add('chemzqm/denite-git')
+call denite#custom#map(
+      \ 'normal',
+      \ 'a',
+      \ '<denite:do_action:add>',
+      \ 'noremap'
+      \)
+
+call denite#custom#map(
+      \ 'normal',
+      \ 'd',
+      \ '<denite:do_action:delete>',
+      \ 'noremap'
+      \)
+
+call denite#custom#map(
+      \ 'normal',
+      \ 'r',
+      \ '<denite:do_action:reset>',
+      \ 'noremap'
+      \)
+'''
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+if = '''has('python3')'''
+hook_source = '''
+call denite#custom#var('file_rec', 'command',
+    \ ['rg', '--files', '--glob', '!.git', ''])
+
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+    \ [ '.git/', '.ropeproject/', '__pycache__/', 'tags',
+    \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/',
+    \   'node_modules/', 'target/', '.nuxt/', 'dist/', '.serverless/',
+    \   '.serverless_plugins'])
+
+call denite#custom#map(
+    \ 'normal',
+    \ 'rp',
+    \ '<denite:do_action:qfreplace>',
+    \ 'noremap')
+
+let ignore=&wildignore .
+      \ ',*.pyc,.git,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.git/tags'
+call denite#custom#var('file/rec', 'command',
+      \ ['scantree.py', '--ignore', ignore])
+
+" https://qiita.com/hrsh7th@github/items/303d46ba13532c502828 {{{
+function! DeniteQfreplace(context)
+  let qflist = []
+  for target in a:context['targets']
+  call add(qflist, {
+      \ 'filename': target['action__path'],
+      \ 'lnum': target['action__line'],
+      \ 'text': target['word'],
+      \ })
+  endfor
+call setqflist(qflist)
+  call qfreplace#start('tabnew')
+  endfunction
+  call denite#custom#action('file', 'qfreplace', function('DeniteQfreplace'))
+  " }}}
+'''
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+if ='''has('nvim')'''
+on_event = 'InsertEnter'
+hook_source = '''
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_ignore_case = 1
+  let g:deoplete#enable_smart_case = 1
+  let g:deoplete#auto_complete_delay = 0
+  let g:deoplete#auto_complete_start_length = 1
+  let g:deoplete#enable_camel_case = 0
+  let g:deoplete#enable_ignore_case = 0
+  let g:deoplete#enable_refresh_always = 0
+  let g:deoplete#tag#cache_limit_size = 0
+  let g:deoplete#max_list = 100
+  let g:deoplete#file#enable_buffer_path = 1
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+depends = 'context_filetype.vim'
+on_event = 'InsertEnter'
+on_i  = 1
+on_ft = ['snippet']
+depends = ['neosnippet-snippets']
+hook_source = '''
+  let g:neosnippet#snippets_directory="~/.cache/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets/"
+  imap <C-k> <Plug>(neosnippet_expand_or_jump)
+  smap <C-k> <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k> <Plug>(neosnippet_expand_target)
+  if has('conceal')
+    set conceallevel=2 concealcursor=niv
+  endif
+'''
+
+# html/css completion
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['css', 'html', 'xhtml', 'php']
+
+# javascript completion
+[[plugins]]
+repo = 'carlitux/deoplete-ternjs'
+if = '''has('nvim')'''
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'ternjs/tern_for_vim'
+on_i = 1
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = 'vue'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+on_ft = ['vue', 'toml']
+hook_source = '''
+  let g:precious_enable_switch_CursorMoved_i = {'*': 0}
+  let g:precious_enable_switch_CursorHold    = {'*': 0}
+	let g:precious_enable_switchers = {
+    \	'*':    {'setfiletype': 0},
+    \	'toml': {'setfiletype': 1},
+    \	'html': {'setfiletype': 1},
+    \	'vue':  {'setfiletype': 1},
+	\ }
+'''
+
+# rust configuration
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+hook_source = '''
+  let g:rustfmt_autosave = 1
+  let g:rustfmt_command='~/.cargo/bin/rustfmt'
+'''
+
+[[plugins]]
+repo = 'racer-rust/vim-racer'
+on_ft = 'rust'
+hook_source = '''
+  set hidden
+  let g:racer_cmd='~/.cargo/bin/racer'
+  let $RUST_SRC_PATH="/Users/sakochikodai/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src"
+  let g:racer_experimental_completer = 1
+  nmap <SPACE>gd <Plug>(rust-def)
+  nmap <SPACE>gs <Plug>(rust-def-split)
+  nmap <SPACE>gx <Plug>(rust-def-vertical)
+  nmap <SPACE>K <Plug>(rust-doc)
+'''
+
+# python completion
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+if = '''has('nvim')'''
+on_ft = 'python'
+hook_source = '''
+  let g:deoplete#sources#jedi#enable_cache   = 1
+  let g:deoplete#sources#jedi#show_docstring = 0
+'''
+
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_i = 1
+on_ft = 'python'
+hook_source = '''
+  let g:jedi#force_py_version = 3
+'''
+
+[[plugins]]
+repo = 'Vimjas/vim-python-pep8-indent'
+on_i = 1
+on_ft = 'python'
+
+# php completion
+[[plugins]]
+repo = 'padawan-php/deoplete-padawan'
+if = '''has('nvim')'''
+on_event = 'InsertEnter'
+on_ft = 'php'
+hook_source = '''
+  augroup padawan-setting
+    autocmd! FileType php setlocal completeopt-=preview
+  augroup END
+'''
+
+# go configuration
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+[[plugins]]
+repo = 'zchee/deoplete-go'
+on_ft = 'go'
+if = '''has('nvim')'''
+hook_source = '''
+set completeopt+=noinsert
+set completeopt+=noselect
+
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+'''
+
+[[plugins]]
+repo = 'jodosha/vim-godebug'
+on_ft = 'go'
+if = '''has('nvim')'''
+
+#tweet vim setting
+[[plugins]]
+repo = 'basyura/TweetVim'
+hook_source = '''
+  let g:tweetvim_display_icon = 1
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'basyura/twibill.vim'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'basyura/twibill.vim'
+
+[[plugins]]
+repo = 'mattn/favstar-vim'

@@ -1,5 +1,7 @@
 export ZDOTDIR=$HOME/.dotfiles/zsh/
 
+export XDG_CONFIG_HOME=$HOME/.dotfiles
+
 export PATH="/usr/local/bin:$PATH"
 
 # PATH の内容と同期している配列変数 path も使える
