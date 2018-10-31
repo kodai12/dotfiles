@@ -7,4 +7,4 @@ alias gg="git graph"
 alias gbd="git branch --merged | grep -v '*' | xargs -I % git branch -d %"
 alias gcp="git checkout . | git pull"
 alias ls="colorls"
-
+eval "$(thefuck --alias)"
