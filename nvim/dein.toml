@@ -613,3 +613,11 @@ let g:gutentags_ctags_tagfile = '.git/tags'
 
 [[plugins]]
 repo = 'mechatroner/rainbow_csv'
+
+[[plugins]]
+repo = 'rickhowe/diffchar.vim'
+hook_add = '''
+let g:DiffUnit = 'Char' " any single character
+let g:DiffColors = 3 " 16 colors in fixed order
+let g:DiffUpdate = 1
+'''
