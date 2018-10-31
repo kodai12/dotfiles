@@ -477,9 +477,6 @@ repo = 'hecal3/vim-leader-guide'
 repo = 'majutsushi/tagbar'
 
 [[plugins]]
-repo = 'Shougo/neco-syntax'
-
-[[plugins]]
 repo = 'othree/yajs.vim'
 
 # css customize
