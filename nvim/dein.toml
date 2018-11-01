@@ -147,16 +147,16 @@ function! StartifyEntryFormat()
   return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
 endfunction
 " run startify for each new tab
-if has('nvim')
-  autocmd TabNewEntered * Startify
-else
-  autocmd VimEnter * let t:startify_new_tab = 1
-  autocmd BufEnter *
-        \ if !exists('t:startify_new_tab') && empty(expand('%')) |
-        \   let t:startify_new_tab = 1 |
-        \   Startify |
-        \ endif
-endif
+" if has('nvim')
+"   autocmd TabNewEntered * Startify
+" else
+"   autocmd VimEnter * let t:startify_new_tab = 1
+"   autocmd BufEnter *
+"         \ if !exists('t:startify_new_tab') && empty(expand('%')) |
+"         \   let t:startify_new_tab = 1 |
+"         \   Startify |
+"         \ endif
+" endif
 
 let g:ascii = [
       \ '                _                     _       _   _',
