@@ -209,15 +209,6 @@ repo = 'tpope/vim-fugitive'
 repo = 'idanarye/vim-merginal'
 
 [[plugins]]
-repo = 'airblade/vim-gitgutter'
-hook_add = '''
-let g:gitgutter_sign_added = '✚'
-let g:gitgutter_sign_modified = '➜'
-let g:gitgutter_sign_removed = '✘'
-let g:gitgutter_max_signs = 500
-'''
-
-[[plugins]]
 repo = 'rhysd/committia.vim'
 hook_add = '''
 let g:committia_open_only_vim_starting = 1
@@ -270,25 +261,17 @@ repo = 'osyo-manga/vim-anzu'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
+repo = 'powerline/powerline'
+
+[[plugins]]
 repo = 'kodai12/lightline-delphinus'
-depends = ['lightline', 'ale', 'tagbar', 'vim-gitgutter']
+depends = ['lightline', 'ale', 'tagbar', 'vim-gitgutter', 'powerline']
 hook_add = '''
 let g:lightline_delphinus_use_powerline_glyphs = 1
 let g:lightline_delphinus_use_nerd_fonts_glyphs = 1
 let g:lightline_delphinus_colorscheme = 'nord_improved'
 let g:lightline_delphinus_tagbar_enable = 1
 let g:lightline_delphinus_gitgutter_enable = 1
-let g:ale_echo_msg_error_str = nr2char(0xf421) . ' '
-let g:ale_echo_msg_warning_str = nr2char(0xf420) . ' '
-let g:ale_echo_msg_info_str = nr2char(0xf05a) . ' '
-let g:ale_echo_msg_format = '%severity%  %linter% - %s'
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = g:ale_echo_msg_error_str
-let g:ale_sign_warning = g:ale_echo_msg_warning_str
-let g:ale_statusline_format = [
-      \ g:ale_echo_msg_error_str . ' %d',
-      \ g:ale_echo_msg_warning_str . ' %d',
-      \ nr2char(0xf4a1) . '  ']
 '''
 
 [[plugins]]
@@ -434,6 +417,17 @@ let g:ale_fixers = {
       \ 'python': [ 'black' ],
       \ 'typescript': [ 'tslint' ],
       \ }
+let g:ale_echo_msg_error_str = nr2char(0xf421) . ' '
+let g:ale_echo_msg_warning_str = nr2char(0xf420) . ' '
+let g:ale_echo_msg_info_str = nr2char(0xf05a) . ' '
+let g:ale_echo_msg_format = '%severity%  %linter% - %s'
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = g:ale_echo_msg_error_str
+let g:ale_sign_warning = g:ale_echo_msg_warning_str
+let g:ale_statusline_format = [
+      \ g:ale_echo_msg_error_str . ' %d',
+      \ g:ale_echo_msg_warning_str . ' %d',
+      \ nr2char(0xf4a1) . '  ']
 '''
 
 [[plugins]]
