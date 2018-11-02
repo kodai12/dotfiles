@@ -209,6 +209,15 @@ repo = 'tpope/vim-fugitive'
 repo = 'idanarye/vim-merginal'
 
 [[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '➜'
+let g:gitgutter_sign_removed = '✘'
+let g:gitgutter_max_signs = 500
+'''
+
+[[plugins]]
 repo = 'rhysd/committia.vim'
 hook_add = '''
 let g:committia_open_only_vim_starting = 1
@@ -352,9 +361,6 @@ repo = 'tomlion/vim-solidity'
 repo = 'hecal3/vim-leader-guide'
 
 [[plugins]]
-repo = 'majutsushi/tagbar'
-
-[[plugins]]
 repo = 'othree/yajs.vim'
 
 # css customize
@@ -450,18 +456,16 @@ repo = 'guns/xterm-color-table.vim'
 repo = 'majutsushi/tagbar'
 if = '''has('nvim')'''
 hook_add = '''
-  let g:tagbar_previewwin_pos    = "rightbelow"
-  let g:tagbar_iconchars = ['▶', '▼']
-  let g:tagbar_map_openallfolds  = '-'
-  let g:tagbar_map_closeallfolds = '='
-  let g:tagbar_sort              = 0
-  let g:tagbar_show_visibility = 1
-  let g:tagbar_singleclick = 1
-  let g:tagbar_map_showproto = '<Nop>'
-  let g:tagbar_map_nexttag   = '<C-j>'
-  let g:tagbar_map_prevtag   = '<C-k>'
-  let g:tagbar_map_openfold  = '<Space>vo'
-  let g:tagbar_map_closefold = '<Space>vc'
+  "let g:tagbar_previewwin_pos    = "rightbelow"
+  "let g:tagbar_map_openallfolds  = '-'
+  "let g:tagbar_map_closeallfolds = '='
+  let g:tagbar_left = 1
+  let g:tagbar_autoclose = 1
+  let g:tagbar_autofocus = 1
+  let g:tagbar_show_linenumbers = 1
+  let g:tagbar_iconchars = [nr2char(0xe5ff) . ' ', nr2char(0xe5fe) . ' '] "  , 
+  let g:tagbar_autopreview = 1
+  autocmd BufWinEnter * if &previewwindow | setlocal nonumber norelativenumber | endif
 '''
 
 [[plugins]]
