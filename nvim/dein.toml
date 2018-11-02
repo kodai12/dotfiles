@@ -180,11 +180,16 @@ let g:startify_lists = [
       \ { 'type': 'bookmarks', 'header': ['   ☺  Bookmarks:']},
       \ ]
 let g:startify_bookmarks = [
+      \ '~/Desktop/aratana-gateway',
+      \ '~/Desktop/aratana-gateway-dashboard',
       \ '~/.config/nvim/init.vim',
       \ '~/.config/nvim/dein.toml',
       \ '~/.config/nvim/dein_lazy.toml',
+      \ '~/.config/nvim/keybind.vim',
+      \ '~/.config/nvim/cheatsheet.md',
       \ '~/.zshrc',
-      \ '~/.zshenv'
+      \ '~/.zshenv',
+      \ '~/.zplugins'
       \ ]
 let g:startify_session_before_save = [
       \ 'echo "Cleaning up before saving.."',
@@ -638,3 +643,34 @@ hook_add = '''
 let g:cheatsheet#cheat_file = '~/.config/nvim/cheatsheet.md'
 nnoremap <SPACE>qq :Cheat<CR>
 '''
+
+#------------------------
+# test settings
+#------------------------
+[[plugins]]
+repo = 'tpope/vim-dispatch'
+
+[[plugins]]
+repo = 'radenling/vim-dispatch-neovim'
+if ='''has('nvim')'''
+
+[[plugins]]
+repo = 'aliev/vim-compiler-python'
+hook_add = '''
+let g:python_compiler_fixqflist = 1
+'''
+
+[[plugins]]
+repo = 'janko-m/vim-test'
+depends = ['vim-dispatch', 'vim-dispatch-neovim']
+hook_add = '''
+let g:test#strategy = 'dispatch'
+let g:test#python#runner = 'nose'
+let g:test#javascript#runner = 'jest'
+let g:test#rust#runner = 'cargo'
+let g:test#runner_commands = ['Nose', 'Jest','Mocha', 'Cargo']
+let g:test#preserve_screen = 1
+'''
+#------------------------
+# /test settings
+#------------------------
