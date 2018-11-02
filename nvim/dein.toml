@@ -259,196 +259,28 @@ repo = 'osyo-manga/vim-anzu'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'kodai12/lightline-delphinus'
+depends = ['lightline', 'ale', 'tagbar', 'vim-gitgutter']
 hook_add = '''
-let s:colorscheme = 'iceberg'
-if !empty($COLORSCHEME)
-  let s:colorscheme = $COLORSCHEME
-endif
-let g:lightline = {
-  \ 'colorscheme': s:colorscheme,
-  \ 'separator': { 'left': '', 'right': '' },
-  \ 'subseparator': { 'left': '', 'right': '' },
-  \ 'mode_map': {'c': 'NORMAL'},
-  \ 'active': {
-  \   'left': [
-  \     ['mode', 'paste'],
-  \     ['fugitive', 'gitgutter'],
-  \     ['pwd', 'filename']
-  \   ],
-  \   'right': [
-  \     ['sky_color_clock'],
-  \     ['lineinfo', 'syntax_check'],
-  \     ['percent'],
-  \     ['fileformat', 'fileencoding', 'filetype'],
-  \     ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']
-  \   ]
-  \ },
-  \ 'component_function': {
-  \   'mode': 'MyMode',
-  \   'fugitive': 'MyFugitive',
-  \   'gitgutter': 'MyGitgutter',
-  \   'filename': 'MyFilename',
-  \   'pwd': 'MyPwd',
-  \   'fileformat': 'MyFileformat',
-  \   'fileencoding': 'MyFileencoding',
-  \   'filetype': 'MyFiletype',
-  \   'readonly': 'MyReadonly'
-  \ },
-  \ 'component': {
-  \   'sky_color_clock': "%#SkyColorClock#%{' ' . sky_color_clock#statusline() . ' '}%#SkyColorClockTemp# ",
-  \   'lineinfo': ' %3l:%-2v',
-  \ },
-  \ 'component_raw': {
-  \   'sky_color_clock': 1,
-  \ },
-  \ 'component_expand': {
-  \   'syntax_check': 'qfstatusline#Update',
-  \   'linter_warnings': 'MyLinterWarnings',
-  \   'linter_errors': 'MyLinterErrors',
-  \   'linter_ok': 'MyLinterOK'
-  \ },
-  \ 'component_type': {
-  \   'syntax_check': 'error',
-  \   'readonly': 'error',
-  \   'linter_warnings': 'warning',
-  \   'linter_errors': 'error',
-  \   'linter_ok': 'ok'
-  \ },
-  \}
-let s:palette = g:lightline#colorscheme#{s:colorscheme}#palette
-let s:palette.tabline.tabsel = [ [ '#d0d0d0', '#5f8787', 252, 66, 'bold' ] ]
-unlet s:palette
-let g:lightline.tab = {
-      \ 'active': [ 'tabnum', 'filename', 'modified' ],
-      \ 'inactive': [ 'tabnum', 'filename', 'modified' ]
-      \ }
-let g:lightline.tab_component_function = {
-      \ 'filename': 'MyTabFilename',
-      \ 'modified': 'lightline#tab#modified',
-      \ 'readonly': 'lightline#tab#readonly',
-      \ 'tabnum': 'lightline#tab#tabnum' }
-function! MyModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! MyReadonly()
-		return &readonly ? '' : ''
-endfunction
-
-function! MyFilename()
-    let fname = expand('%:t')
-    return
-          \ fname =~ '__Gundo' ? '' :
-          \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-          \  &ft == 'unite' ? unite#get_status_string() :
-          \  &ft == 'vimshell' ? vimshell#get_status_string() :
-          \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-          \ ('' != MyModified() ? ' ' . MyModified() : '') .
-          \ '' != fname ? fname : '[No Name]')
-endfunction
-
-function! MyFugitive()
-   if exists('*fugitive#head')
-     let branch = fugitive#head()
-     return branch !=# '' ? ''.branch : ''
-   endif
-   return ''
-endfunction
-
-function! MyGitgutter()
-    if ! exists('*GitGutterGetHunkSummary')
-          \ || ! get(g:, 'gitgutter_enabled', 0)
-          \ || winwidth('.') <= 90
-      return ''
-    endif
-    let symbols = [
-          \ g:gitgutter_sign_added . ' ',
-          \ g:gitgutter_sign_modified . ' ',
-          \ g:gitgutter_sign_removed . ' '
-          \ ]
-    let hunks = GitGutterGetHunkSummary()
-    let ret = []
-    for i in [0, 1, 2]
-      if hunks[i] > 0
-        call add(ret, symbols[i] . hunks[i])
-      endif
-    endfor
-    return join(ret, ' ')
-endfunction
-
-function! MyFiletype()
-  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
-endfunction
-
-function! MyFileformat()
-  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
-endfunction
-
-function! MyFileencoding()
-    return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! MyMode()
-    return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-
-function! MyPwd()
-    if winwidth(0) > 60
-      let s:homepath = expand('~')
-      return substitute(getcwd(), expand('~'), '~', '')
-    else
-      return ''
-    endif
-endfunction
-
-function! MyLinterWarnings() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d ▲', all_non_errors)
-endfunction
-
-function! MyLinterErrors() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
-endfunction
-
-function! MyLinterOK() abort
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-  let l:all_non_errors = l:counts.total - l:all_errors
-  return l:counts.total == 0 ? '✓' : ''
-endfunction
-
-function! MyTabFilename(n) abort
-  let buflist = tabpagebuflist(a:n)
-  let winnr = tabpagewinnr(a:n)
-  let _ = pathshorten(expand('#'.buflist[winnr - 1].':f'))
-  return _ !=# '' ? _ : '[No Name]'
-endfunction
-
-autocmd User ALELint call lightline#update()
+let g:lightline_delphinus_use_powerline_glyphs = 1
+let g:lightline_delphinus_use_nerd_fonts_glyphs = 1
+let g:lightline_delphinus_colorscheme = 'nord_improved'
+let g:lightline_delphinus_tagbar_enable = 1
+let g:lightline_delphinus_gitgutter_enable = 1
+let g:ale_echo_msg_error_str = nr2char(0xf421) . ' '
+let g:ale_echo_msg_warning_str = nr2char(0xf420) . ' '
+let g:ale_echo_msg_info_str = nr2char(0xf05a) . ' '
+let g:ale_echo_msg_format = '%severity%  %linter% - %s'
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = g:ale_echo_msg_error_str
+let g:ale_sign_warning = g:ale_echo_msg_warning_str
+let g:ale_statusline_format = [
+      \ g:ale_echo_msg_error_str . ' %d',
+      \ g:ale_echo_msg_warning_str . ' %d',
+      \ nr2char(0xf4a1) . '  ']
 '''
-
-# [[plugins]]
-# repo = 'maximbaz/lightline-ale'
-# depends = ['lightline.vim', 'ale']
-# hook_add = '''
-# let g:lightline.component_expand = {
-#       \  'linter_checking': 'lightline#ale#checking',
-#       \  'linter_warnings': 'lightline#ale#warnings',
-#       \  'linter_errors': 'lightline#ale#errors',
-#       \  'linter_ok': 'lightline#ale#ok',
-#       \ }
-# let g:lightline.component_type = {
-#       \     'linter_checking': 'left',
-#       \     'linter_warnings': 'warning',
-#       \     'linter_errors': 'error',
-#       \     'linter_ok': 'left',
-#       \ }
-# '''
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
