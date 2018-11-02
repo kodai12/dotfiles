@@ -599,6 +599,9 @@ let twitvim_count = 40
 [[plugins]]
 repo = 'wakatime/vim-wakatime'
 
+#------------------------
+# auto tag generate
+#------------------------
 [[plugins]]
 repo = 'ludovicchabant/vim-gutentags'
 hook_add = '''
@@ -619,7 +622,13 @@ augroup MyGutentagsStatusLineRefresher
   autocmd User GutentagsUpdated call lightline#update()
 augroup END
 '''
+#------------------------
+# /auto tag generate
+#------------------------
 
+#------------------------
+# csv utility
+#------------------------
 [[plugins]]
 repo = 'mechatroner/rainbow_csv'
 
@@ -630,13 +639,23 @@ let g:DiffUnit = 'Char' " any single character
 let g:DiffColors = 3 " 16 colors in fixed order
 let g:DiffUpdate = 1
 '''
+#------------------------
+# /csv utility
+#------------------------
 
+
+#------------------------
+# cheatsheet
+#------------------------
 [[plugins]]
 repo = 'reireias/vim-cheatsheet'
 hook_add = '''
 let g:cheatsheet#cheat_file = '~/.config/nvim/cheatsheet.md'
 nnoremap <SPACE>qq :Cheat<CR>
 '''
+#------------------------
+# /cheatsheet
+#------------------------
 
 #------------------------
 # test settings
