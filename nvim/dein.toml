@@ -11,18 +11,18 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 build = 'make'
-# hook_post_update = '''
-#   if dein#util#_is_windows()
-#     let cmd = 'tools\\update-dll-mingw'
-#   elseif dein#util#_is_cygwin()
-#     let cmd = 'make -f make_cygwin.mak'
-#   elseif executable('gmake')
-#     let cmd = 'gmake'
-#   else
-#     let cmd = 'make'
-#   endif
-#   let g:dein#plugin.build = cmd
-# '''
+hook_post_update = '''
+  if dein#util#_is_windows()
+    let cmd = 'tools\\update-dll-mingw'
+  elseif dein#util#_is_cygwin()
+    let cmd = 'make -f make_cygwin.mak'
+  elseif executable('gmake')
+    let cmd = 'gmake'
+  else
+    let cmd = 'make'
+  endif
+  let g:dein#plugin.build = cmd
+'''
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -34,6 +34,9 @@ hook_post_update = '''
 [[plugins]]
 repo = 'cespare/vim-toml'
 
+#-----------------------------
+# make vim gui_like
+#-----------------------------
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
@@ -83,7 +86,7 @@ let s:green = "8FAA54"
 let s:lightGreen = "31B53E"
 let s:white = "FFFFFF"
 let s:git_orange = 'F54D27'
-"let s:rspec_red = 'FE405F'
+let s:rspec_red = 'FE405F'
 
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['html'] = ''
@@ -95,23 +98,26 @@ let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.gitconfig'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['webpack.config.js'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['node_modules'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.git'] = ''
-"let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['gemfile'] = ''
-"let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['gemfile.lock'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['gemfile'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['gemfile.lock'] = ''
 
 let g:NERDTreeExactMatchHighlightColor = {}
 let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange
 let g:NERDTreeExactMatchHighlightColor['.gitconfig'] = s:git_orange
 let g:NERDTreeExactMatchHighlightColor['.git'] = s:git_orange
 let g:NERDTreeExactMatchHighlightColor['webpack.config.js'] = s:blue
-"let g:NERDTreeExactMatchHighlightColor['node_modules'] = s:red
-"let g:NERDTreeExactMatchHighlightColor['gemfile'] = s:red
+let g:NERDTreeExactMatchHighlightColor['node_modules'] = s:red
+let g:NERDTreeExactMatchHighlightColor['gemfile'] = s:red
 
-"let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {}
-"let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*_spec\.rb$'] = ''
-"
-"let g:NERDTreePatternMatchHighlightColor = {}
-"let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {}
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.*_spec\.rb$'] = ''
+
+let g:NERDTreePatternMatchHighlightColor = {}
+let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red
 '''
+#-----------------------------
+# /make vim gui_like
+#-----------------------------
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
@@ -146,17 +152,6 @@ endfunction
 function! StartifyEntryFormat()
   return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
 endfunction
-" run startify for each new tab
-" if has('nvim')
-"   autocmd TabNewEntered * Startify
-" else
-"   autocmd VimEnter * let t:startify_new_tab = 1
-"   autocmd BufEnter *
-"         \ if !exists('t:startify_new_tab') && empty(expand('%')) |
-"         \   let t:startify_new_tab = 1 |
-"         \   Startify |
-"         \ endif
-" endif
 
 let g:ascii = [
       \ '                _                     _       _   _',
@@ -204,7 +199,9 @@ let g:startify_skiplist = [
     \ ]
 '''
 
-# make git convinient
+#--------------------------
+# git utilities
+#--------------------------
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
@@ -253,6 +250,9 @@ endfunction
 
 [[plugins]]
 repo = 'rhysd/conflict-marker.vim'
+#--------------------------
+# git utilities
+#--------------------------
 
 [[plugins]]
 repo = 'tmhedberg/matchit'
@@ -603,7 +603,7 @@ let g:ale_linters = {
 [[plugins]]
 repo = 'mopp/sky-color-clock.vim'
 hook_add = '''
-set statusline+=%#SkyColorClockTemp#\ %#SkyColorClock#%{sky_color_clock#statusline()}
+"set statusline+=%#SkyColorClockTemp#\ %#SkyColorClock#%{sky_color_clock#statusline()}
 let g:sky_color_clock#openweathermap_city_id = '1856717' " 宮崎市
 '''
 
