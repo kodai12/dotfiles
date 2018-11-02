@@ -149,3 +149,9 @@ map <silent> [Tag]p :tabprevious<CR>
 " tagbar keymapping
 "------------------------
 nnoremap <SPACE>tb :TagbarToggle<CR>
+
+"------------------------
+" gitgutter keymapping
+"------------------------
+nmap <silent> <C-f> <Plug>GitGutterNextHunkzz
+nmap <silent> <C-b> <Plug>GitGutterPrevHunkzz
