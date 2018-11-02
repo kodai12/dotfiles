@@ -275,8 +275,8 @@ if !empty($COLORSCHEME)
 endif
 let g:lightline = {
   \ 'colorscheme': s:colorscheme,
-  "\ 'separator': { 'left': "|", 'right': "|" },
-  "\ 'subseparator': { 'left': "|", 'right': "|" },
+  \ 'separator': { 'left': '', 'right': '' },
+  \ 'subseparator': { 'left': '', 'right': '' },
   \ 'mode_map': {'c': 'NORMAL'},
   \ 'active': {
   \   'left': [
@@ -289,7 +289,7 @@ let g:lightline = {
   \     ['lineinfo', 'syntax_check'],
   \     ['percent'],
   \     ['fileformat', 'fileencoding', 'filetype'],
-  "\     ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok']
+  \     ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']
   \   ]
   \ },
   \ 'component_function': {
@@ -301,26 +301,47 @@ let g:lightline = {
   \   'fileformat': 'MyFileformat',
   \   'fileencoding': 'MyFileencoding',
   \   'filetype': 'MyFiletype',
+  \   'readonly': 'MyReadonly'
   \ },
   \ 'component': {
   \   'sky_color_clock': "%#SkyColorClock#%{' ' . sky_color_clock#statusline() . ' '}%#SkyColorClockTemp# ",
+  \   'lineinfo': ' %3l:%-2v',
   \ },
   \ 'component_raw': {
   \   'sky_color_clock': 1,
   \ },
   \ 'component_expand': {
   \   'syntax_check': 'qfstatusline#Update',
+  \   'linter_warnings': 'MyLinterWarnings',
+  \   'linter_errors': 'MyLinterErrors',
+  \   'linter_ok': 'MyLinterOK'
   \ },
   \ 'component_type': {
   \   'syntax_check': 'error',
+  \   'readonly': 'error',
+  \   'linter_warnings': 'warning',
+  \   'linter_errors': 'error',
+  \   'linter_ok': 'ok'
   \ },
   \}
+let s:palette = g:lightline#colorscheme#{s:colorscheme}#palette
+let s:palette.tabline.tabsel = [ [ '#d0d0d0', '#5f8787', 252, 66, 'bold' ] ]
+unlet s:palette
+let g:lightline.tab = {
+      \ 'active': [ 'tabnum', 'filename', 'modified' ],
+      \ 'inactive': [ 'tabnum', 'filename', 'modified' ]
+      \ }
+let g:lightline.tab_component_function = {
+      \ 'filename': 'MyTabFilename',
+      \ 'modified': 'lightline#tab#modified',
+      \ 'readonly': 'lightline#tab#readonly',
+      \ 'tabnum': 'lightline#tab#tabnum' }
 function! MyModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
 
 function! MyReadonly()
-    return &readonly ? '*RO*'  : ''
+		return &readonly ? '' : ''
 endfunction
 
 function! MyFilename()
@@ -336,14 +357,11 @@ function! MyFilename()
 endfunction
 
 function! MyFugitive()
-    try
-      if expand('%:t') !~? 'Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
-        let _ = fugitive#head()
-        return strlen(_) ? _ : ''
-      endif
-    catch
-    endtry
-    return ''
+   if exists('*fugitive#head')
+     let branch = fugitive#head()
+     return branch !=# '' ? ''.branch : ''
+   endif
+   return ''
 endfunction
 
 function! MyGitgutter()
@@ -391,6 +409,36 @@ function! MyPwd()
       return ''
     endif
 endfunction
+
+function! MyLinterWarnings() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ▲', all_non_errors)
+endfunction
+
+function! MyLinterErrors() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
+endfunction
+
+function! MyLinterOK() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '✓' : ''
+endfunction
+
+function! MyTabFilename(n) abort
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  let _ = pathshorten(expand('#'.buflist[winnr - 1].':f'))
+  return _ !=# '' ? _ : '[No Name]'
+endfunction
+
+autocmd User ALELint call lightline#update()
 '''
 
 # [[plugins]]
@@ -414,14 +462,21 @@ endfunction
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 
+#------------------------
+# undo management
+#------------------------
 [[plugins]]
 repo = 'mbbill/undotree'
 
+#------------------------
 # tag/brackets completion
+#------------------------
 [[plugins]]
 repo = 'cohama/lexima.vim'
 
+#------------------------
 # split screen resizable easily
+#------------------------
 [[plugins]]
 repo = 'simeji/winresizer'
 hook_add = '''
