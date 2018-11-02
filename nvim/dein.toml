@@ -562,6 +562,7 @@ let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#trailing_comma = 'es5'
 '''
 
+# TODO aleの設定を詳しく調べる
 [[plugins]]
 repo = 'w0rp/ale'
 hook_add = '''
@@ -581,23 +582,29 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 let g:ale_linters = {
-\   'python': ['pyflakes', 'pep8', 'flake8'],
-\   'php': ['phpstan'],
-\   'javascript': ['eslint', 'eslint-plugin-vue'],
-\   'typescript': ['tslint', 'eslint', 'typecheck'],
-\   'vue': ['prettier'],
-\   'html': ['tidy'],
-\   'css': ['stylelint'],
-\   'sass': ['stylelint'],
-\   'scss': ['stylelint'],
-\   'sql': ['sqlint'],
-\   'Dockerfile': ['hadolint'],
-\   'json': ['jsonlint'],
-\   'vim': ['vint'],
-\   'yaml': ['yamllint'],
-\   'rust': ['cargo', 'rustc'],
-\   'terraform': ['tflint'],
-\}
+      \   'python': ['pyflakes', 'pep8', 'flake8'],
+      \   'php': ['phpstan'],
+      \   'javascript': ['eslint', 'eslint-plugin-vue'],
+      \   'typescript': ['tslint', 'eslint', 'typecheck'],
+      \   'vue': ['prettier'],
+      \   'html': ['tidy'],
+      \   'css': ['stylelint'],
+      \   'sass': ['stylelint'],
+      \   'scss': ['stylelint'],
+      \   'sql': ['sqlint'],
+      \   'Dockerfile': ['hadolint'],
+      \   'json': ['jsonlint'],
+      \   'vim': ['vint'],
+      \   'yaml': ['yamllint'],
+      \   'rust': ['cargo', 'rustc'],
+      \   'terraform': ['tflint'],
+      \}
+let g:ale_fixers = {
+      \ 'javascript': [ 'eslint' ],
+      \ 'json': [ 'prettier' ],
+      \ 'python': [ 'black' ],
+      \ 'typescript': [ 'tslint' ],
+      \ }
 '''
 
 [[plugins]]
