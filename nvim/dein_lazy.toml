@@ -84,6 +84,19 @@ call setqflist(qflist)
   " }}}
 '''
 
+[[plugins]]
+repo        = 'autozimu/LanguageClient-neovim'
+rev         = 'next'
+on_source   = ['deoplete.nvim']
+hook_source = '''
+  let g:LanguageClient_serverCommands = {
+        \ 'vue': ['vls'],
+        \ }
+'''
+hook_post_update = '''
+  !bash install.sh
+  !npm install -g vue-language-server
+'''
 #--------------------
 # deoplete
 #--------------------
@@ -195,7 +208,7 @@ let g:deoplete#sources#ternjs#docs = 1
 
 [[plugins]]
 repo = 'posva/vim-vue'
-on_ft = 'vue'
+on_ft = ['vue']
 
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
@@ -214,7 +227,7 @@ hook_source = '''
 # rust configuration
 [[plugins]]
 repo = 'rust-lang/rust.vim'
-on_ft = 'rust'
+on_ft = ['rust']
 hook_source = '''
   let g:rustfmt_autosave = 1
   let g:rustfmt_command='~/.cargo/bin/rustfmt'
@@ -222,7 +235,7 @@ hook_source = '''
 
 [[plugins]]
 repo = 'racer-rust/vim-racer'
-on_ft = 'rust'
+on_ft = ['rust']
 hook_source = '''
   set hidden
   let g:racer_cmd='~/.cargo/bin/racer'
@@ -252,17 +265,16 @@ nnoremap <silent> <SPACE>prn :call jedi#rename()<cr>
 [[plugins]]
 repo = 'Vimjas/vim-python-pep8-indent'
 on_i = 1
-on_ft = 'python'
+on_ft = ['python']
 
 # go configuration
 [[plugins]]
 repo = 'fatih/vim-go'
-on_ft = 'go'
+on_ft = ['go']
 
 [[plugins]]
 repo = 'jodosha/vim-godebug'
-on_ft = 'go'
-if = '''has('nvim')'''
+on_ft = ['go']
 
 #tweet vim setting
 [[plugins]]
