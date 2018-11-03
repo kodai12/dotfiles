@@ -130,35 +130,39 @@ nnoremap <silent> ;;
       \ :<C-u>Denite command command_history<CR>
 '''
 
+[[plugins]]
+repo        = 'autozimu/LanguageClient-neovim'
+rev         = 'next'
+on_source   = ['deoplete.nvim']
+hook_source = '''
+  let g:LanguageClient_serverCommands = {
+        \ 'vue': ['vls'],
+        \ }
+'''
+hook_post_update = '''
+  !bash install.sh
+  !npm install -g vue-language-server
+'''
 #--------------------
 # deoplete
 #--------------------
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-depends = ['nvim-yarp']
+depends = ['context_filetype.vim']
 on_event = 'InsertEnter'
 hook_source = '''
-let g:deoplete#enable_at_startup = 1
-call deoplete#initialize()
-call deoplete#custom#source('_', 'converters', [
-      \ 'converter_auto_paren',
-      \ 'converter_remove_overlap',
-      \ 'converter_truncate_abbr',
-      \ 'converter_truncate_menu',
-      \ ])
-call deoplete#custom#source('look', 'rank', 0)
-inoremap <silent> <expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ deoplete#manual_complete()
-inoremap <silent> <expr> <S-TAB>
-      \ pumvisible() ? "\<C-p>" :
-      \ <SID>check_back_space() ? "\<S-TAB>" :
-      \ deoplete#manual_complete()
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1] =~# '\s'
-endfunction
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_ignore_case = 1
+  let g:deoplete#enable_smart_case = 1
+  let g:deoplete#auto_complete_delay = 0
+  let g:deoplete#auto_complete_start_length = 1
+  let g:deoplete#enable_camel_case = 0
+  let g:deoplete#enable_ignore_case = 0
+  let g:deoplete#enable_refresh_always = 0
+  let g:deoplete#tag#cache_limit_size = 0
+  let g:deoplete#max_list = 100
+  let g:deoplete#file#enable_buffer_path = 1
+  call deoplete#initialize()
 '''
 hook_post_update = '!pip3 install -U --user neovim'
 
@@ -226,19 +230,6 @@ set completeopt+=noselect
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 '''
-
-[[plugins]]
-repo        = 'autozimu/LanguageClient-neovim'
-on_source   = ['deoplete.nvim']
-rev         = 'next'
-build = 'bash install.sh'
-hook_source = '''
-source ~/.config/nvim/plugins/LanguageClient-neovim.rc.vim
-'''
-# hook_post_update = '''
-# !./install.sh
-# !npm install -g vue-language-server
-# '''
 #--------------------
 # /deoplete
 #--------------------
