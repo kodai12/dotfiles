@@ -570,3 +570,6 @@ let g:test#preserve_screen = 1
 #------------------------
 # /test settings
 #------------------------
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
