@@ -37,18 +37,54 @@ call denite#custom#map(
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-if = '''has('python3')'''
+on_cmd = 'Denite'
 hook_source = '''
-call denite#custom#var('file_rec', 'command',
-    \ ['rg', '--files', '--glob', '!.git', ''])
+if executable('rg')
+  call denite#custom#var('file/rec', 'command',
+        \ ['rg', '--files', '--glob', '!.git'])
+  call denite#custom#var('grep', 'command', ['rg', '--threads', '1'])
+  call denite#custom#var('grep', 'recursive_opts', [])
+  call denite#custom#var('grep', 'final_opts', [])
+  call denite#custom#var('grep', 'separator', ['--'])
+  call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+  call denite#custom#var('grep', 'default_opts',
+        \ ['--vimgrep', '--no-heading'])
+else
+  call denite#custom#var('file/rec', 'command',
+        \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+endif
 
-call denite#custom#var('grep', 'command', ['rg'])
-call denite#custom#var('grep', 'default_opts',
-      \ ['--vimgrep', '--no-heading'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
+if has('nvim')
+  call denite#custom#source('file/rec', 'matchers',
+        \ ['matcher/cpsm'])
+endif
+
+call denite#custom#map('insert', "'",
+    \ '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('normal', 'r',
+    \ '<denite:do_action:quickfix>', 'noremap')
+call denite#custom#map('insert', '<BS>',
+    \ '<denite:smart_delete_char_before_caret>', 'noremap')
+call denite#custom#map('insert', '<C-h>',
+    \ '<denite:smart_delete_char_before_caret>', 'noremap')
+
+call denite#custom#option('default', {
+    \ 'auto_accel': v:true,
+    \ 'prompt': '>',
+    \ 'source_names': 'short',
+    \ })
+
+let s:menus = {}
+let s:menus.vim = {
+    \ 'description': 'Vim',
+    \ }
+let s:menus.vim.file_candidates = [
+    \ ['    > Edit configuation file (init.vim)', '~/.config/nvim/init.vim']
+    \ ['    > Edit configuation file (.zshrc)', '~/.zshrc']
+    \ ['    > Edit project file (AGW)', '~/Desktop/agw-gateway']
+    \ ['    > Edit project file (AGW-dashboard)', '~/Desktop/agw-gateway-dashboard']
+    \ ]
+call denite#custom#var('menu', 'menus', s:menus)
 
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
     \ [ '.git/', '.ropeproject/', '__pycache__/', 'tags',
@@ -56,32 +92,42 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
     \   'node_modules/', 'target/', '.nuxt/', 'dist/', '.serverless/',
     \   '.serverless_plugins'])
 
+let ignore=&wildignore .
+      \ ',*.pyc,.git,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.git/tags'
+call denite#custom#var('file/rec', 'command',
+      \ ['scantree.py', '--ignore', ignore])
+
 call denite#custom#map(
     \ 'normal',
     \ 'rp',
     \ '<denite:do_action:qfreplace>',
     \ 'noremap')
 
-let ignore=&wildignore .
-      \ ',*.pyc,.git,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.git/tags'
-call denite#custom#var('file/rec', 'command',
-      \ ['scantree.py', '--ignore', ignore])
-
 " https://qiita.com/hrsh7th@github/items/303d46ba13532c502828 {{{
-function! DeniteQfreplace(context)
-  let qflist = []
-  for target in a:context['targets']
-  call add(qflist, {
-      \ 'filename': target['action__path'],
-      \ 'lnum': target['action__line'],
-      \ 'text': target['word'],
-      \ })
-  endfor
-call setqflist(qflist)
-  call qfreplace#start('tabnew')
+if dein#tap('denite.nvim') && dein#tap('vim-qfreplace')
+  function! DeniteQfreplace(context)
+    let qflist = []
+    for target in a:context['targets']
+      if !has_key(target, 'action__path') | continue | endif
+      if !has_key(target, 'action__line') | continue | endif
+      if !has_key(target, 'action__text') | continue | endif
+
+      call add(qflist, {
+            \ 'filename': target['action__path'],
+            \ 'lnum': target['action__line'],
+            \ 'text': target['word'],
+            \ })
+    endfor
+    call setqflist(qflist)
+    call qfreplace#start('tabnew')
   endfunction
   call denite#custom#action('file', 'qfreplace', function('DeniteQfreplace'))
-  " }}}
+endif
+" }}}
+'''
+hook_add = '''
+nnoremap <silent> ;;
+      \ :<C-u>Denite command command_history<CR>
 '''
 
 [[plugins]]
