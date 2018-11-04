@@ -78,11 +78,10 @@ zplug "stedolan/jq", \
     rename-to:jq
 zplug "b4b4r07/emoji-cli", \
     on:"stedolan/jq"
-zplug "b4b4r07/enhancd", use:init.sh
-if zplug check b4b4r07/enhancd; then
-    # enhancd がインストールされている場合のみ設定する
-    export ENHANCD_FILTER="/Users/sakochi_koudai/.fzf/bin/fzf"
-fi
+export EMOJI_CLI_DICT="/usr/local/Cellar/zplug/2.4.2/repos/b4b4r07/emoji-cli/dict/emoji.json"
+export EMOJI_CLI_KEYBIND="S"
+zplug "b4b4r07/enhancd", use:enhancd.sh
+source /usr/local/Cellar/zplug/2.4.2/repos/b4b4r07/enhancd/init.sh
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then

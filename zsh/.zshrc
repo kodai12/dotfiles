@@ -18,15 +18,6 @@ source "$ZDOTDIR/.zcommand"
 # setting nvim socket
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
-# 入力したコマンドが存在せず、かつディレクトリ名と一致するなら、ディレクトリに cd する
-setopt auto_cd
-alias ...='cd ../..'
-alias ....='cd ../../..'
-
-# "~hoge" が特定のパス名に展開されるようにする（ブックマークのようなもの）
-# 例： cd ~hoge と入力すると /long/path/to/hogehoge ディレクトリに移動
-hash -d hoge=/long/path/to/hogehoge
-
 # cd した先のディレクトリをディレクトリスタックに追加する
 setopt auto_pushd
 
@@ -116,3 +107,10 @@ if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -
 #----------------------
 export EDITOR=nvim
 eval "$(direnv hook zsh)"
+
+#----------------------
+# fzf settings
+#----------------------
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+set rtp+=/usr/local/opt/fzf
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
