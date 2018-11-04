@@ -215,4 +215,81 @@ tnoremap fd <C-\><C-n>
 autocmd TermOpen * setlocal norelativenumber
 autocmd TermOpen * setlocal nonumber
 
+"------------------------
+" qfixhowm (memo plugin)
+"------------------------
+" QFixHowmとのオプションコンバートを行わない
+let QFixHowm_Convert = 0
+
+" キーマップリーダー
+let QFixHowm_Key = 'g'
+
+let qfixmemo_dir = '~/howm'
+let qfixmemo_filename = '%Y/%m/%Y-%m-%d.md'
+let qfixmemo_quickmemo = 'Qmem-%Y/%m/%Y-%m-%d.md'
+let qfixmemo_diary = 'Qdiary-%Y/%m/%Y-%m-%d.md'
+let qfixmemo_fileencoding = 'utf-8'
+let qfixmemo_fileformat = 'unix'
+let qfixmemo_filetype = 'markdown'
+
+" MRUの基準ディレクトリ
+let QFixMRU_RootDir = qfixmemo_dir
+" MRU保存ファイル名
+let QFixMRU_Filename = QFixMRU_RootDir . '/.qfixmru'
+
+let qfixmemo_title = '#' " タイトル記号を # に変更する
+let qfixmemo_template = [
+        \"%TITLE% %TAG%",
+        \"%DATE%",
+        \""
+        \]
+let qfixmemo_timeformat = '(%Y-%m-%d %a %H:%M)'
+
+" howmのリンクパターン
+let howm_glink_pattern = '>>>'
+let howm_clink_pattern = '<<<'
+
+" 畳み込みあり
+let qfixmemo_folding = 1
+let qfixmemo_folding_pattern = '^=[^=]'
+
+" QuickFixウィンドウでもプレビューや絞り込みを有効化
+let QFixWin_EnableMode = 1
+" QFixHowm/QFixGrepの結果表示にロケーションリストを使用する
+let QFix_UseLocationList = 1
+
+" ファイル末の空行を削除
+let qfixmemo_use_deletenulllines = 1
+
+" カレンダーの設定
+let qfixmemo_calendar_wincmd = 'rightbelow'
+let qfixmemo_calendar_count  = 3
+let calendar_holidayfile = '~/.cache/dein/repos/github.com/fuenor/qfixhowm/misc/holiday/Sche-Hd-0000-00-00-000000.utf8'
+
+" メニュー/サブメニューの設定
+let qfixmemo_submenu_title = '__submenu__'
+let qfixmemo_submenu_direction = "rightbelow"
+let qfixmemo_submenu_calendar_wincmd = 'rightbelow'
+let qfixmemo_submenu_single_mode = 0
+
+" qfixmemo-chenv.vimの基準ディレクトリ設定
+let qfixmemo_chdir = qfixmemo_dir
+
+function! QFixMemoKeymapPost()
+  nnoremap <silent> <leader>hh :echo qfixmemo_dir<CR>
+  nnoremap <silent> <leader>ha :call QFixMemoChEnv("",         "time", "=")<CR>
+  nnoremap <silent> <leader>hm :call QFixMemoChEnv("main",     "time", "=")<CR>
+  nnoremap <silent> <leader>hd :call QFixMemoChEnv("memo-mkd", "time", "#")<CR>
+  nnoremap <silent> <leader>hc :call QFixMemoChEnv("pc",       "time", "= [:pc]")<CR>
+  nnoremap <silent> <leader>hv :call QFixMemoChEnv("vimwiki",  "time", "=")<CR>
+  nnoremap <silent> <leader>hw :call QFixMemoChEnv("work",     "day",  "=")<CR>
+  endfunction
+
+" URIを開くブラウザ指定(Unix)
+let g:openuri_cmd = "call system('chrome %s &')"
+nnoremap <silent> <CR> :<C-u>call openuri#cursorline()<CR>
+"------------------------
+" /qfixhowm (memo plugin)
+"------------------------
+
 source ~/.dotfiles/nvim/keybind.vim
