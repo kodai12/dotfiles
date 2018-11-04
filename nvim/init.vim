@@ -276,13 +276,15 @@ let qfixmemo_submenu_single_mode = 0
 let qfixmemo_chdir = qfixmemo_dir
 
 function! QFixMemoKeymapPost()
+  " 現メモディレクトリ表示
   nnoremap <silent> <leader>hh :echo qfixmemo_dir<CR>
-  nnoremap <silent> <leader>ha :call QFixMemoChEnv("",         "time", "=")<CR>
-  nnoremap <silent> <leader>hm :call QFixMemoChEnv("main",     "time", "=")<CR>
+  " 環境変更コマンド
+  nnoremap <silent> <leader>ha :call QFixMemoChEnv("", "time", "#")<CR>
+  nnoremap <silent> <leader>hm :call QFixMemoChEnv("main-mkd", "time", "#")<CR>
+  nnoremap <silent> <leader>hwa :call QFixMemoChEnv("work-mkd/aratana", "time", "#")<CR>
   nnoremap <silent> <leader>hd :call QFixMemoChEnv("memo-mkd", "time", "#")<CR>
-  nnoremap <silent> <leader>hc :call QFixMemoChEnv("pc",       "time", "= [:pc]")<CR>
-  nnoremap <silent> <leader>hv :call QFixMemoChEnv("vimwiki",  "time", "=")<CR>
-  nnoremap <silent> <leader>hw :call QFixMemoChEnv("work",     "day",  "=")<CR>
+  nnoremap <silent> <leader>ho :call QFixMemoChEnv('howm-org', 'time', '.')<CR>
+  nnoremap <silent> <leader>hv :call QFixMemoChEnv("vimwiki", "time", "#")<CR>
   endfunction
 
 " URIを開くブラウザ指定(Unix)

@@ -601,3 +601,6 @@ repo = 'fuenor/qfixhowm'
 #------------------------
 # /qfixhowm (memo plugin)
 #------------------------
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
