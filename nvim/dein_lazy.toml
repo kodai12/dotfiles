@@ -90,10 +90,10 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
     \ [ '.git/', '.ropeproject/', '__pycache__/', 'tags',
     \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/',
     \   'node_modules/', 'target/', '.nuxt/', 'dist/', '.serverless/',
-    \   '.serverless_plugins'])
+    \   '.serverless_plugins', '.cache/'])
 
 let ignore=&wildignore .
-      \ ',*.pyc,.git,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.git/tags'
+      \ ',*.pyc,.git,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.git/tags,.cache'
 call denite#custom#var('file/rec', 'command',
       \ ['scantree.py', '--ignore', ignore])
 
