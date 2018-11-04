@@ -592,3 +592,40 @@ let g:test#preserve_screen = 1
 #------------------------
 # /test settings
 #------------------------
+
+#------------------------
+# qfixhowm (memo plugin)
+#------------------------
+[[plugins]]
+repo = 'fuenor/qfixhowm'
+hook_add = '''
+" キーマップリーダー
+let QFixHowm_Key = '<Nop>'
+
+" howm_dirはファイルを保存したいディレクトリを設定
+let howm_dir             = '~/howm'
+let howm_filename        = '%Y/%m/%Y-%m-%d.txt'
+let howm_fileencoding    = 'utf-8'
+let howm_fileformat      = 'unix'
+
+let QFixHowm_FileType = 'markdown'
+let QFixHowm_Title = '#' " タイトル記号を # に変更する
+let QFixHowm_Template = [
+        \"# %TAG%",
+        \""
+        \]
+
+" QuickFixウィンドウでもプレビューや絞り込みを有効化
+let QFixWin_EnableMode = 1
+
+" QFixHowm/QFixGrepの結果表示にロケーションリストを使用する/しない
+let QFix_UseLocationList = 1
+
+" カレンダーの設定
+let QFixHowm_CalendarWinCmd = 'rightbelow'
+let QFixHowm_CalendarCount = 3
+let calendar_jp = 2
+'''
+#------------------------
+# /qfixhowm (memo plugin)
+#------------------------
