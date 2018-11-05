@@ -662,8 +662,9 @@ repo = 'tyru/open-browser.vim'
 repo = 'kodai12/toggl.vim'
 depends = 'vital.vim'
 hook_add = '''
-let g:toggl_api_token = ""
-let g:toggl_workspace_id = 2985823
+if filereadable(expand('~/dotfiles/nvim/env.vim'))
+  source ~/dotfiles/nvim/env.vim
+endif
 nnoremap tt :TogglStop<CR>
 nnoremap ts :TogglStart
 nnoremap tag :TogglStart +aratana-gateway

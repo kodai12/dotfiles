@@ -1,3 +1,4 @@
 configstore/
 direnv/
 zsh/.zcompdump
+nvim/env.vim
