@@ -275,6 +275,10 @@ hook_post_source = '''
 repo = 'mattn/emmet-vim'
 on_ft = ['css', 'html', 'xhtml', 'php']
 
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+on_ft = ['css']
+
 # javascript completion
 [[plugins]]
 repo = 'ternjs/tern_for_vim'
