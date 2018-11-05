@@ -9,7 +9,7 @@ source $ZPLUG_HOME/init.zsh
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 ## Custom segment "now playing"
-POWERLEVEL9K_CUSTOM_NOW_PLAYING='~/.dotfiles/bin/nowplaying'
+POWERLEVEL9K_CUSTOM_NOW_PLAYING='~/dotfiles/bin/nowplaying'
 
 ## Colors
 POWERLEVEL9K_PYENV_BACKGROUND=107

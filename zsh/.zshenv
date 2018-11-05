@@ -1,6 +1,6 @@
-export ZDOTDIR=$HOME/.dotfiles/zsh/
+export ZDOTDIR=$HOME/dotfiles/zsh/
 
-export XDG_CONFIG_HOME=$HOME/.dotfiles
+export XDG_CONFIG_HOME=$HOME/dotfiles
 
 export PATH="/usr/local/bin:$PATH"
 
