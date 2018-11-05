@@ -1,5 +1,4 @@
-[[plugins]]
-repo = 'Shougo/dein.vim'
+[[plugins]] repo = 'Shougo/dein.vim'
 
 # colorsheme
 [[plugins]]
@@ -548,9 +547,8 @@ let g:DiffUpdate = 1
 # /csv utility
 #------------------------
 
-
 #------------------------
-# cheatsheet
+# cheatsheet & doc
 #------------------------
 [[plugins]]
 repo = 'reireias/vim-cheatsheet'
@@ -558,8 +556,58 @@ hook_add = '''
 let g:cheatsheet#cheat_file = '~/.config/nvim/cheatsheet.md'
 nnoremap <SPACE>qq :Cheat<CR>
 '''
+
+[[plugins]]
+repo = 'hecal3/vim-leader-guide'
+hook_add = '''
+let g:lmap =  {} " {{{
+  let g:lmap = {
+  \   'f': {
+  \     'name': 'nerdtree',
+  \   },
+  \   'q': {
+  \     'name': 'cheatsheet',
+  \   },
+  \   'd': {
+  \     'name': 'denite',
+  \   },
+  \   'b': {
+  \     'name': 'buffer',
+  \   },
+  \   'p': {
+  \     'name': 'jedi',
+  \   },
+  \   't': {
+  \     'name': 'tab, tags, terminal and toggle',
+  \   },
+  \   'g': {
+  \     'name': 'git',
+  \   },
+  \   's': {
+  \     'name': 'session and Starttify',
+  \   },
+  \   'c': {
+  \     'name': 'commenter',
+  \   },
+  \   'u': {
+  \     'name': 'update and undo',
+  \   },
+  \   'a': {
+  \     'name': 'agit',
+  \   },
+  \   'e': {
+  \     'name': 'linter',
+  \   },
+  \   'noh': {
+  \     'name': 'NoHighlight',
+  \   },
+  \ }
+  " }}}
+  call leaderGuide#register_prefix_descriptions("<Space>", "g:lmap")
+  nnoremap <silent> <Space>? :<C-u>LeaderGuide '<Space>'<CR>
+'''
 #------------------------
-# /cheatsheet
+# /cheatsheet & doc
 #------------------------
 
 #------------------------
@@ -602,5 +650,11 @@ repo = 'fuenor/qfixhowm'
 # /qfixhowm (memo plugin)
 #------------------------
 
+#------------------------
+# openbrowser
+#------------------------
 [[plugins]]
 repo = 'tyru/open-browser.vim'
+#------------------------
+# /openbrowser
+#------------------------
