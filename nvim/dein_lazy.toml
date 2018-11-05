@@ -362,3 +362,10 @@ on_ft = ['go']
 repo = 'jodosha/vim-godebug'
 on_ft = ['go']
 
+[[plugins]]
+repo = 'kannokanno/previm'
+on_cmd = 'PrevimOpen'
+depends = 'open-browser.vim'
+hook_add = '''
+nnoremap <silent> <SPACE>po :PrevimOpen<cr>
+'''
