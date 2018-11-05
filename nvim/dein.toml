@@ -256,6 +256,9 @@ repo = 'joonty/vdebug'
 [[plugins]]
 repo = 'osyo-manga/vim-anzu'
 
+#--------------------------
+# theme settings
+#--------------------------
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 
@@ -272,6 +275,9 @@ let g:lightline_delphinus_colorscheme = 'nord_improved'
 let g:lightline_delphinus_tagbar_enable = 1
 let g:lightline_delphinus_gitgutter_enable = 1
 '''
+#--------------------------
+# /theme settings
+#--------------------------
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
@@ -448,16 +454,11 @@ repo = 'guns/xterm-color-table.vim'
 repo = 'majutsushi/tagbar'
 if = '''has('nvim')'''
 hook_add = '''
-  "let g:tagbar_previewwin_pos    = "rightbelow"
-  "let g:tagbar_map_openallfolds  = '-'
-  "let g:tagbar_map_closeallfolds = '='
-  let g:tagbar_left = 1
+  let g:tagbar_previewwin_pos    = "rightbelow"
   let g:tagbar_autoclose = 1
   let g:tagbar_autofocus = 1
   let g:tagbar_show_linenumbers = 1
   let g:tagbar_iconchars = [nr2char(0xe5ff) . ' ', nr2char(0xe5fe) . ' '] "  , 
-  let g:tagbar_autopreview = 1
-  autocmd BufWinEnter * if &previewwindow | setlocal nonumber norelativenumber | endif
 '''
 
 [[plugins]]
