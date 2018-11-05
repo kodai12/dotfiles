@@ -1,4 +1,4 @@
-[[plugins]] repo = 'Shougo/dein.vim'
+[[plugins]]repo = 'Shougo/dein.vim'
 
 # colorsheme
 [[plugins]]
@@ -264,7 +264,7 @@ repo = 'powerline/powerline'
 
 [[plugins]]
 repo = 'kodai12/lightline-delphinus'
-depends = ['lightline', 'ale', 'tagbar', 'vim-gitgutter', 'powerline']
+depends = ['lightline', 'ale', 'tagbar', 'vim-gitgutter', 'powerline', 'sky-color-clock.vim', 'toggl.vim']
 hook_add = '''
 let g:lightline_delphinus_use_powerline_glyphs = 1
 let g:lightline_delphinus_use_nerd_fonts_glyphs = 1
@@ -432,7 +432,6 @@ let g:ale_statusline_format = [
 [[plugins]]
 repo = 'mopp/sky-color-clock.vim'
 hook_add = '''
-"set statusline+=%#SkyColorClockTemp#\ %#SkyColorClock#%{sky_color_clock#statusline()}
 let g:sky_color_clock#openweathermap_city_id = '1856717' " 宮崎市
 '''
 
@@ -658,3 +657,25 @@ repo = 'tyru/open-browser.vim'
 #------------------------
 # /openbrowser
 #------------------------
+
+[[plugins]]
+repo = 'kodai12/toggl.vim'
+hook_add = '''
+let g:toggl_api_token = "29daeb4a88b16c336d8a7e6386e44c73"
+let g:toggl_workspace_id = 2985823
+nnoremap tt :TogglStop<CR>
+nnoremap ts :TogglStart
+nnoremap tag :TogglStart +aratana-gateway
+nnoremap tad :TogglStart +aratana-gateway-dashboard
+nnoremap te :TogglStart +env-settings
+nnoremap tl :TogglStart +private-learn
+vnoremap ts :TogglSelectStart<CR>
+augroup autoTogglCacheUpdate
+  autocmd!
+  autocmd BufRead call toggl#task_cache_update()
+  autocmd BufEnter call toggl#task_cache_update()
+augroup END
+'''
+
+# [[plugins]]
+# repo = 'vim-jp/vital.vim'
