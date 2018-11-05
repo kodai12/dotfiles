@@ -574,6 +574,9 @@ let g:lmap =  {} " {{{
   \     'name': 'buffer',
   \   },
   \   'p': {
+  \     'name': 'preview',
+  \   },
+  \   'j': {
   \     'name': 'jedi',
   \   },
   \   't': {
