@@ -660,8 +660,9 @@ repo = 'tyru/open-browser.vim'
 
 [[plugins]]
 repo = 'kodai12/toggl.vim'
+depends = 'vital.vim'
 hook_add = '''
-let g:toggl_api_token = "29daeb4a88b16c336d8a7e6386e44c73"
+let g:toggl_api_token = ""
 let g:toggl_workspace_id = 2985823
 nnoremap tt :TogglStop<CR>
 nnoremap ts :TogglStart
@@ -674,8 +675,10 @@ augroup autoTogglCacheUpdate
   autocmd!
   autocmd BufRead call toggl#task_cache_update()
   autocmd BufEnter call toggl#task_cache_update()
+  autocmd VimEnter call toggl#task_cache_update()
+  autocmd QuitPre call toggl#task_cache_update()
 augroup END
 '''
 
-# [[plugins]]
-# repo = 'vim-jp/vital.vim'
+[[plugins]]
+repo = 'vim-jp/vital.vim'
