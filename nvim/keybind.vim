@@ -65,8 +65,8 @@ nnoremap <SPACE>mt :<C-u>MerginalToggle<CR>
 "------------------------
 " denite keymap
 "------------------------
-nnoremap <SPACE>dg :Denite grep<CR>
-nnoremap <SPACE>dag :Denite -auto-preview grep<CR>
+nnoremap <SPACE>dg :DeniteProjectDir grep<CR>
+nnoremap <SPACE>dag :DeniteProjectDir -auto-preview grep<CR>
 nnoremap <SPACE>dc :DeniteCursorWord grep<CR>
 nnoremap <SPACE>dac :DeniteCursorWord -auto-preview grep<CR>
 nnoremap <SPACE>db :Denite buffer<CR>
