@@ -278,6 +278,12 @@ on_ft = ['css', 'html', 'xhtml', 'php']
 [[plugins]]
 repo = 'hail2u/vim-css3-syntax'
 on_ft = ['css']
+hook_add = '''
+augroup VimCSS3Syntax
+  autocmd!
+  autocmd FileType css setlocal iskeyword+=-
+augroup END
+'''
 
 # javascript completion
 [[plugins]]
