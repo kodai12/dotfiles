@@ -171,7 +171,7 @@ let g:startify_lists = [
       \ { 'type': 'files', 'header': ['   ♻  MRU:']},
       \ { 'type': 'dir', 'header': ['   ♲  MRU'. getcwd() .':'] },
       \ { 'type': 'sessions', 'header': ['   ⚑  Sessions:']},
-      \ { 'type': 'bookmarks', 'header': ['   ☺  Bookmarks:']},
+      \ { 'type': 'bookmarks', 'header': ['   ✎  Bookmarks:']},
       \ ]
 let g:startify_bookmarks = [
       \ '~/Desktop/aratana-gateway',
@@ -696,4 +696,22 @@ augroup END
 repo = 'vim-jp/vital.vim'
 #------------------------
 # /toggl settings
+#------------------------
+
+#------------------------
+# slack memo
+#------------------------
+[[plugins]]
+repo = 'tsuyoshiwada/slack-memo-vim'
+depends = 'webapi-vim'
+hook_add = '''
+if filereadable(expand('~/dotfiles/nvim/env.vim'))
+  source ~/dotfiles/nvim/env.vim
+endif
+'''
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+#------------------------
+# /slack memo
 #------------------------
