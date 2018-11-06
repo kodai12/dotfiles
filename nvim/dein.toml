@@ -324,7 +324,10 @@ hook_add = '''
   let g:indent_guides_enable_on_vim_startup = 1
   let g:indent_guides_start_level = 2
   let g:indent_guides_guide_size = 1
-  let g:indentLine_fileTypeExclude = ['startify','help', 'nerdtree', 'tagbar', 'unite', 'tweetvim']
+  let g:indentLine_faster = 1
+  let g:indentLine_concealcursor = ''
+  let g:indentLine_conceallevel = 1
+  let g:indentLine_fileTypeExclude = ['startify','help', 'nerdtree', 'tagbar', 'unite', 'tweetvim', 'qfixhowm']
 '''
 
 [[plugins]]
@@ -662,6 +665,9 @@ repo = 'tyru/open-browser.vim'
 # /openbrowser
 #------------------------
 
+#------------------------
+# toggl settings
+#------------------------
 [[plugins]]
 repo = 'kodai12/toggl.vim'
 depends = 'vital.vim'
@@ -673,6 +679,7 @@ nnoremap tt :TogglStop<CR>
 nnoremap ts :TogglStart
 nnoremap tag :TogglStart +aratana-gateway
 nnoremap tad :TogglStart +aratana-gateway-dashboard
+nnoremap tao :TogglStart +aratana-others
 nnoremap te :TogglStart +env-settings
 nnoremap tl :TogglStart +private-learn
 vnoremap ts :TogglSelectStart<CR>
@@ -687,3 +694,6 @@ augroup END
 
 [[plugins]]
 repo = 'vim-jp/vital.vim'
+#------------------------
+# /toggl settings
+#------------------------
