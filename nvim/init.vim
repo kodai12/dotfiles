@@ -127,6 +127,8 @@ syntax on
 set background=dark
 colorscheme iceberg
 highlight Visual ctermfg=234 ctermbg=252 guifg=#161821 guibg=#c6c8d1
+" 折りたたみ時の色を設定
+highlight Folded ctermfg=131
 " ALE warningの色を調整
 highlight ALEWarningSign ctermfg=226
 
