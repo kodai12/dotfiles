@@ -16,6 +16,7 @@ set sh=zsh
 set clipboard+=unnamedplus
 set mouse-=a
 set backspace=indent,eol,start
+set backupskip+=/private/tmp/*
 
 "" about file management
 set confirm
