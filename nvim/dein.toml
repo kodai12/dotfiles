@@ -744,3 +744,10 @@ nnoremap zz zO<CR>
 #------------------------
 # /convinient folding
 #------------------------
+
+repo = 'kodai12/vim-todoist'
+hook_add = '''
+if filereadable(expand('~/dotfiles/nvim/env.vim'))
+  source ~/dotfiles/nvim/env.vim
+endif
+'''
