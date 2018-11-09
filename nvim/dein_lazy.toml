@@ -130,19 +130,6 @@ nnoremap <silent> ;;
       \ :<C-u>Denite command command_history<CR>
 '''
 
-# [[plugins]]
-# repo        = 'autozimu/LanguageClient-neovim'
-# rev         = 'next'
-# on_source   = ['deoplete.nvim']
-# hook_source = '''
-#   let g:LanguageClient_serverCommands = {
-#         \ 'vue': ['vls'],
-#         \ }
-# '''
-# hook_post_update = '''
-#   !bash install.sh
-#   !npm install -g vue-language-server
-# '''
 #--------------------
 # deoplete
 #--------------------
@@ -239,6 +226,39 @@ set completeopt+=noselect
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 '''
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+build = 'bash install.sh'
+rev = 'next'
+on_ft  = ['vue', 'javascript', 'python', 'css', 'rust']
+depends = ['fzf.vim', 'deoplete.nvim']
+hook_add = '''
+let g:LanguageClient_completionPreferTextEdit = 1
+
+function! s:lsp()
+  nnoremap <buffer><silent> <Space>ld :call LanguageClient_textDocument_definition()<CR>
+  nnoremap <buffer><silent> <Space>lrn  :call LanguageClient_textDocument_rename()<CR>
+  nnoremap <buffer><silent> <Space>lh  :call LanguageClient_textDocument_hover()<CR>
+  nnoremap <buffer><silent> <Space>lrr  :call LanguageClient_textDocument_references()<CR>
+  nnoremap <buffer><silent> <Space>lc :call LanguageClient_contextMenu()<CR>
+endfunction
+
+augroup my-lsp-cmd
+  autocmd!
+  autocmd FileType vue,javascript,python,css,rust :call s:lsp()
+augroup END
+'''
+hook_source = '''
+let g:LanguageClient_serverCommands = {
+      \ 'vue': ['vls'],
+      \ 'javascript': ['javascript-typescript-stdio'],
+      \ 'python': ['pyls'],
+      \ 'css': ['css-languageserver', '--stdio'],
+      \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+      \ }
+'''
+
 #--------------------
 # /deoplete
 #--------------------
@@ -304,7 +324,8 @@ on_ft = ['vue']
 
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
-on_ft = ['vue', 'toml']
+# on_ft = ['vue', 'toml']
+on_ft = ['toml']
 hook_source = '''
   let g:precious_enable_switch_CursorMoved_i = {'*': 0}
   let g:precious_enable_switch_CursorHold    = {'*': 0}
