@@ -1,3 +1,7 @@
+"" set python provider
+let g:python3_host_prog = $PYENV_ROOT . '/shims/python3'
+let g:python_host_prog = $PYENV_ROOT . '/shims/python'
+
 "" basic settings
 set number
 set cursorline
