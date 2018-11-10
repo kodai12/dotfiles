@@ -204,6 +204,7 @@ let g:startify_skiplist = [
 #--------------------------
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+depends = ['vim-rhubarb']
 
 [[plugins]]
 repo = 'idanarye/vim-merginal'
@@ -241,6 +242,9 @@ endfunction
 
 [[plugins]]
 repo = 'rhysd/conflict-marker.vim'
+
+[[plugins]]
+repo = 'tpope/vim-rhubarb'
 #--------------------------
 # git utilities
 #--------------------------
