@@ -64,30 +64,30 @@ call denite#custom#map('insert', "'",
 call denite#custom#map('normal', 'r',
     \ '<denite:do_action:quickfix>', 'noremap')
 call denite#custom#map('insert', '<BS>',
-    \ '<denite:smart_delete_char_before_caret>', 'noremap')
+  \ '<denite:smart_delete_char_before_caret>', 'noremap')
 call denite#custom#map('insert', '<C-h>',
-    \ '<denite:smart_delete_char_before_caret>', 'noremap')
+  \ '<denite:smart_delete_char_before_caret>', 'noremap')
 
 call denite#custom#option('default', {
-    \ 'auto_accel': v:true,
-    \ 'prompt': '>',
-    \ 'source_names': 'short',
-    \ })
+  \ 'auto_accel': v:true,
+  \ 'prompt': '>',
+  \ 'source_names': 'short',
+  \ })
 
 let s:menus = {}
 let s:menus.vim = {
-    \ 'description': 'Vim',
-    \ }
+  \ 'description': 'Vim',
+  \ }
 let s:menus.vim.file_candidates = [
-    \ ['    > Edit configuation file (init.vim)', '~/.config/nvim/init.vim']
-    \ ['    > Edit configuation file (.zshrc)', '~/.zshrc']
-    \ ['    > Edit project file (AGW)', '~/Desktop/agw-gateway']
-    \ ['    > Edit project file (AGW-dashboard)', '~/Desktop/agw-gateway-dashboard']
-    \ ]
+  \ ['    > Edit configuation file (init.vim)', '~/.config/nvim/init.vim']
+  \ ['    > Edit configuation file (.zshrc)', '~/.zshrc']
+  \ ['    > Edit project file (AGW)', '~/Desktop/agw-gateway']
+  \ ['    > Edit project file (AGW-dashboard)', '~/Desktop/agw-gateway-dashboard']
+  \ ]
 call denite#custom#var('menu', 'menus', s:menus)
 
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-    \ [ '.git/', '.ropeproject/', '__pycache__/', 'tags',
+  \ [ '.git/', '.ropeproject/', '__pycache__/', 'tags',
     \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/',
     \   'node_modules/', 'target/', '.nuxt/', 'dist/', '.serverless/',
     \   '.serverless_plugins', '.cache/'])
@@ -139,6 +139,14 @@ depends = ['context_filetype.vim']
 on_event = 'InsertEnter'
 hook_source = '''
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 0
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#enable_camel_case = 0
+let g:deoplete#enable_ignore_case = 0
+let g:deoplete#enable_refresh_always = 0
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#max_list = 10000
 call deoplete#initialize()
 call deoplete#custom#source('_', 'converters', [
       \ 'converter_auto_paren',
