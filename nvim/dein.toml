@@ -336,12 +336,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'elzr/vim-json'
-hook_add = '''
-  let g:vim_json_syntax_conceal = 0
-'''
-
-[[plugins]]
 repo = 't9md/vim-textmanip'
 hook_add = '''
   xmap <C-j> <Plug>(textmanip-move-down)
@@ -350,39 +344,8 @@ hook_add = '''
   xmap <C-l> <Plug>(textmanip-move-right)
 '''
 
-#solidity syntax
-repo = 'tomlion/vim-solidity'
-
-[[plugins]]
-repo = 'othree/yajs.vim'
-
-# css customize
-[[plugins]]
-repo = 'ap/vim-css-color'
-
-# zsh completion
-[[plugins]]
-repo = 'zchee/deoplete-zsh'
-
-# github completion
-[[plugins]]
-repo = 'SevereOverfl0w/deoplete-github'
-
-[[plugins]]
-repo = 'vim-jp/vimdoc-ja'
-
 [[plugins]]
 repo = 'terryma/vim-expand-region'
-
-[[plugins]]
-repo = 'prettier/vim-prettier'
-hook_add = '''
-let g:prettier#config#use_tabs = 'false'
-let g:prettier#config#semi = 'true'
-let g:prettier#config#single_quote = 'true'
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#config#trailing_comma = 'es5'
-'''
 
 # TODO aleの設定を詳しく調べる
 [[plugins]]
@@ -608,37 +571,6 @@ let g:lmap =  {} " {{{
 '''
 #------------------------
 # /cheatsheet & doc
-#------------------------
-
-#------------------------
-# test settings
-#------------------------
-[[plugins]]
-repo = 'tpope/vim-dispatch'
-
-[[plugins]]
-repo = 'radenling/vim-dispatch-neovim'
-if ='''has('nvim')'''
-
-[[plugins]]
-repo = 'aliev/vim-compiler-python'
-hook_add = '''
-let g:python_compiler_fixqflist = 1
-'''
-
-[[plugins]]
-repo = 'janko-m/vim-test'
-depends = ['vim-dispatch', 'vim-dispatch-neovim']
-hook_add = '''
-let g:test#strategy = 'dispatch'
-let g:test#python#runner = 'nose'
-let g:test#javascript#runner = 'jest'
-let g:test#rust#runner = 'cargo'
-let g:test#runner_commands = ['Nose', 'Jest','Mocha', 'Cargo']
-let g:test#preserve_screen = 1
-'''
-#------------------------
-# /test settings
 #------------------------
 
 #------------------------

@@ -235,6 +235,27 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 '''
 
 [[plugins]]
+repo = 'zchee/deoplete-zsh'
+on_ft = ['zsh']
+depends = ['deoplete.nvim']
+
+[[plugins]]
+repo = 'SevereOverfl0w/deoplete-github'
+depends = ['deoplete.nvim']
+on_ft = ['gitrebase', 'gitcommit']
+hook_source = '''
+let g:deoplete#sources = {}
+let g:deoplete#sources.gitcommit=['github']
+
+let g:deoplete#keyword_patterns = {}
+let g:deoplete#keyword_patterns.gitcommit = '.+'
+
+call deoplete#util#set_pattern(
+  \ g:deoplete#omni#input_patterns,
+  \ 'gitcommit', [g:deoplete#keyword_patterns.gitcommit])
+'''
+
+[[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 build = 'bash install.sh'
 rev = 'next'
@@ -312,6 +333,10 @@ augroup VimCSS3Syntax
 augroup END
 '''
 
+[[plugins]]
+repo = 'ap/vim-css-color'
+on_ft = ['css']
+
 # javascript completion
 [[plugins]]
 repo = 'ternjs/tern_for_vim'
@@ -323,6 +348,21 @@ hook_source = '''
 let g:deoplete#sources#ternjs#types = 1
 let g:deoplete#sources#ternjs#depths = 1
 let g:deoplete#sources#ternjs#docs = 1
+'''
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = ['javascript']
+
+[[plugins]]
+repo = 'prettier/vim-prettier'
+on_ft = ['javascript']
+hook_add = '''
+let g:prettier#config#use_tabs = 'false'
+let g:prettier#config#semi = 'true'
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#bracket_spacing = 'true'
+let g:prettier#config#trailing_comma = 'es5'
 '''
 
 [[plugins]]
@@ -367,8 +407,12 @@ hook_source = '''
   nmap <SPACE>K <Plug>(rust-doc)
 '''
 
-# python completion
+#solidity syntax
+[[plugins]]
+repo = 'tomlion/vim-solidity'
+on_ft = ['solidity']
 
+# python completion
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_i = 1
@@ -387,6 +431,42 @@ repo = 'Vimjas/vim-python-pep8-indent'
 on_i = 1
 on_ft = ['python']
 
+#------------------------
+# python test settings
+#------------------------
+[[plugins]]
+repo = 'tpope/vim-dispatch'
+on_ft = ['python']
+
+[[plugins]]
+repo = 'radenling/vim-dispatch-neovim'
+if ='''has('nvim')'''
+on_ft = ['python']
+
+[[plugins]]
+repo = 'aliev/vim-compiler-python'
+on_ft = ['python']
+hook_add = '''
+let g:python_compiler_fixqflist = 1
+'''
+
+[[plugins]]
+repo = 'janko-m/vim-test'
+on_ft = ['python']
+depends = ['vim-dispatch', 'vim-dispatch-neovim']
+hook_add = '''
+let g:test#strategy = 'dispatch'
+let g:test#python#runner = 'nose'
+let g:test#javascript#runner = 'jest'
+let g:test#rust#runner = 'cargo'
+let g:test#runner_commands = ['Nose', 'Jest','Mocha', 'Cargo']
+let g:test#preserve_screen = 1
+'''
+#------------------------
+# /python test settings
+#------------------------
+
+
 # go configuration
 [[plugins]]
 repo = 'fatih/vim-go'
@@ -396,6 +476,14 @@ on_ft = ['go']
 repo = 'jodosha/vim-godebug'
 on_ft = ['go']
 
+# json configuration
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = ['json']
+hook_add = '''
+  let g:vim_json_syntax_conceal = 0
+'''
+
 [[plugins]]
 repo = 'kannokanno/previm'
 on_cmd = 'PrevimOpen'
@@ -403,3 +491,7 @@ depends = 'open-browser.vim'
 hook_add = '''
 nnoremap <silent> <SPACE>po :PrevimOpen<cr>
 '''
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+on_ft = ['help']
