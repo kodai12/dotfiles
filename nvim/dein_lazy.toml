@@ -160,24 +160,22 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 '''
-hook_post_update = '!pip3 install -U --user neovim'
+# hook_post_update = '!pip3 install -U --user neovim'
 
-[[plugins]]
-repo = 'ujihisa/neco-look'
-depends = 'deoplete.nvim'
-hook_source = '''
-let g:neocomplete#text_mode_filetypes = {
-            \ 'rst': 1,
-            \ 'markdown': 1,
-            \ 'gitrebase': 1,
-            \ 'gitcommit': 1,
-            \ 'vcs-commit': 1,
-            \ 'hybrid': 1,
-            \ 'text': 1,
-            \ 'help': 1,
-            \ 'tex': 1,
-            \ }
-'''
+# [[plugins]]
+# repo = 'ujihisa/neco-look'
+# depends = 'deoplete.nvim'
+# on_ft = ['markdown', 'gitrebase', 'gitcommit', 'vcs-commit', 'text', 'help']
+# hook_source = '''
+# let g:neocomplete#text_mode_filetypes = {
+#             \ 'markdown': 1,
+#             \ 'gitrebase': 1,
+#             \ 'gitcommit': 1,
+#             \ 'vcs-commit': 1,
+#             \ 'text': 1,
+#             \ 'help': 1,
+#             \ }
+# '''
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
@@ -236,37 +234,37 @@ let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 '''
 
-# [[plugins]]
-# repo = 'autozimu/LanguageClient-neovim'
-# build = 'bash install.sh'
-# rev = 'next'
-# on_ft  = ['vue', 'javascript', 'python', 'css', 'rust']
-# depends = ['fzf.vim', 'deoplete.nvim']
-# hook_add = '''
-# let g:LanguageClient_completionPreferTextEdit = 1
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+build = 'bash install.sh'
+rev = 'next'
+on_ft  = ['vue', 'javascript', 'python', 'css', 'rust']
+depends = ['fzf.vim', 'deoplete.nvim']
+hook_add = '''
+let g:LanguageClient_completionPreferTextEdit = 1
 
-# function! s:lsp()
-#   nnoremap <buffer><silent> <Space>ld :call LanguageClient_textDocument_definition()<CR>
-#   nnoremap <buffer><silent> <Space>lrn  :call LanguageClient_textDocument_rename()<CR>
-#   nnoremap <buffer><silent> <Space>lh  :call LanguageClient_textDocument_hover()<CR>
-#   nnoremap <buffer><silent> <Space>lrr  :call LanguageClient_textDocument_references()<CR>
-#   nnoremap <buffer><silent> <Space>lc :call LanguageClient_contextMenu()<CR>
-# endfunction
+function! s:lsp()
+  nnoremap <buffer><silent> <Space>ld :call LanguageClient_textDocument_definition()<CR>
+  nnoremap <buffer><silent> <Space>lrn  :call LanguageClient_textDocument_rename()<CR>
+  nnoremap <buffer><silent> <Space>lh  :call LanguageClient_textDocument_hover()<CR>
+  nnoremap <buffer><silent> <Space>lrr  :call LanguageClient_textDocument_references()<CR>
+  nnoremap <buffer><silent> <Space>lc :call LanguageClient_contextMenu()<CR>
+endfunction
 
-# augroup my-lsp-cmd
-#   autocmd!
-#   autocmd FileType vue,javascript,python,css,rust :call s:lsp()
-# augroup END
-# '''
-# hook_source = '''
-# let g:LanguageClient_serverCommands = {
-#       \ 'vue': ['vls'],
-#       \ 'javascript': ['javascript-typescript-stdio'],
-#       \ 'python': ['pyls'],
-#       \ 'css': ['css-languageserver', '--stdio'],
-#       \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-#       \ }
-# '''
+augroup my-lsp-cmd
+  autocmd!
+  autocmd FileType vue,javascript,python,css,rust :call s:lsp()
+augroup END
+'''
+hook_source = '''
+let g:LanguageClient_serverCommands = {
+      \ 'vue': ['vls'],
+      \ 'javascript': ['javascript-typescript-stdio'],
+      \ 'python': ['pyls'],
+      \ 'css': ['css-languageserver', '--stdio'],
+      \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+      \ }
+'''
 
 #--------------------
 # /deoplete
