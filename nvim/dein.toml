@@ -354,9 +354,6 @@ hook_add = '''
 repo = 'tomlion/vim-solidity'
 
 [[plugins]]
-repo = 'hecal3/vim-leader-guide'
-
-[[plugins]]
 repo = 'othree/yajs.vim'
 
 # css customize
@@ -498,14 +495,6 @@ let g:rainbow_conf = {
       \		'css': 0,
       \	}
       \}
-'''
-
-[[plugins]]
-repo = 'twitvim/twitvim'
-hook_add = '''
-let twitvim_browser_cmd = 'open' " for Mac
-let twitvim_force_ssl = 1
-let twitvim_count = 40
 '''
 
 [[plugins]]
@@ -749,7 +738,7 @@ nnoremap zz zO<CR>
 # /convinient folding
 #------------------------
 
-repo = 'kodai12/vim-todoist'
+repo = 'kodai12/todoist_nvim'
 hook_add = '''
 if filereadable(expand('~/dotfiles/nvim/env.vim'))
   source ~/dotfiles/nvim/env.vim
