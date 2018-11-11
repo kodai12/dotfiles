@@ -177,25 +177,25 @@ endfunction
 #             \ }
 # '''
 
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+# [[plugins]]
+# repo = 'Shougo/neosnippet-snippets'
 
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-depends = 'context_filetype.vim'
-on_event = 'InsertEnter'
-on_i  = 1
-on_ft = ['snippet']
-depends = ['neosnippet-snippets']
-hook_source = '''
-  let g:neosnippet#snippets_directory="~/.cache/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets/"
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
-  if has('conceal')
-    set conceallevel=2 concealcursor=niv
-  endif
-'''
+# [[plugins]]
+# repo = 'Shougo/neosnippet.vim'
+# depends = 'context_filetype.vim'
+# on_event = 'InsertEnter'
+# on_i  = 1
+# on_ft = ['snippet']
+# depends = ['neosnippet-snippets']
+# hook_source = '''
+#   let g:neosnippet#snippets_directory="~/.cache/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets/"
+#   imap <C-k> <Plug>(neosnippet_expand_or_jump)
+#   smap <C-k> <Plug>(neosnippet_expand_or_jump)
+#   xmap <C-k> <Plug>(neosnippet_expand_target)
+#   if has('conceal')
+#     set conceallevel=2 concealcursor=niv
+#   endif
+# '''
 
 [[plugins]]
 repo = 'carlitux/deoplete-ternjs'
