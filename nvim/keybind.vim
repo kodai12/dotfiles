@@ -30,6 +30,11 @@ noremap <Space>noh :noh<CR>
 autocmd FileType python inoremap # X<C-H>#
 
 "------------------------
+" startify
+"------------------------
+nnoremap <SPACE>ss :Startify<CR>
+
+"------------------------
 " agit keymap
 "------------------------
 nnoremap <silent> <SPACE>av <Plug>Agit

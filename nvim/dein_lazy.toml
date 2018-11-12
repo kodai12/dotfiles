@@ -138,7 +138,7 @@ rev = 'next'
 on_ft  = ['vue', 'javascript', 'python', 'css', 'rust']
 depends = ['fzf.vim', 'deoplete.nvim']
 hook_add = '''
-source ~/dotfiles/nvim/language_client.rc.vim
+source ~/dotfiles/nvim/plugins/language_client.rc.vim
 '''
 #--------------------
 # /deoplete
