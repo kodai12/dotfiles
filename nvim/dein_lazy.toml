@@ -36,6 +36,13 @@ call denite#custom#map(
 '''
 
 [[plugins]]
+repo = 'pocari/vim-denite-emoji'
+depends = ['denite.nvim', 'vim-emoji']
+
+[[plugins]]
+repo = 'junegunn/vim-emoji'
+
+[[plugins]]
 repo = 'Shougo/denite.nvim'
 on_cmd = 'Denite'
 hook_source = '''
@@ -58,6 +65,10 @@ if has('nvim')
   call denite#custom#source('file/rec', 'matchers',
         \ ['matcher/cpsm'])
 endif
+
+call denite#custom#source('file/rec', 'max_candidates', 10000)
+call denite#custom#source('grep', 'max_candidates', 10000)
+call denite#custom#source('emoji', 'max_candidates', 10000)
 
 call denite#custom#map('insert', "'",
     \ '<denite:move_to_next_line>', 'noremap')
@@ -310,7 +321,6 @@ call deoplete#util#set_pattern(
 [[plugins]]
 repo = 'fszymanski/deoplete-emoji'
 depends = ['deoplete.nvim']
-on_ft = ['gitcommit', 'markdown']
 
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
