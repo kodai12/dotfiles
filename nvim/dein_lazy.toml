@@ -51,111 +51,13 @@ repo = 'Shougo/denite.nvim'
 on_cmd = 'Denite'
 depends = ['cpsm']
 hook_source = '''
-highlight! DeniteMatchedChar guifg=#85678f
-highlight! DeniteMatchedRange guifg=#f0c674
-highlight! DenitePreviewLine guifg=#85678f
-highlight! DeniteUnderlined guifg=#85678f
-
-call denite#custom#option('_', {
-  \ 'auto_accel': v:false,
-  \ 'auto-highlight': v:false,
-  \ 'empty': v:false,
-  \ 'sorter': 'sorter/word',
-  \ 'source_names': 'short',
-  \ 'unique': v:true,
-  \ 'prompt': '>',
-  \ 'highlight-matched-char': 'DeniteMatchedChar',
-  \ 'highlight-matched-range': 'DeniteMatchedRange',
-  \ 'highlight-preview-line': 'DenitePreviewLine',
-  \ })
-call denite#custom#option('file_rec', {
-  \ 'sorter': 'sorter/sublime',
-  })
-
-""" ignore
-"call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-"  \ [ '.git/', '.ropeproject/', '__pycache__/', 'tags',
-"    \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/',
-"    \   'node_modules/', 'target/', '.nuxt/', 'dist/', '.serverless/',
-"    \   '.serverless_plugins', '.cache/'])
-
-"" file_rec
-if executable('rg')
-  let s:denite_rg_command = ['rg', '--files', '--mmap', '--threads=12', '--hidden', '--smart-case', '--no-ignore-vcs', '--no-heading', '--glob', '!.git', '--glob', '!vendor', '']
-  call denite#custom#var('file_rec', 'command', s:denite_rg_command)
-else
-call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
-call denite#custom#source('file_rec', 'max_candidates', 10000)
-let s:denite_file_rec_ignore=&wildignore .
-      \ ',*.pyc,.git,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.cache,dist,target'
-call denite#custom#var('file_rec', 'command',
-      \ ['scantree.py', '--ignore', s:denite_file_rec_ignore])
-
-"" grep
-if executable('rg')
-  let s:denite_grep_ops = ['--mmap', '--threads=12', '--hidden', '--smart-case', '--vimgrep', '--no-ignore-vcs', '--no-heading', '--glob', '!.git', '--glob', '!vendor']
-  call denite#custom#var('grep', 'command', ['rg'])
-  call denite#custom#var('grep', 'default_opts', s:denite_grep_ops)
-  call denite#custom#var('grep', 'recursive_opts', [])
-  call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-  call denite#custom#var('grep', 'separator', ['--'])
-  call denite#custom#var('grep', 'final_opts', [])
-  call denite#custom#source('grep', 'max_candidates', 10000)
-endif
-let s:denite_grep_ignore=&wildignore .
-      \ ',*.pyc,.git,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.cache,dist,target'
-call denite#custom#var('grep', 'command',
-      \ ['scantree.py', '--ignore', s:denite_grep_ignore])
-
-"" line
-call denite#custom#var('line', 'command', ['rg', '--files', '--glob', '!.git', ''])
-
-"" emoji
-call denite#custom#source('emoji', 'max_candidates', 10000)
-
-"" mapping
-call denite#custom#map('insert', '<Down>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>', 'noremap')
-call denite#custom#map('normal', 'r', '<denite:do_action:quickfix>', 'noremap')
-call denite#custom#map('insert', '<BS>', '<denite:smart_delete_char_before_caret>', 'noremap')
-call denite#custom#map('insert', '<C-h>', '<denite:smart_delete_char_before_caret>', 'noremap')
-
-call denite#custom#map(
-    \ 'normal',
-    \ 'rp',
-    \ '<denite:do_action:qfreplace>',
-    \ 'noremap')
-
-" https://qiita.com/hrsh7th/Users/sakochikodai/dotfiles/thefuck {{{
-if dein#tap('denite.nvim') && dein#tap('vim-qfreplace')
-  function! DeniteQfreplace(context)
-    let qflist = []
-    for target in a:context['targets']
-      if !has_key(target, 'action__path') | continue | endif
-      if !has_key(target, 'action__line') | continue | endif
-      if !has_key(target, 'action__text') | continue | endif
-
-      call add(qflist, {
-            \ 'filename': target['action__path'],
-            \ 'lnum': target['action__line'],
-            \ 'text': target['word'],
-            \ })
-    endfor
-    call setqflist(qflist)
-    call qfreplace#start('tabnew')
-  endfunction
-  call denite#custom#action('file', 'qfreplace', function('DeniteQfreplace'))
-endif
-" }}}
-'''
-hook_add = '''
-nnoremap <silent> ;;
-      \ :<C-u>Denite command command_history<CR>
+source ~/dotfiles/nvim/plugins/denite.rc.vim
 '''
 
 [[plugins]]
 repo = 'nixprime/cpsm'
 build = 'env PY3=ON ./install.sh'
+
 #--------------------
 # deoplete
 #--------------------
@@ -164,116 +66,8 @@ repo = 'Shougo/deoplete.nvim'
 depends = ['context_filetype.vim']
 on_event = 'InsertEnter'
 hook_source = '''
-let g:deoplete#enable_at_startup = 1
-let s:deoplete_custom_option = {
-      \ 'auto_complete_delay': 5,
-      \ 'auto_refresh_delay': 30,
-      \ 'camel_case': v:false,
-      \ 'ignore_case': v:true,
-      \ 'ignore_sources': {
-      \   '_': ['around', 'dictionary', 'omni', 'tag'],
-      \   'python': ['around', 'dictionary', 'omni', 'tag', 'member', 'LanguageClient'],
-      \   'sh': ['around', 'dictionary', 'omni', 'tag'],
-      \   'yaml': ['around', 'dictionary', 'omni', 'tag', 'neosnippet'],
-      \   'yaml.docker-compose': ['around', 'dictionary', 'omni', 'tag', 'neosnippet'],
-      \   'zsh': ['around', 'dictionary', 'omni', 'tag'],
-      \ },
-      \ 'omni_patterns': {
-      \   'sh': '[^ *\t"{=$]\w*',
-      \   'yaml': '[^ *\t"{=$]\w*',
-      \   'yaml.docker-compose': '[^ *\t"{=$]\w*',
-      \ },
-      \ 'max_list': 10000,
-      \ 'min_pattern_length': 1,
-      \ 'num_processes': 10,
-      \ 'on_insert_enter': v:true,
-      \ 'on_text_changed_i': v:true,
-      \ 'refresh_always': v:false,
-      \ 'skip_chars': ['(', ')'],
-      \ 'smart_case': v:true,
-      \ }
-call deoplete#custom#option(s:deoplete_custom_option)
-
-call deoplete#custom#source('_', 'converters', [
-      \ 'converter_auto_paren',
-      \ 'converter_remove_overlap',
-      "\ 'converter_truncate_abbr',
-      "\ 'converter_truncate_menu',
-      \ ])
-
-"call deoplete#custom#source('look', 'rank', 0)
-
-let s:deoplete_omni_functions = {
-      \ 'sh':  'LanguageClient#complete',
-      \ 'yaml': 'LanguageClient#complete',
-      \ 'yaml.docker-compose': 'LanguageClient#complete',
-      \ 'python':  'LanguageClient#complete',
-      \ }
-call deoplete#custom#source('omni', 'functions', s:deoplete_omni_functions)
-
-call deoplete#custom#source('jedi', 'disabled_syntaxes', ['Comment'])
-call deoplete#custom#source('LanguageClient', 'disabled_syntaxes', ['Comment'])
-call deoplete#custom#source('LanguageClient', 'matchers', ['matcher_head'])  " matcher_length
-call deoplete#custom#source('LanguageClient', 'min_pattern_length', 1)
-call deoplete#custom#source('vim', 'disabled_syntaxes', ['Comment'])
-
-inoremap <silent> <expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ deoplete#manual_complete()
-inoremap <silent> <expr> <S-TAB>
-      \ pumvisible() ? "\<C-p>" :
-      \ <SID>check_back_space() ? "\<S-TAB>" :
-      \ deoplete#manual_complete()
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1] =~# '\s'
-endfunction
-
-"" jedi
-let g:deoplete#sources#jedi#statement_length = 0
-let g:deoplete#sources#jedi#short_types = 0
-let g:deoplete#sources#jedi#show_docstring = 1
-let g:deoplete#sources#jedi#worker_threads = 2
-let g:deoplete#sources#jedi#python_path = g:python3_host_prog
-let g:deoplete#sources#asm#go_mode = 1
+source ~/dotfiles/nvim/plugins/deoplete.rc.vim
 '''
-# hook_post_update = '!pip3 install -U --user neovim'
-
-# [[plugins]]
-# repo = 'ujihisa/neco-look'
-# depends = 'deoplete.nvim'
-# on_ft = ['markdown', 'gitrebase', 'gitcommit', 'vcs-commit', 'text', 'help']
-# hook_source = '''
-# let g:neocomplete#text_mode_filetypes = {
-#             \ 'markdown': 1,
-#             \ 'gitrebase': 1,
-#             \ 'gitcommit': 1,
-#             \ 'vcs-commit': 1,
-#             \ 'text': 1,
-#             \ 'help': 1,
-#             \ }
-# '''
-
-# [[plugins]]
-# repo = 'Shougo/neosnippet-snippets'
-
-# [[plugins]]
-# repo = 'Shougo/neosnippet.vim'
-# depends = 'context_filetype.vim'
-# on_event = 'InsertEnter'
-# on_i  = 1
-# on_ft = ['snippet']
-# depends = ['neosnippet-snippets']
-# hook_source = '''
-#   let g:neosnippet#snippets_directory="~/.cache/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets/"
-#   imap <C-k> <Plug>(neosnippet_expand_or_jump)
-#   smap <C-k> <Plug>(neosnippet_expand_or_jump)
-#   xmap <C-k> <Plug>(neosnippet_expand_target)
-#   if has('conceal')
-#     set conceallevel=2 concealcursor=niv
-#   endif
-# '''
 
 [[plugins]]
 repo = 'carlitux/deoplete-ternjs'
@@ -344,45 +138,8 @@ rev = 'next'
 on_ft  = ['vue', 'javascript', 'python', 'css', 'rust']
 depends = ['fzf.vim', 'deoplete.nvim']
 hook_add = '''
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_autoStop = 1
-let g:LanguageClient_changeThrottle = 0.5
-let g:LanguageClient_completionPreferTextEdit = 0  " should be 0
-let g:LanguageClient_diagnosticsList = 'Quickfix'  " default: Quickfix, Location, Disabled
-let g:LanguageClient_hasSnippetSupport = 0
-let g:LanguageClient_hoverPreview = 'Always'  " Always, Auto, Never
-let g:LanguageClient_loadSettings = 1
-let g:LanguageClient_selectionUI = 'location-list'  " fzf, quickfix, location-list
-let g:LanguageClient_settingsPath = '.lsp.json'
-let g:LanguageClient_windowLogMessageLevel = "Warning"  " Error, default: Warning, Info, Log
-
-function! s:lsp()
-  nnoremap <buffer><silent> <Space>ld :call LanguageClient_textDocument_definition()<CR>
-  nnoremap <buffer><silent> <Space>lrn  :call LanguageClient_textDocument_rename()<CR>
-  nnoremap <buffer><silent> <Space>lh  :call LanguageClient_textDocument_hover()<CR>
-  nnoremap <buffer><silent> <Space>lrr  :call LanguageClient_textDocument_references()<CR>
-  nnoremap <buffer><silent> <Space>lc :call LanguageClient_contextMenu()<CR>
-endfunction
-
-augroup my-lsp-cmd
-  autocmd!
-  autocmd FileType vue,javascript,python,css,rust :call s:lsp()
-augroup END
-
-let g:LanguageClient_rootMarkers = {
-      \ 'python': ['setup.py', 'LICENSE'],
-      \ }
+source ~/dotfiles/nvim/language_client.rc.vim
 '''
-hook_source = '''
-let g:LanguageClient_serverCommands = {
-      \ 'vue': ['vls'],
-      \ 'javascript': ['javascript-typescript-stdio'],
-      \ 'python': ['pyls'],
-      \ 'css': ['css-languageserver', '--stdio'],
-      \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-      \ }
-'''
-
 #--------------------
 # /deoplete
 #--------------------
