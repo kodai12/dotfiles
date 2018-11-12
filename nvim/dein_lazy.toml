@@ -308,6 +308,11 @@ call deoplete#util#set_pattern(
 '''
 
 [[plugins]]
+repo = 'fszymanski/deoplete-emoji'
+depends = ['deoplete.nvim']
+on_ft = ['gitcommit', 'markdown']
+
+[[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 build = 'bash install.sh'
 rev = 'next'
