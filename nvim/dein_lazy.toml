@@ -10,9 +10,6 @@ on_source = 'denite.nvim'
 repo = 'neoclide/denite-git'
 on_source = 'denite.nvim'
 hook_source = '''
-call dein#add('Shougo/denite.nvim')
-call dein#add('chemzqm/vim-easygit')
-call dein#add('chemzqm/denite-git')
 call denite#custom#map(
       \ 'normal',
       \ 'a',
