@@ -464,9 +464,9 @@ nnoremap zz zO<CR>
 # /convinient folding
 #------------------------
 
-repo = 'kodai12/todoist_nvim'
-hook_add = '''
-if filereadable(expand('~/dotfiles/nvim/env.vim'))
-  source ~/dotfiles/nvim/env.vim
-endif
-'''
+# repo = 'kodai12/todoist_nvim'
+# hook_add = '''
+# if filereadable(expand('~/dotfiles/nvim/env.vim'))
+#   source ~/dotfiles/nvim/env.vim
+# endif
+# '''
