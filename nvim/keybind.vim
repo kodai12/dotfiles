@@ -76,7 +76,7 @@ nnoremap <SPACE>dc :DeniteCursorWord grep -buffer-name='grep' -mode=insert<CR>
 nnoremap <SPACE>dac :DeniteCursorWord -auto-preview grep -buffer-name='grep' -mode=insert<CR>
 nnoremap <SPACE>db :Denite buffer -buffer-name='buffer' -mode=insert<CR>
 nnoremap <SPACE>df :DeniteProjectDir file_rec -buffer-name="file_rec"<CR>
-nnoremap <SPACE>dF :Denite file_mru --buffer-name="file_mru"<CR>
+nnoremap <SPACE>dF :Denite file_mru<CR>
 nnoremap <SPACE>dh :Denite help<CR>
 nnoremap <SPACE>dl :Denite location_list<CR>
 nnoremap <SPACE>dq :Denite quickfix<CR>
