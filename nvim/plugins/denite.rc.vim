@@ -4,20 +4,28 @@ highlight! DenitePreviewLine guifg=#85678f
 highlight! DeniteUnderlined guifg=#85678f
 
 call denite#custom#option('_', {
-  \ 'auto_accel': v:false,
-  \ 'auto-highlight': v:false,
-  \ 'empty': v:false,
-  \ 'sorter': 'sorter/word',
-  \ 'source_names': 'short',
-  \ 'unique': v:true,
-  \ 'prompt': '>',
-  \ 'highlight-matched-char': 'DeniteMatchedChar',
-  \ 'highlight-matched-range': 'DeniteMatchedRange',
-  \ 'highlight-preview-line': 'DenitePreviewLine',
-  \ })
+      \ 'auto_accel': v:false,
+      \ 'auto-highlight': v:false,
+      \ 'empty': v:false,
+      \ 'sorter': 'sorter/word',
+      \ 'source_names': 'short',
+      \ 'unique': v:true,
+      \ 'prompt': '>',
+      \ 'highlight-matched-char': 'DeniteMatchedChar',
+      \ 'highlight-matched-range': 'DeniteMatchedRange',
+      \ 'highlight-preview-line': 'DenitePreviewLine',
+      \ })
+
 call denite#custom#option('file_rec', {
-  \ 'sorter': 'sorter/sublime',
-  })
+      \ 'sorter': 'sorter/sublime',
+      \ })
+
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs', [
+      \ '.git/', '.ropeproject/', '__pycache__/', 'tags',
+      \ 'venv/', 'images/', '*.min.*', 'img/', 'fonts/',
+      \ 'node_modules/', 'target/', '.nuxt/', 'dist/', '.serverless/',
+      \ '.serverless_plugins', '.cache/', 'direnv', 'configstore'
+      \ ])
 
 "" file_rec
 if executable('rg')
@@ -27,7 +35,7 @@ else
 call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
 call denite#custom#source('file_rec', 'max_candidates', 10000)
 let s:denite_file_rec_ignore=&wildignore .
-      \ ',*.pyc,.git,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.cache,dist,target'
+      \ ',*.pyc,.git,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.cache,dist,target,.DS_Store'
 call denite#custom#var('file_rec', 'command',
       \ ['scantree.py', '--ignore', s:denite_file_rec_ignore])
 
@@ -42,10 +50,10 @@ if executable('rg')
   call denite#custom#var('grep', 'final_opts', [])
   call denite#custom#source('grep', 'max_candidates', 10000)
 endif
-let s:denite_grep_ignore=&wildignore .
-      \ ',*.pyc,.git,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.cache,dist,target'
-call denite#custom#var('grep', 'command',
-      \ ['scantree.py', '--ignore', s:denite_grep_ignore])
+" let s:denite_grep_ignore=&wildignore .
+"       \ ',*.pyc,.git,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.cache,dist,target'
+" call denite#custom#var('grep', 'command',
+"       \ ['scantree.py', '--ignore', s:denite_grep_ignore])
 
 "" emoji
 call denite#custom#source('emoji', 'max_candidates', 10000)
