@@ -3,6 +3,10 @@
 ## basic
 - `<SPACE>h`: ^
 - `<SPACE>l`: $
+- `<SPACE>ddv`: vertical diffsplit
+- `<SPACE>ddh`: horizontal diffsplit
+- `<SPACE>ddo`: diff between original content and edited content
+- `<SPACE>nod`: no diff heighlight
 
 ## plugins
 
@@ -19,10 +23,6 @@
 - `<SPACE>gc`: Denite gitchanged
 - `<SPACE>gl`: Denite gitlog
 
-### agit
-- `<SPACE>av`: Agit
-- `<SPACE>avf`: AgitFile
-
 ### undotree
 - `<SPACE>udt`: UndoTreeToggle
 
@@ -30,15 +30,23 @@
 - `ftt`: NERDTreeToggle
 - `ftf`: NERDTreeFind
 
-### fugitive
-#### 通常時
-- `<SPACE>gs`: <C-u>Gstatus
-- `<SPACE>gv`: <C-u>Gvdiff
-- `<SPACE>gB`: Gblame
-- `<SPACE>ga`: <C-u>Gwrite
-- `<SPACE>gC`: <C-u>Gcommit-v
+### docker util
+- `<SPACE>dt`: DockerToolsToggle
 
-#### Gstatus時
+### Git関係
+#### gina
+- `<SPACE>gs`: Gina status
+- `<SPACE>gc`: Gina commit
+- `<SPACE>gB`: Gina blame
+
+#### agit
+- `<SPACE>ag`: Agit
+- `<SPACE>af`: AgitFile
+
+#### gitgutter
+- `<C-f>`: GitGutterNextHunkzz
+- `<C-b>`: GitGutterPrevHunkzz
+- `<C-s>`: GitGutterStageHunk
 
 ### QFixHowm_
 #### メモ作成

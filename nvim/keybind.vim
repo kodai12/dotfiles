@@ -48,8 +48,8 @@ nnoremap <SPACE>ss :Startify<CR>
 "------------------------
 " agit keymap
 "------------------------
-nnoremap <silent> <SPACE>av <Plug>Agit
-nnoremap <silent> <SPACE>avf <Plug>AgitFile
+nnoremap <silent> <SPACE>ag :Agit
+nnoremap <silent> <SPACE>af :AgitFile
 
 "------------------------
 " undotree keymap
