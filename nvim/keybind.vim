@@ -67,11 +67,18 @@ nnoremap <silent> [NERDTree]f :NERDTreeFind<CR>
 "------------------------
 " fugitive keymap
 "------------------------
-nnoremap <silent> <SPACE>gs :<C-u>Gstatus<CR>
-nnoremap <silent> <SPACE>gv :<C-u>Gvdiff<CR>
-nnoremap <silent> <SPACE>gB :Gblame<CR>
-nnoremap <silent> <SPACE>ga :<C-u>Gwrite<CR>
-nnoremap <silent> <SPACE>gC :<C-u>Gcommit-v<CR>
+" nnoremap <silent> <SPACE>gs :<C-u>Gstatus<CR>
+" nnoremap <silent> <SPACE>gv :<C-u>Gvdiff<CR>
+" nnoremap <silent> <SPACE>gB :Gblame<CR>
+" nnoremap <silent> <SPACE>ga :<C-u>Gwrite<CR>
+" nnoremap <silent> <SPACE>gC :<C-u>Gcommit-v<CR>
+
+"------------------------
+" gina keymapping
+"------------------------
+nnoremap <silent> <SPACE>gs :Gina status<CR>
+nnoremap <silent> <SPACE>gc :Gina commit<CR>
+nnoremap <silent> <SPACE>gB :Gina blame<CR>
 
 "------------------------
 " merginal keymap
@@ -175,3 +182,9 @@ nnoremap <SPACE>tb :TagbarToggle<CR>
 "------------------------
 nmap <silent> <C-f> <Plug>GitGutterNextHunkzz
 nmap <silent> <C-b> <Plug>GitGutterPrevHunkzz
+nmap <silent> <C-s> <Plug>GitGutterStageHunk
+
+"------------------------
+" docker-tools keymapping
+"------------------------
+nnoremap <SPACE>dt :DockerToolsToggle<CR>
