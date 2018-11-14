@@ -10,21 +10,19 @@ hook_add = '''
 
 [[plugins]]
 repo = 'ajmwagar/vim-deus'
+# hook_add = '''
+# colorscheme deus
+# '''
+
+[[plugins]]
+repo = 'AlessandroYorba/Alduin'
+hook_add = '''
+let g:alduin_Shout_Dragon_Aspect = 1
+colorscheme alduin
+'''
 
 [[plugins]]
 repo = 'miyakogi/seiya.vim'
-
-[[plugins]]
-repo = 'dracula/vim'
-
-[[plugins]]
-repo = 'liuchengxu/space-vim-dark'
-hook_add = '''
-hi Comment cterm=italic
-hi Normal     ctermbg=NONE guibg=NONE
-hi LineNr     ctermbg=NONE guibg=NONE
-hi SignColumn ctermbg=NONE guibg=NONE
-'''
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
@@ -110,6 +108,9 @@ source ~/dotfiles/nvim/plugins/startify.rc.vim
 #--------------------------
 # git utilities
 #--------------------------
+[[plugins]]
+repo = 'lambdalisue/gina.vim'
+
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 depends = ['vim-rhubarb']
