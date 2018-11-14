@@ -129,7 +129,6 @@ endif
 filetype plugin on
 syntax on
 set background=dark
-colorscheme iceberg
 highlight Visual ctermfg=234 ctermbg=252 guifg=#161821 guibg=#c6c8d1
 " 折りたたみ時の色を設定
 highlight Folded ctermfg=131
@@ -300,5 +299,24 @@ nnoremap <silent> <CR> :<C-u>call openuri#cursorline()<CR>
 "------------------------
 " /qfixhowm (memo plugin)
 "------------------------
+
+" {{{ set DiffOrig
+" http://nanasi.jp/articles/howto/diff/diff-original-file.html
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+        \ | wincmd p | diffthis
+endif
+" }}}
+
+" change diff mode setting
+" https://rcmdnk.com/blog/2016/02/26/computer-vim/
+autocmd VimEnter,FilterWritePre * call SetDiffMode()
+function! SetDiffMode()
+  if &diff
+    setlocal nospell
+    setlocal wrap<
+  endif
+endfunction
+" }}}
 
 source ~/dotfiles/nvim/keybind.vim

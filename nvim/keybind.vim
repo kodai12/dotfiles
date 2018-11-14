@@ -4,6 +4,9 @@
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap Q <Nop>
+" 現在のウィンドウ以外のウィンドウを閉じる
+nnoremap <c-w><c-o> <Nop>
+nnoremap <c-w>o <Nop>
 
 "------------------------
 " brackets completion
@@ -28,6 +31,14 @@ nnoremap <Space>/  *
 noremap <Space>m  %
 noremap <Space>noh :noh<CR>
 autocmd FileType python inoremap # X<C-H>#
+
+"------------------------
+" show diff
+"------------------------
+nnoremap <SPACE>ddv :vertical diffsplit<SPACE>
+nnoremap <SPACE>ddh :diffsplit<SPACE>
+nnoremap <SPACE>ddo :DiffOrig<CR>
+nnoremap <SPACE>nod :diffoff<CR>
 
 "------------------------
 " startify
