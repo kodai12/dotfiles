@@ -72,6 +72,7 @@ nnoremap <silent> [NERDTree]f :NERDTreeFind<CR>
 " nnoremap <silent> <SPACE>gB :Gblame<CR>
 " nnoremap <silent> <SPACE>ga :<C-u>Gwrite<CR>
 " nnoremap <silent> <SPACE>gC :<C-u>Gcommit-v<CR>
+nnoremap <silent> <SPACE>gp :Git push origin<SPACE>
 
 "------------------------
 " gina keymapping
