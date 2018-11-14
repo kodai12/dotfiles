@@ -458,6 +458,7 @@ repo = 'mattn/webapi-vim'
 #------------------------
 # convinient folding
 #------------------------
+[[plugins]]
 repo = 'pseewald/vim-anyfold'
 hook_add = '''
 " activate anyfold by default
@@ -483,6 +484,16 @@ nnoremap zz zO<CR>
 # /convinient folding
 #------------------------
 
+#------------------------
+# docker
+#------------------------
+[[plugins]]
+repo = 'kkvh/vim-docker-tools'
+#------------------------
+# /docker
+#------------------------
+
+# [[plugins]]
 # repo = 'kodai12/todoist_nvim'
 # hook_add = '''
 # if filereadable(expand('~/dotfiles/nvim/env.vim'))
