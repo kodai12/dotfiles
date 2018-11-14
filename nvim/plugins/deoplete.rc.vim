@@ -27,16 +27,11 @@ let s:deoplete_custom_option = {
       \ 'smart_case': v:true,
       \ }
 call deoplete#custom#option(s:deoplete_custom_option)
-
 call deoplete#custom#source('_', 'converters', [
-      \ 'converter_auto_paren',
       \ 'converter_remove_overlap',
-      "\ 'converter_truncate_abbr',
-      "\ 'converter_truncate_menu',
+      \ 'converter_truncate_abbr',
+      \ 'converter_truncate_menu'
       \ ])
-
-"call deoplete#custom#source('look', 'rank', 0)
-
 let s:deoplete_omni_functions = {
       \ 'sh':  'LanguageClient#complete',
       \ 'yaml': 'LanguageClient#complete',
@@ -44,13 +39,11 @@ let s:deoplete_omni_functions = {
       \ 'python':  'LanguageClient#complete',
       \ }
 call deoplete#custom#source('omni', 'functions', s:deoplete_omni_functions)
-
 call deoplete#custom#source('jedi', 'disabled_syntaxes', ['Comment'])
 call deoplete#custom#source('LanguageClient', 'disabled_syntaxes', ['Comment'])
 call deoplete#custom#source('LanguageClient', 'matchers', ['matcher_head'])  " matcher_length
 call deoplete#custom#source('LanguageClient', 'min_pattern_length', 1)
 call deoplete#custom#source('vim', 'disabled_syntaxes', ['Comment'])
-
 inoremap <silent> <expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -71,4 +64,3 @@ let g:deoplete#sources#jedi#show_docstring = 1
 let g:deoplete#sources#jedi#worker_threads = 2
 let g:deoplete#sources#jedi#python_path = g:python3_host_prog
 let g:deoplete#sources#asm#go_mode = 1
-'''
