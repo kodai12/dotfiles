@@ -4,9 +4,6 @@ repo = 'Shougo/dein.vim'
 # colorsheme
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
-hook_add = '''
-  colorscheme iceberg
-'''
 
 [[plugins]]
 repo = 'ajmwagar/vim-deus'
@@ -110,6 +107,21 @@ source ~/dotfiles/nvim/plugins/startify.rc.vim
 #--------------------------
 [[plugins]]
 repo = 'lambdalisue/gina.vim'
+hook_add = '''
+" Execute :Gina commit with <C-^> on "gina-status" buffer
+call gina#custom#mapping#nmap(
+      \ 'status', '<SPACE>gc',
+      \ ':<C-u>Gina commit<CR>',
+      \ {'noremap': 1, 'silent': 1},
+      \)
+
+" Execute :Gina status with <C-^> on "gina-commit" buffer
+call gina#custom#mapping#nmap(
+      \ 'commit', '<SPACE>gs',
+      \ ':<C-u>Gina status<CR>',
+      \ {'noremap': 1, 'silent': 1},
+      \)
+'''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
