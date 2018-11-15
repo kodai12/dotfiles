@@ -188,4 +188,4 @@ nmap <silent> <C-s> <Plug>GitGutterStageHunk
 "------------------------
 " docker-tools keymapping
 "------------------------
-nnoremap <SPACE>dt :DockerToolsToggle<CR>
+nnoremap <SPACE>doc :DockerToolsToggle<CR>

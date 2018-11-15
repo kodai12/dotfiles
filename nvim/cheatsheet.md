@@ -31,7 +31,7 @@
 - `ftf`: NERDTreeFind
 
 ### docker util
-- `<SPACE>dt`: DockerToolsToggle
+- `<SPACE>doc`: DockerToolsToggle
 
 ### Git関係
 #### gina
