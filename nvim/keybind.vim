@@ -77,7 +77,7 @@ nnoremap <silent> <SPACE>gp :Git push origin<SPACE>
 "------------------------
 " gina keymapping
 "------------------------
-nnoremap <silent> <SPACE>gs :Gina status<CR>
+nnoremap <silent> <SPACE>gs :Gina status --opener="botright split"<CR>
 nnoremap <silent> <SPACE>gc :Gina commit<CR>
 nnoremap <silent> <SPACE>gB :Gina blame<CR>
 
