@@ -1,1 +1,4 @@
 # dotfiles
+
+## setup
+`./setup.sh`
