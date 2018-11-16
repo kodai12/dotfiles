@@ -1,0 +1,5 @@
+*~
+.DS_Store
+tags
+.zcompdump
+__pycache__
