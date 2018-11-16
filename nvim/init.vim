@@ -16,6 +16,7 @@ set t_Co=256
 set guifont=Hack\ Regular\ Nerd\ Font\ Complete:h15
 set fileformats=unix,dos,mac
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
+set nofixendofline
 set sh=zsh
 set clipboard+=unnamedplus
 set mouse-=a
