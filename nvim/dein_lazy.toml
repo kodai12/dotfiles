@@ -109,6 +109,9 @@ on_ft = ['zsh']
 depends = ['deoplete.nvim']
 
 [[plugins]]
+repo = 'zchee/deoplete-docker'
+
+[[plugins]]
 repo = 'SevereOverfl0w/deoplete-github'
 depends = ['deoplete.nvim']
 on_ft = ['gitrebase', 'gitcommit']
