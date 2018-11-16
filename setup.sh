@@ -6,6 +6,7 @@ DOT_DIRECTORY=$(cd $(dirname $0); pwd)
 ZSH_DIR=$HOME/.zsh
 NVIM_DIR=$HOME/.config/nvim
 NVIM_PLUGIN_DIR=$NVIM_DIR/plugins
+UNI_CTAGS_DIR=$HOME/.ctags.d
 
 cd $DOT_DIRECTORY
 
@@ -64,6 +65,10 @@ for plug_f in nvim/plugins/*.rc.vim
 do
     ln -snfv ${DOT_DIRECTORY}/${plug_f} ${NVIM_PLUGIN_DIR}
 done
+
+# universal ctagsように$HOME/.ctags.d/configure.ctagsにシンボリックリンクをはる
+[ -d $UNI_CTAGS_DIR ] || mkdir -p $UNI_CTAGS_DIR
+ln -snfv ${DOT_DIRECTORY}/.ctags ${UNI_CTAGS_DIR}/configure.ctags
 
 cat << END
 
