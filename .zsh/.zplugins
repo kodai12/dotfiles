@@ -79,7 +79,7 @@ zplug "stedolan/jq", \
 zplug "b4b4r07/emoji-cli", \
     on:"stedolan/jq"
 export EMOJI_CLI_DICT="/usr/local/Cellar/zplug/2.4.2/repos/b4b4r07/emoji-cli/dict/emoji.json"
-export EMOJI_CLI_KEYBIND="S"
+export EMOJI_CLI_KEYBIND="emo"
 zplug "b4b4r07/enhancd", use:enhancd.sh
 source /usr/local/Cellar/zplug/2.4.2/repos/b4b4r07/enhancd/init.sh
 
