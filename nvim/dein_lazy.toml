@@ -234,6 +234,13 @@ let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#trailing_comma = 'es5'
 '''
 
+[[plugins]]
+repo = 'heavenshell/vim-jsdoc'
+on_ft = ['javascript']
+hook_add = '''
+autocmd FileType javascript nmap <silent> <C-_> ?function<cr>:noh<cr><Plug>(jsdoc)
+'''
+
 # vue
 [[plugins]]
 repo = 'posva/vim-vue'
@@ -300,6 +307,13 @@ nnoremap <silent> <SPACE>jrn :call jedi#rename()<cr>
 repo = 'Vimjas/vim-python-pep8-indent'
 on_i = 1
 on_ft = ['python']
+
+[[plugins]]
+repo = 'heavenshell/vim-pydocstring'
+on_ft = ['python']
+hook_add = '''
+autocmd FileType python nmap <silent> <C-_> <Plug>(pydocstring)
+'''
 
 # python(test settings)
 [[plugins]]
