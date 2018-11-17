@@ -320,9 +320,6 @@ augroup END
 [[plugins]]
 repo = 'fuenor/qfixhowm'
 
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-
 ####################
 # Folding:
 ####################
@@ -461,6 +458,18 @@ hook_add = '''
 map y <Plug>(operator-flashy)
 nmap Y <Plug>(operator-flashy)$
 '''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+hook_add = '''
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+" TODO change default open browser
+command! OpenBrowserCurrent execute "OpenBrowser" "file:///" . expand('%:p:gs?\\?/?')
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser-github.vim'
+depends = ['open-browser.vim']
 
 ####################
 # Reference:

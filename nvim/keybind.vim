@@ -189,3 +189,15 @@ nmap <silent> <C-s> <Plug>GitGutterStageHunk
 " docker-tools keymapping
 "------------------------
 nnoremap <SPACE>doc :DockerToolsToggle<CR>
+
+"------------------------
+" open browser keymapping
+"------------------------
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+nmap <SPACE>ob :OpenBrowser<CR>
+nmap <SPACE>os :OpenBrowserSmartSearch<CR>
+nmap <SPACE>oc :OpenBrowserCurrent<CR>
+nmap <SPACE>ogf :OpenGithubFile<CR>
+nmap <SPACE>ogi :OpenGithubIssue<CR>
+nmap <SPACE>ogp :OpenGithubPullReq<CR>
