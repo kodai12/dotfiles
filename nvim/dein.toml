@@ -505,6 +505,9 @@ repo = 'kkvh/vim-docker-tools'
 # /docker
 #------------------------
 
+[[plugins]]
+repo = 'cocopon/colorswatch.vim'
+
 # [[plugins]]
 # repo = 'kodai12/todoist_nvim'
 # hook_add = '''
