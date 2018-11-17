@@ -333,6 +333,11 @@ on_ft = ['go']
 repo = 'jodosha/vim-godebug'
 on_ft = ['go']
 
+# docker
+[[plugins]]
+repo = 'ekalinin/Dockerfile.vim'
+on_ft = ['dockerfile']
+
 # json
 [[plugins]]
 repo = 'elzr/vim-json'
@@ -345,6 +350,11 @@ let g:vim_json_syntax_conceal = 1
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
+
+# yaml
+[[plugins]]
+repo = 'chase/vim-ansible-yaml'
+on_ft = ['yaml']
 
 # csv
 [[plugins]]
