@@ -1,3 +1,6 @@
+####################
+# Denite:
+####################
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 on_source = 'denite.nvim'
@@ -55,9 +58,9 @@ source ~/dotfiles/nvim/plugins/denite.rc.vim
 repo = 'nixprime/cpsm'
 build = 'env PY3=ON ./install.sh'
 
-#--------------------
-# deoplete
-#--------------------
+####################
+# Deoplete:
+####################
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 depends = ['context_filetype.vim']
@@ -131,6 +134,9 @@ call deoplete#util#set_pattern(
 repo = 'fszymanski/deoplete-emoji'
 depends = ['deoplete.nvim']
 
+####################
+# Language Client:
+####################
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 build = 'bash install.sh'
@@ -140,10 +146,10 @@ depends = ['fzf.vim', 'deoplete.nvim']
 hook_add = '''
 source ~/dotfiles/nvim/plugins/language_client.rc.vim
 '''
-#--------------------
-# /deoplete
-#--------------------
 
+####################
+# Interfaces:
+####################
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 on_event = ['FocusLost', 'CursorHold']
@@ -171,7 +177,10 @@ hook_post_source = '''
 "}}}
 '''
 
-# html/css completion
+####################
+# Language Plugins:
+####################
+# html, css
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['css', 'html', 'xhtml', 'php']
@@ -190,7 +199,7 @@ augroup END
 repo = 'ap/vim-css-color'
 on_ft = ['css']
 
-# javascript completion
+# javascript
 [[plugins]]
 repo = 'ternjs/tern_for_vim'
 on_ft = ['javascript']
@@ -218,6 +227,7 @@ let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#trailing_comma = 'es5'
 '''
 
+# vue
 [[plugins]]
 repo = 'posva/vim-vue'
 on_ft = ['vue']
@@ -237,7 +247,7 @@ hook_source = '''
 	\ }
 '''
 
-# rust configuration
+# rust
 [[plugins]]
 repo = 'rust-lang/rust.vim'
 on_ft = ['rust']
@@ -260,12 +270,12 @@ hook_source = '''
   nmap <SPACE>K <Plug>(rust-doc)
 '''
 
-#solidity syntax
+# solidity
 [[plugins]]
 repo = 'tomlion/vim-solidity'
 on_ft = ['solidity']
 
-# python completion
+# python
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_i = 1
@@ -284,9 +294,7 @@ repo = 'Vimjas/vim-python-pep8-indent'
 on_i = 1
 on_ft = ['python']
 
-#------------------------
-# python test settings
-#------------------------
+# python(test settings)
 [[plugins]]
 repo = 'tpope/vim-dispatch'
 on_ft = ['python']
@@ -315,12 +323,8 @@ let g:test#rust#runner = 'cargo'
 let g:test#runner_commands = ['Nose', 'Jest','Mocha', 'Cargo']
 let g:test#preserve_screen = 1
 '''
-#------------------------
-# /python test settings
-#------------------------
 
-
-# go configuration
+# go
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = ['go']
@@ -329,13 +333,33 @@ on_ft = ['go']
 repo = 'jodosha/vim-godebug'
 on_ft = ['go']
 
-# json configuration
+# docker
+[[plugins]]
+repo = 'ekalinin/Dockerfile.vim'
+on_ft = ['dockerfile']
+
+# json
 [[plugins]]
 repo = 'elzr/vim-json'
 on_ft = ['json']
 hook_add = '''
 let g:vim_json_syntax_conceal = 1
 '''
+
+# toml
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+# yaml
+[[plugins]]
+repo = 'chase/vim-ansible-yaml'
+on_ft = ['yaml']
+
+# csv
+[[plugins]]
+repo = 'mechatroner/rainbow_csv'
+on_ft = ['csv']
 
 [[plugins]]
 repo = 'kannokanno/previm'
@@ -345,6 +369,10 @@ hook_add = '''
 nnoremap <silent> <SPACE>po :PrevimOpen<cr>
 '''
 
+
+####################
+# Reference:
+####################
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 on_ft = ['help']
