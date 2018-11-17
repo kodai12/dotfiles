@@ -410,6 +410,12 @@ hook_add = '''
 '''
 
 ####################
+# Operation:
+####################
+[[plugins]]
+repo = 'kana/vim-operator-user'
+
+####################
 # Utility:
 ####################
 [[plugins]]
@@ -446,6 +452,14 @@ hook_add = '''
 if filereadable(expand('~/dotfiles/nvim/env.vim'))
   source ~/dotfiles/nvim/env.vim
 endif
+'''
+
+[[plugins]]
+repo = 'haya14busa/vim-operator-flashy'
+depends = ['vim-operator-user']
+hook_add = '''
+map y <Plug>(operator-flashy)
+nmap Y <Plug>(operator-flashy)$
 '''
 
 ####################
