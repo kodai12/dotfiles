@@ -474,6 +474,15 @@ command! OpenBrowserCurrent execute "OpenBrowser" "file:///" . expand('%:p:gs?\\
 repo = 'tyru/open-browser-github.vim'
 depends = ['open-browser.vim']
 
+[[plugins]]
+repo = 'yuttie/comfortable-motion.vim'
+hook_add = '''
+let g:comfortable_motion_no_default_key_mappings = 1
+let g:comfortable_motion_impulse_multiplier = 1  " Feel free to increase/decrease this value.
+nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
+'''
+
 ####################
 # Reference:
 ####################
