@@ -48,7 +48,7 @@
 - `<C-b>`: GitGutterPrevHunkzz
 - `<C-s>`: GitGutterStageHunk
 
-### QFixHowm_
+### QFixHowm
 #### メモ作成
 - `g,c`: メモ作成
 - `g,u`: クイックメモ
@@ -97,6 +97,7 @@
 - `<SPACE>jd`: call jedi#show_documentation()
 - `<SPACE>jrn`: call jedi#rename()
 - `F8`: :Autopep8()
-
-### javascript
 - `<C-_>`: docstringを生成
+
+### markdown
+- `<SPACE>md`: switch status

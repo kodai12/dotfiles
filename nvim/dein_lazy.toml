@@ -417,6 +417,15 @@ on_ft = ['yaml']
 repo = 'mechatroner/rainbow_csv'
 on_ft = ['csv']
 
+#markdown
+[[plugins]]
+repo = 'gabrielelana/vim-markdown'
+on_ft = ['markdown']
+hook_source = '''
+let g:markdown_enable_conceal = 1
+g:markdown_mapping_switch_status = '<SPACE>md'
+'''
+
 [[plugins]]
 repo = 'kannokanno/previm'
 on_cmd = 'PrevimOpen'
