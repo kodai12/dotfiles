@@ -320,4 +320,14 @@ function! SetDiffMode()
 endfunction
 " }}}
 
+" persist undo
+if has('persistent_undo')
+  set undodir=~/.config/nvim/undo
+  augroup vimrc-undofile
+    autocmd!
+    autocmd BufReadPre ~/* setlocal undofile
+  augroup END
+endif
+
+
 source ~/dotfiles/nvim/keybind.vim
