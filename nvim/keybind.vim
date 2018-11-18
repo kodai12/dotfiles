@@ -7,6 +7,7 @@ nnoremap Q <Nop>
 " 現在のウィンドウ以外のウィンドウを閉じる
 nnoremap <c-w><c-o> <Nop>
 nnoremap <c-w>o <Nop>
+nnoremap q <Nop>
 
 "------------------------
 " brackets completion
@@ -31,6 +32,8 @@ nnoremap <Space>/  *
 noremap <Space>m  %
 noremap <Space>noh :noh<CR>
 autocmd FileType python inoremap # X<C-H>#
+" fix indent
+noremap <Tab> ggVG=
 
 "------------------------
 " show diff
