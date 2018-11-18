@@ -114,3 +114,8 @@ eval "$(direnv hook zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 set rtp+=/usr/local/opt/fzf
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+#----------------------
+# hub
+#----------------------
+eval "$(hub alias -s)"

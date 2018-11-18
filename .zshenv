@@ -23,6 +23,3 @@ export GOPATH=$HOME/.go
 # pyenv settings
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-
-# hub
-eval "$(hub alias -s)"
