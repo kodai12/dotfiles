@@ -71,7 +71,7 @@
 - `g,i`: サブメニュー表示
 
 #### Quickfixウインドウ時
-- `<C-w>,`: QuickfixウインドウのON_/OFF
+- `<C-w>,`: QuickfixウインドウのON/OFF
 - `<C-w>`: Quickfixウインドウへ移動
 - `S`: ソート切り替え
 - `s`: 文字列を指定して絞り込み
@@ -87,3 +87,16 @@
 - `zM`: 全ての折りたたみを畳む
 - `zR`: 全ての折りたたみを開く
 - `zi`: 折りたたみの有効/無効を切り替える
+
+## Language Specific
+### python
+- `<C-_>`: docstringを生成
+- `<C-i>`: isort
+- `<SPACE>jg`: call jedi#goto()
+- `<SPACE>jag`: call jedi#goto_assignments()
+- `<SPACE>jd`: call jedi#show_documentation()
+- `<SPACE>jrn`: call jedi#rename()
+- `F8`: :Autopep8()
+
+### javascript
+- `<C-_>`: docstringを生成
