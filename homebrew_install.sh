@@ -47,6 +47,7 @@ formulas=(
     direnv
     jq
     thefuck
+    hub
 )
 
 "brew tap..."
