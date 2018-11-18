@@ -204,3 +204,8 @@ nmap <SPACE>oc :OpenBrowserCurrent<CR>
 nmap <SPACE>ogf :OpenGithubFile<CR>
 nmap <SPACE>ogi :OpenGithubIssue<CR>
 nmap <SPACE>ogp :OpenGithubPullReq<CR>
+
+"------------------------
+" prettier
+"------------------------
+nmap <SPACE>py <Plug>(Prettier)
