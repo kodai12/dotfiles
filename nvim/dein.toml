@@ -93,6 +93,9 @@ let g:alduin_Shout_Dragon_Aspect = 1
 colorscheme alduin
 '''
 
+[[plugins]]
+repo = 'kamykn/skyhawk'
+
 ####################
 # Interfaces:
 ####################
