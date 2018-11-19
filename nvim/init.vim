@@ -27,8 +27,14 @@ set backupskip+=/private/tmp/*
 set confirm
 set hidden
 set autoread
-set nobackup
 set noswapfile
+"{{{ cf. https://gist.github.com/nepsilon/003dd7cfefc20ce1e894db9c94749755
+set backup
+set backupdir=~/.config/nvim/backup//
+set writebackup
+set backupcopy=yes
+au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
+"}}}
 
 "" about search/replacement management
 set hlsearch
