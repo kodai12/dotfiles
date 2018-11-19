@@ -340,22 +340,6 @@ repo = 'fuenor/qfixhowm'
 [[plugins]]
 repo = 'pseewald/vim-anyfold'
 hook_add = '''
-" activate anyfold by default
-augroup anyfold
-    autocmd!
-    autocmd Filetype python,vim,vue,javascript,html,css,scss,scala,rust,php,toml AnyFoldActivate
-augroup END
-
-" disable anyfold for large files
-let g:LargeFile = 1000000 " file is large if size greater than 1MB
-autocmd BufReadPre,BufRead * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
-function LargeFile()
-    augroup anyfold
-        autocmd! " remove AnyFoldActivate
-        autocmd Filetype python,vim,vue,javascript,html,css,scss,scala,rust,php,toml setlocal foldmethod=indent " fall back to indent folding
-    augroup END
-endfunction
-set foldlevel=2
 nnoremap zq zC<CR>
 nnoremap zz zO<CR>
 '''
@@ -484,15 +468,6 @@ command! OpenBrowserCurrent execute "OpenBrowser" "file:///" . expand('%:p:gs?\\
 [[plugins]]
 repo = 'tyru/open-browser-github.vim'
 depends = ['open-browser.vim']
-
-[[plugins]]
-repo = 'yuttie/comfortable-motion.vim'
-hook_add = '''
-let g:comfortable_motion_no_default_key_mappings = 1
-let g:comfortable_motion_impulse_multiplier = 1  " Feel free to increase/decrease this value.
-nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
-nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
-'''
 
 ####################
 # Reference:

@@ -33,7 +33,7 @@ noremap <Space>m  %
 noremap <Space>noh :noh<CR>
 autocmd FileType python inoremap # X<C-H>#
 " fix indent
-noremap <Tab> ggVG=
+noremap <F10> ggVG=
 
 "------------------------
 " show diff
