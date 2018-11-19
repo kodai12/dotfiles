@@ -36,6 +36,12 @@ augroup autoTogglCacheUpdate
 augroup END
 '''
 
+[[plugins]]
+repo = 'kodai12/vimify'
+hook_add = '''
+source ~/dotfiles/nvim/env.vim
+'''
+
 # [[plugins]]
 # repo = 'kodai12/todoist_nvim'
 # hook_add = '''
