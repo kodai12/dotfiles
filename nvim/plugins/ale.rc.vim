@@ -34,7 +34,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
       \ 'javascript': [ 'eslint' ],
       \ 'json': [ 'prettier' ],
-      \ 'python': [ 'black' ],
+      \ 'python': [ 'yapf' ],
       \ 'typescript': [ 'tslint' ],
       \ }
 let g:ale_echo_msg_error_str = nr2char(0xf421) . ' '

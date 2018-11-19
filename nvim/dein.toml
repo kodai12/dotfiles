@@ -221,9 +221,11 @@ hook_post_update = '''
 [[plugins]]
 repo = 'sbdchd/neoformat'
 hook_add = '''
+let g:neoformat_enabled_python = ['isort']
+
 augroup fmt
   autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
+  autocmd BufWritePre *.py undojoin | Neoformat
 augroup END
 '''
 
