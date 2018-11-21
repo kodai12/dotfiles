@@ -23,6 +23,22 @@
 - `<SPACE>gc`: Denite gitchanged
 - `<SPACE>gl`: Denite gitlog
 
+### surround
+- `ds`: mean like `delete surround`
+  - `dsb`: delete bracket(=`()`)
+  - `dsB`: delete curly braces(=`{}`)
+  - `ds"`: delete double quote
+  - `dst`: delete tag
+- `cs`: mean like `change surround`
+  - `cs"'`: change double quote to single quote
+  - `cst<p>`: change tags to <p>tags
+  - `csbB`: change bracket to curly braces
+  - `cs([`: change `()` to `[]`
+- `ys`: mean like `you surround`
+  - `ysiwb`: add brackets
+- `yss`: add surround to current ***line***
+- `<visual-mode>S`: add surround to selected range
+
 ### undotree
 - `<SPACE>udt`: UndoTreeToggle
 
