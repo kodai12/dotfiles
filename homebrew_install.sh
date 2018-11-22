@@ -48,6 +48,8 @@ formulas=(
     jq
     thefuck
     hub
+    graphviz
+    plantuml
 )
 
 "brew tap..."
