@@ -237,17 +237,6 @@ repo = 'othree/yajs.vim'
 on_ft = ['javascript']
 
 [[plugins]]
-repo = 'prettier/vim-prettier'
-build = 'npm install'
-on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']
-hook_add = '''
-let g:prettier#exec_cmd_path = '/usr/local/bin/prettier'
-let g:prettier#exec_cmd_async = 1
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-'''
-
-[[plugins]]
 repo = 'heavenshell/vim-jsdoc'
 on_ft = ['javascript']
 hook_add = '''
@@ -389,6 +378,17 @@ on_ft = ['yaml']
 [[plugins]]
 repo = 'mechatroner/rainbow_csv'
 on_ft = ['csv']
+
+# (plant)uml
+[[plugins]]
+repo = 'aklt/plantuml-syntax'
+on_ft = ['plantuml']
+hook_add = '''
+au FileType plantuml command! OpenUml :!plantuml %
+'''
+[[plugins]]
+repo = 'scrooloose/vim-slumlord'
+on_ft = ['plantuml']
 
 [[plugins]]
 repo = 'kannokanno/previm'
