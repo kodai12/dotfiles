@@ -356,6 +356,14 @@ on_ft = ['go']
 repo = 'derekwyatt/vim-scala'
 on_ft = ['scala']
 
+[[plugins]]
+repo = 'ensime/ensime-vim'
+on_ft = ['scala']
+depends = ['vim-scala']
+hook_add = '''
+autocmd BufWritePost *.scala silent :EnTypeCheck
+'''
+
 # docker
 [[plugins]]
 repo = 'ekalinin/Dockerfile.vim'
