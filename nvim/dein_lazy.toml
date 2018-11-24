@@ -351,6 +351,11 @@ on_ft = ['go']
 repo = 'jodosha/vim-godebug'
 on_ft = ['go']
 
+# scala
+[[plugins]]
+repo = 'derekwyatt/vim-scala'
+on_ft = ['scala']
+
 # docker
 [[plugins]]
 repo = 'ekalinin/Dockerfile.vim'
