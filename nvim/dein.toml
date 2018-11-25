@@ -371,6 +371,9 @@ repo = 'junegunn/vim-easy-align'
 
 [[plugins]]
 repo = 'mbbill/undotree'
+hook_add = '''
+let g:undotree_WindowLayout = 5
+'''
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
