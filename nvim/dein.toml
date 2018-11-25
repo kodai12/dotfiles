@@ -452,7 +452,7 @@ call esearch#cmdline#map('<C-o><C-h>', 'cmdline-help')
 '''
 
 [[plugins]]
-repo = 'kana/vim-operator-user'
+repo = 'itchyny/vim-cursorword'
 
 ####################
 # Utility:
