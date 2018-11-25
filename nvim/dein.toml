@@ -454,6 +454,15 @@ call esearch#cmdline#map('<C-o><C-h>', 'cmdline-help')
 [[plugins]]
 repo = 'itchyny/vim-cursorword'
 
+[[plugins]]
+repo = 'airblade/vim-rooter'
+hook_add = '''
+let g:rooter_resolve_links = 1
+'''
+
+[[plugins]]
+repo = 'AndrewRadev/splitjoin.vim'
+
 ####################
 # Utility:
 ####################
