@@ -88,19 +88,19 @@ repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
 repo = 'ajmwagar/vim-deus'
-# hook_add = '''
-# colorscheme deus
-# '''
 
 [[plugins]]
 repo = 'AlessandroYorba/Alduin'
 hook_add = '''
 let g:alduin_Shout_Dragon_Aspect = 1
-colorscheme alduin
 '''
 
 [[plugins]]
-repo = 'kamykn/skyhawk'
+repo = 'rhysd/vim-color-spring-night'
+hook_add = '''
+let g:spring_night_cterm_italic = 1
+colorscheme spring-night
+'''
 
 ####################
 # Interfaces:
