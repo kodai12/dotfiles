@@ -26,6 +26,7 @@ formulas=(
     "--HEAD universal-ctags/universal-ctags/universal-ctags"
     cask
     fzf
+    fzy
     peco
     tig
     node
