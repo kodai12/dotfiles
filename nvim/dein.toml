@@ -423,8 +423,9 @@ let g:esearch = {
   \ 'batch_size': 10000,
   \ 'use':        ['visual', 'hlsearch', 'last'],
   \}
+" TODO: ripgrep 特定のディレクトリをexcludeさせる
 " Start esearch prompt autofilled with one of g:esearch.use initial patterns
-call esearch#map('<SPACE>ff', 'esearch')
+call esearch#map('<SPACE>fw', 'esearch')
 " Start esearch autofilled with a word under the cursor
 call esearch#map('<SPACE>fc', 'esearch-word-under-cursor')
 
@@ -462,6 +463,16 @@ let g:rooter_resolve_links = 1
 
 [[plugins]]
 repo = 'AndrewRadev/splitjoin.vim'
+
+[[plugins]]
+repo = 'srstevenson/vim-picker'
+hook_add = '''
+let g:picker_find_executable = 'rg'
+let g:picker_find_flags = '--color never --files -g "!tags/"'
+nmap ff <Plug>PickerEdit
+nmap fs <Plug>PickerSplit
+nmap fv <Plug>PickerVsplit
+'''
 
 ####################
 # Utility:
