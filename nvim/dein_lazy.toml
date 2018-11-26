@@ -299,10 +299,10 @@ on_ft = ['python']
 hook_add = '''
 let g:jedi#force_py_version = 3
 "let g:jedi#use_splits_not_buffers = 'winwidth'
-nnoremap <silent> <SPACE>jj :call jedi#goto()<cr>
-nnoremap <silent> <SPACE>jaj :call jedi#goto_assignments()<cr>
-nnoremap <silent> <SPACE>jd :call jedi#show_documentation()<cr>
-nnoremap <silent> <SPACE>jrn :call jedi#rename()<cr>
+augroup custom-jedi
+  autocmd FileType python nnoremap <silent> ; :call jedi#goto()<CR>
+  autocmd FileType python nnoremap <silent> K :call jedi#show_documentation()<CR>
+augroup END
 '''
 
 [[plugins]]
