@@ -474,6 +474,15 @@ nmap fs <Plug>PickerSplit
 nmap fv <Plug>PickerVsplit
 '''
 
+[[plugins]]
+repo = 'osyo-manga/vim-hopping'
+hook_add = '''
+nmap <SPACE>hh :HoppingStart<CR>
+'''
+
+[[plugins]]
+repo = 'junegunn/vim-peekaboo'
+
 ####################
 # Utility:
 ####################

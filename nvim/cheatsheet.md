@@ -49,6 +49,13 @@
 ### docker util
 - `<SPACE>doc`: DockerToolsToggle
 
+### hopping
+- `<SPACE>hh`: start hopping mode
+
+### peekaboo
+- `@/"(in normal mode)`: open register history
+- `<C-R>(in insert mode)`: open register history
+
 ### Git関係
 #### gina
 - `<SPACE>gs`: Gina status
