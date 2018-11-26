@@ -298,9 +298,9 @@ on_i = 1
 on_ft = ['python']
 hook_add = '''
 let g:jedi#force_py_version = 3
-let g:jedi#use_splits_not_buffers = 'winwidth'
-nnoremap <silent> <SPACE>jg :call jedi#goto()<cr>
-nnoremap <silent> <SPACE>jag :call jedi#goto_assignments()<cr>
+"let g:jedi#use_splits_not_buffers = 'winwidth'
+nnoremap <silent> <SPACE>jj :call jedi#goto()<cr>
+nnoremap <silent> <SPACE>jaj :call jedi#goto_assignments()<cr>
 nnoremap <silent> <SPACE>jd :call jedi#show_documentation()<cr>
 nnoremap <silent> <SPACE>jrn :call jedi#rename()<cr>
 '''

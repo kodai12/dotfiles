@@ -224,16 +224,16 @@ hook_post_update = '''
   let g:quickrun_config = {'*': {'hook/time/enable': '1'},}
 '''
 
-[[plugins]]
-repo = 'sbdchd/neoformat'
-hook_add = '''
-let g:neoformat_enabled_python = ['isort']
+# [[plugins]]
+# repo = 'sbdchd/neoformat'
+# hook_add = '''
+# let g:neoformat_enabled_python = ['isort']
 
-augroup fmt
-  autocmd!
-  autocmd BufWritePre *.py undojoin | Neoformat
-augroup END
-'''
+# augroup fmt
+#   autocmd!
+#   autocmd BufWritePre *.py undojoin | Neoformat
+# augroup END
+# '''
 
 ####################
 # Git:
