@@ -229,6 +229,9 @@ let g:choosewin_color_overlay_current = {
 [[plugins]]
 repo = 'weilbith/nerdtree_choosewin-plugin'
 
+[[plugins]]
+repo = 'bling/vim-bufferline'
+
 ####################
 # Language Plugins:
 ####################
