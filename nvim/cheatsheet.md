@@ -11,14 +11,13 @@
 ## plugins
 
 ### denite
-- `<SPACE>dg`: Denite grep
-- `<SPACE>dag`: Denite -auto-preview grep
-- `<SPACE>dc`: DeniteCursorWord grep
-- `<SPACE>dac`: DeniteCursorWord -auto-preview grep
-- `<SPACE>db`: Denite buffer
-- `<SPACE>df`: DeniteProjectDir file/rec
-- `<SPACE>dF`: Denite file_mru
-- `<SPACE>dy`: Denite neoyank
+- `?`: Denite grep
+- `<C-G>`: DeniteCursorWord grep
+- `B`: Denite buffer
+- `<C-P>`: DeniteProjectDir file/rec
+- `F`: Denite file_mru
+- `<SPACE>dh`: Denite help
+- `<SPACE>de`: Denite emoji
 - `<SPACE>gb`: Denite gitbranch
 - `<SPACE>gc`: Denite gitchanged
 - `<SPACE>gl`: Denite gitlog

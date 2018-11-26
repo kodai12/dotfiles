@@ -92,17 +92,12 @@ nnoremap <SPACE>mt :<C-u>MerginalToggle<CR>
 "------------------------
 " denite keymap
 "------------------------
-nnoremap <SPACE>dg :DeniteProjectDir grep -buffer-name='grep'<CR>
-nnoremap <SPACE>dag :DeniteProjectDir -auto-preview grep -buffer-name='grep'<CR>
-nnoremap <SPACE>dc :DeniteCursorWord grep -buffer-name='grep' -mode=insert<CR>
-nnoremap <SPACE>dac :DeniteCursorWord -auto-preview grep -buffer-name='grep' -mode=insert<CR>
-nnoremap <SPACE>db :Denite buffer -buffer-name='buffer' -mode=insert<CR>
-nnoremap <SPACE>df :DeniteProjectDir file_rec -buffer-name="file_rec"<CR>
-nnoremap <SPACE>dF :Denite file_mru<CR>
-nnoremap <SPACE>dh :Denite help<CR>
-nnoremap <SPACE>dl :Denite location_list<CR>
-nnoremap <SPACE>dq :Denite quickfix<CR>
-nnoremap <SPACE>dy :Denite neoyank<CR>
+nnoremap ? :DeniteProjectDir grep -buffer-name='grep'<CR>
+nnoremap <C-G> :DeniteCursorWord grep -buffer-name='grep' -mode=insert<CR>
+nnoremap B :Denite buffer -buffer-name='buffer' -mode=insert<CR>
+nnoremap <C-P> :DeniteProjectDir file_rec -buffer-name="file_rec"<CR>
+nnoremap F :Denite file_mru<CR>
+nnoremap <SPACe>dh :Denite help<CR>
 nnoremap <SPACE>de :Denite emoji<CR>
 nnoremap <SPACE>gb :Denite gitbranch<CR>
 nnoremap <SPACE>gc :Denite gitchanged<CR>

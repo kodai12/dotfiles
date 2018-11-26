@@ -485,11 +485,11 @@ call esearch#cmdline#map('<C-o><C-h>', 'cmdline-help')
 [[plugins]]
 repo = 'itchyny/vim-cursorword'
 
-[[plugins]]
-repo = 'airblade/vim-rooter'
-hook_add = '''
-let g:rooter_resolve_links = 1
-'''
+# [[plugins]]
+# repo = 'airblade/vim-rooter'
+# hook_add = '''
+# let g:rooter_resolve_links = 1
+# '''
 
 [[plugins]]
 repo = 'AndrewRadev/splitjoin.vim'
@@ -519,7 +519,7 @@ hook_add = '''
 let g:Lf_DefaultExternalTool = "rg"
 let g:Lf_RememberLastSearch = 1
 
-let g:Lf_ShortcutF = '<C-P>'
+" let g:Lf_ShortcutF = '<C-P>'
 nmap <C-L> :LeaderfLine<CR>
 '''
 
