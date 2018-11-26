@@ -590,6 +590,13 @@ let g:calendar_google_task = 1
 " TODO: todayのkeymapを変更する(togglとバッティング中)
 '''
 
+[[plugins]]
+repo = 'farmergreg/vim-lastplace'
+hook_add = '''
+let g:lastplace_ignore = "gitcommit,gitrebase,svn,hgcommit"
+let g:lastplace_ignore_buftype = "quickfix,nofile,help"
+'''
+
 ####################
 # Reference:
 ####################
