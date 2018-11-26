@@ -603,6 +603,9 @@ let g:lastplace_ignore_buftype = "quickfix,nofile,help"
 [[plugins]]
 repo = 'tpope/vim-speeddating'
 
+[[plugins]]
+repo = 'junegunn/vim-slash'
+
 ####################
 # Reference:
 ####################
