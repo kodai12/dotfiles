@@ -42,6 +42,9 @@
 ### undotree
 - `<SPACE>udt`: UndoTreeToggle
 
+### windowswap
+- `<SPACE>ww`: easy swap
+
 ### nerdtree
 - `ftt`: NERDTreeToggle
 - `ftf`: NERDTreeFind

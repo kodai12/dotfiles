@@ -202,6 +202,15 @@ let g:rainbow_conf = {
       \}
 '''
 
+[[plugins]]
+repo = 'wesQ3/vim-windowswap'
+hook_add = '''
+let g:windowswap_map_keys = 0 "prevent default bindings
+nnoremap <silent> <SPACE>wm :call WindowSwap#MarkWindowSwap()<CR>
+nnoremap <silent> <SPACE>ws :call WindowSwap#DoWindowSwap()<CR>
+nnoremap <silent> <SPACE>ww :call WindowSwap#EasyWindowSwap()<CR>
+'''
+
 ####################
 # Language Plugins:
 ####################
