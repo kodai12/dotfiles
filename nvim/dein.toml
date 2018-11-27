@@ -264,9 +264,6 @@ repo = 'weilbith/nerdtree_choosewin-plugin'
 [[plugins]]
 repo = 'bling/vim-bufferline'
 
-[[plugins]]
-repo = 'zefei/vim-colortuner'
-
 ####################
 # Language Plugins:
 ####################
