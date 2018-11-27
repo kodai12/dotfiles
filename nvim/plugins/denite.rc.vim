@@ -1,8 +1,3 @@
-highlight! DeniteMatchedChar guifg=#85678f
-highlight! DeniteMatchedRange guifg=#f0c674
-highlight! DenitePreviewLine guifg=#85678f
-highlight! DeniteUnderlined guifg=#85678f
-
 call denite#custom#option('_', {
       \ 'auto_accel': v:false,
       \ 'auto-highlight': v:false,
