@@ -1,3 +1,7 @@
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:webdevicons_enable_denite = 1
 let g:NERDTreeLimitedSyntax = 1
 let g:NERDTreeSyntaxDisableDefaultExtensions = 1
 let g:NERDTreeDisableExactMatchHighlight = 1
