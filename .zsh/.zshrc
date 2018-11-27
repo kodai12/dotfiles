@@ -123,5 +123,5 @@ eval "$(hub alias -s)"
 #----------------------
 # gcc setting(for my keyboard settings)
 #----------------------
-export PATH="/usr/local/opt/avr-gcc@7/bin:$PATH
+export PATH="/usr/local/opt/avr-gcc@7/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/avr-gcc@7/lib"

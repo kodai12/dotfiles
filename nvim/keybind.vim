@@ -95,8 +95,8 @@ nnoremap <SPACE>mt :<C-u>MerginalToggle<CR>
 nnoremap ? :DeniteProjectDir grep -buffer-name='grep'<CR>
 nnoremap <C-G> :DeniteCursorWord grep -buffer-name='grep' -mode=insert<CR>
 nnoremap B :Denite buffer -buffer-name='buffer' -mode=insert<CR>
-nnoremap <C-P> :DeniteProjectDir file_rec -buffer-name="file_rec"<CR>
-nnoremap F :Denite file_mru<CR>
+nnoremap F :DeniteProjectDir file_rec -buffer-name="file_rec"<CR>
+nnoremap <C-P> :Denite file_mru<CR>
 nnoremap <SPACe>dh :Denite help<CR>
 nnoremap <SPACE>de :Denite emoji<CR>
 nnoremap <SPACE>gb :Denite gitbranch<CR>
