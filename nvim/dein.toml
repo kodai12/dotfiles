@@ -55,6 +55,28 @@ repo = 'vim-jp/vital.vim'
 [[plugins]]
 repo = 'mattn/webapi-vim'
 
+[[plugins]]
+repo = 'kodai12/vim-workspace'
+hook_add = '''
+noremap <Tab> :WSNext<CR>
+noremap <S-Tab> :WSPrev<CR>
+noremap <SPACE><Tab> :WSClose<CR>
+noremap <SPACE><S-Tab> :WSBufOnly<CR>
+noremap <C-t> :WSTabNew<CR>
+
+cabbrev bonly WSBufOnly
+
+let g:workspace_powerline_separators = 1
+let g:workspace_tab_icon = "\uf00a"
+let g:workspace_modified_icon = "\uf040"
+let g:workspace_left_trunc_icon = "\uf0a8"
+let g:workspace_right_trunc_icon = "\uf0a9"
+
+highlight WorkspaceBufferCurrent ctermfg=17 ctermbg=11 guibg=#d7005f
+highlight WorkspaceTabHidden ctermfg=246 ctermbg=246 guifg=#949494 guibg=#949494
+highlight WorkspaceFill ctermfg=246 ctermbg=246 guifg=#949494 guibg=#949494
+'''
+
 ####################
 # Dein:
 ####################
