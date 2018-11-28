@@ -51,6 +51,8 @@ formulas=(
     hub
     graphviz
     plantuml
+    reattach-to-user-namespace
+    ansiweather
 )
 
 "brew tap..."
