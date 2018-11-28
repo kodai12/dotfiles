@@ -266,6 +266,14 @@ repo = 'weilbith/nerdtree_choosewin-plugin'
 [[plugins]]
 repo = 'bling/vim-bufferline'
 
+[[plugins]]
+repo = 'machakann/vim-highlightedyank'
+hook_add = '''
+if !exists('##TextYankPost')
+  map y <Plug>(highlightedyank)
+endif
+'''
+
 ####################
 # Language Plugins:
 ####################
@@ -498,45 +506,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'eugen0329/vim-esearch'
-hook_add = '''
-let g:esearch = {
-  \ 'adapter':    'rg',
-  \ 'backend':    'vimproc',
-  \ 'out':        'qflist',
-  \ 'batch_size': 10000,
-  \ 'use':        ['visual', 'hlsearch', 'last'],
-  \}
-" TODO: ripgrep 特定のディレクトリをexcludeさせる
-" Start esearch prompt autofilled with one of g:esearch.use initial patterns
-call esearch#map('<SPACE>fw', 'esearch')
-" Start esearch autofilled with a word under the cursor
-call esearch#map('<SPACE>fc', 'esearch-word-under-cursor')
-
-call esearch#out#win#map('t',       'tab')
-call esearch#out#win#map('i',       'split')
-call esearch#out#win#map('s',       'vsplit')
-call esearch#out#win#map('<Enter>', 'open')
-call esearch#out#win#map('o',       'open')
-
-"    Open silently (keep focus on the results window)
-call esearch#out#win#map('T', 'tab-silent')
-call esearch#out#win#map('I', 'split-silent')
-call esearch#out#win#map('S', 'vsplit-silent')
-
-"    Move cursor with snapping
-call esearch#out#win#map('<C-n>', 'next')
-call esearch#out#win#map('<C-j>', 'next-file')
-call esearch#out#win#map('<C-p>', 'prev')
-call esearch#out#win#map('<C-k>', 'prev-file')
-
-call esearch#cmdline#map('<C-o><C-r>', 'toggle-regex')
-call esearch#cmdline#map('<C-o><C-s>', 'toggle-case')
-call esearch#cmdline#map('<C-o><C-w>', 'toggle-word')
-call esearch#cmdline#map('<C-o><C-h>', 'cmdline-help')
-'''
-
-[[plugins]]
 repo = 'itchyny/vim-cursorword'
 
 # [[plugins]]
@@ -547,16 +516,6 @@ repo = 'itchyny/vim-cursorword'
 
 [[plugins]]
 repo = 'AndrewRadev/splitjoin.vim'
-
-[[plugins]]
-repo = 'srstevenson/vim-picker'
-hook_add = '''
-let g:picker_find_executable = 'rg'
-let g:picker_find_flags = '--color never --files -g "!tags/"'
-nmap ff <Plug>PickerEdit
-nmap fs <Plug>PickerSplit
-nmap fv <Plug>PickerVsplit
-'''
 
 [[plugins]]
 repo = 'osyo-manga/vim-hopping'
@@ -656,9 +615,6 @@ let g:lastplace_ignore_buftype = "quickfix,nofile,help"
 
 [[plugins]]
 repo = 'tpope/vim-speeddating'
-
-[[plugins]]
-repo = 'junegunn/vim-slash'
 
 [[plugins]]
 repo = 'kamykn/spelunker.vim'
