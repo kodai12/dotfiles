@@ -72,9 +72,11 @@ let g:workspace_modified_icon = "\uf040"
 let g:workspace_left_trunc_icon = "\uf0a8"
 let g:workspace_right_trunc_icon = "\uf0a9"
 
-highlight WorkspaceBufferCurrent ctermfg=17 ctermbg=11 guibg=#d7005f
-highlight WorkspaceTabHidden ctermfg=246 ctermbg=246 guifg=#949494 guibg=#949494
-highlight WorkspaceFill ctermfg=246 ctermbg=246 guifg=#949494 guibg=#949494
+highlight WorkspaceBufferCurrent ctermfg=17 ctermbg=11 guibg=#d75f87
+highlight WorkspaceBufferHidden ctermfg=255 ctermbg=237 guifg=#eeeeee guibg=#3a3a3a
+highlight WorkspaceTabCurrent ctermfg=015 ctermbg=105 guifg=#ffffff guibg=#8787ff
+highlight WorkspaceTabHidden ctermfg=246 ctermbg=246 guifg=#eeeeee guibg=#1c1c1c
+highlight WorkspaceFill ctermfg=246 ctermbg=246 guifg=#eeeeee guibg=#1c1c1c
 '''
 
 ####################
