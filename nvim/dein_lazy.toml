@@ -79,6 +79,7 @@ let g:neopairs#enable = 1
 [[plugins]]
 repo = 'Shougo/echodoc.vim'
 hook_source = '''
+set cmdheight=2
 let g:echodoc#enable_at_startup = 1
 '''
 
