@@ -247,6 +247,11 @@ autocmd FileType javascript nmap <silent> <C-_> ?function<cr>:noh<cr><Plug>(jsdo
 [[plugins]]
 repo = 'posva/vim-vue'
 on_ft = ['vue']
+hook_add = '''
+autocmd FileType vue syntax sync fromstart
+set ttyfast
+set lazyredraw
+'''
 
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
