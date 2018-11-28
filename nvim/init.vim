@@ -12,7 +12,6 @@ set helpheight=999
 set list
 set whichwrap=b,s,h,l,<,>,[,],~
 set scrolloff=5
-set t_Co=256
 set guifont=Hack\ Regular\ Nerd\ Font\ Complete:h15
 set fileformats=unix,dos,mac
 set fileencodings=utf-8,euc-jp,sjis,cp932,iso-2022-jp
@@ -135,6 +134,8 @@ endif
 "" setting colorsheme
 filetype plugin on
 syntax on
+set t_Co=256
+set termguicolors
 set background=dark
 highlight Visual ctermfg=234 ctermbg=252 guifg=#161821 guibg=#c6c8d1
 " 折りたたみ時の色を設定
@@ -335,5 +336,7 @@ if has('persistent_undo')
   augroup END
 endif
 
-
 source ~/dotfiles/nvim/keybind.vim
+
+
+set secure
