@@ -459,8 +459,8 @@ hook_add = '''
 [[plugins]]
 repo = 'scrooloose/nerdcommenter'
 hook_add = '''
-  let g:NERDSpaceDelims=1
-  let g:NERDDefaultAlign='left'
+let g:NERDSpaceDelims=1
+let g:NERDDefaultAlign='left'
 let g:ft = ''
 " setting for vue file
 function! NERDCommenter_before()
@@ -661,8 +661,8 @@ repo = 'junegunn/vim-slash'
 [[plugins]]
 repo = 'kamykn/spelunker.vim'
 hook_add = '''
-nmap <unique> <C-A><C-W> <Plug>(spelunker-correct-from-list)
-nmap <unique> <C-A><C-A> <Plug>(spelunker-correct-all-from-list)
+nmap <unique> <C-W><C-W> <Plug>(spelunker-correct-from-list)
+nmap <unique> <C-W><C-A> <Plug>(spelunker-correct-all-from-list)
 nmap <unique> <C-C><C-C> <Plug>(spelunker-correct)
 nmap <unique> <C-C><C-A> <Plug>(spelunker-correct-all)
 '''
