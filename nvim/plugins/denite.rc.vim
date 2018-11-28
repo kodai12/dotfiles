@@ -36,7 +36,7 @@ call denite#custom#var('file_rec', 'command',
 
 "" grep
 if executable('rg')
-  let s:denite_grep_ops = ['--mmap', '--threads=12', '--hidden', '--smart-case', '--vimgrep', '--no-ignore-vcs', '--no-heading', '--glob', '!.git', '--glob', '!vendor']
+  let s:denite_grep_ops = ['--mmap', '--threads=12', '--hidden', '--smart-case', '--vimgrep', '--no-ignore-vcs', '--no-heading']
   call denite#custom#var('grep', 'command', ['rg'])
   call denite#custom#var('grep', 'default_opts', s:denite_grep_ops)
   call denite#custom#var('grep', 'recursive_opts', [])
