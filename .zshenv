@@ -28,3 +28,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
   source "${VIRTUAL_ENV}/bin/activate"
 fi
+
+# setting cursor
+export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)

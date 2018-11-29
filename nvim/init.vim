@@ -28,11 +28,11 @@ set hidden
 set autoread
 set noswapfile
 "{{{ cf. https://gist.github.com/nepsilon/003dd7cfefc20ce1e894db9c94749755
-set backup
-set backupdir=~/.config/nvim/backup//
-set writebackup
-set backupcopy=yes
-au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
+" set backup
+" set backupdir=~/.config/nvim/backup//
+" set writebackup
+" set backupcopy=yes
+" au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
 "}}}
 
 "" about search/replacement management
@@ -137,7 +137,8 @@ syntax on
 set t_Co=256
 set termguicolors
 set background=dark
-highlight Visual ctermfg=234 ctermbg=252 guifg=#161821 guibg=#c6c8d1
+let &t_8f = "\e[38;2;%lu;%lu;%lum"
+let &t_8b = "\e[48;2;%lu;%lu;%lum"
 " 折りたたみ時の色を設定
 highlight Folded ctermfg=131
 " ALE warningの色を調整
