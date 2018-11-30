@@ -245,24 +245,24 @@ nnoremap <silent> <SPACE>ws :call WindowSwap#DoWindowSwap()<CR>
 nnoremap <silent> <SPACE>ww :call WindowSwap#EasyWindowSwap()<CR>
 '''
 
-[[plugins]]
-repo = 't9md/vim-choosewin'
-hook_add = '''
-nmap W <Plug>(choosewin)
-let g:choosewin_overlay_enable = 1
-let g:choosewin_blink_on_land = 0
-let g:choosewin_color_overlay = {
-      \ 'gui': ['DodgerBlue3', 'DodgerBlue3'],
-      \ 'cterm': [25, 25]
-      \ }
-let g:choosewin_color_overlay_current = {
-      \ 'gui': ['firebrick1', 'firebrick1'],
-      \ 'cterm': [124, 124]
-      \ }
-'''
+# [[plugins]]
+# repo = 't9md/vim-choosewin'
+# hook_add = '''
+# nmap W <Plug>(choosewin)
+# let g:choosewin_overlay_enable = 1
+# let g:choosewin_blink_on_land = 0
+# let g:choosewin_color_overlay = {
+#       \ 'gui': ['DodgerBlue3', 'DodgerBlue3'],
+#       \ 'cterm': [25, 25]
+#       \ }
+# let g:choosewin_color_overlay_current = {
+#       \ 'gui': ['firebrick1', 'firebrick1'],
+#       \ 'cterm': [124, 124]
+#       \ }
+# '''
 
-[[plugins]]
-repo = 'weilbith/nerdtree_choosewin-plugin'
+# [[plugins]]
+# repo = 'weilbith/nerdtree_choosewin-plugin'
 
 [[plugins]]
 repo = 'bling/vim-bufferline'
