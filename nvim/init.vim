@@ -137,8 +137,7 @@ syntax on
 set t_Co=256
 set termguicolors
 set background=dark
-let &t_8f = "\e[38;2;%lu;%lu;%lum"
-let &t_8b = "\e[48;2;%lu;%lu;%lum"
+hi Visual guibg=#ab6560 ctermbg=95
 " 折りたたみ時の色を設定
 highlight Folded ctermfg=131
 " ALE warningの色を調整
