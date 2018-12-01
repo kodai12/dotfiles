@@ -37,13 +37,16 @@ call denite#custom#map(
 
 [[plugins]]
 repo = 'pocari/vim-denite-emoji'
+on_source = 'denite.nvim'
 depends = ['denite.nvim', 'vim-emoji']
 
 [[plugins]]
 repo = 'junegunn/vim-emoji'
+on_source = 'vim-denite-emoji'
 
 [[plugins]]
 repo = 'notomo/denite-keymap'
+on_source = 'denite.nvim'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -76,6 +79,8 @@ let g:neopairs#enable = 1
 
 [[plugins]]
 repo = 'Shougo/echodoc.vim'
+depends = ['deoplte.nvim']
+on_event = 'InsertEnter'
 hook_source = '''
 set cmdheight=2
 let g:echodoc#enable_at_startup = 1
@@ -125,6 +130,7 @@ depends = ['deoplete.nvim']
 
 [[plugins]]
 repo = 'zchee/deoplete-docker'
+on_ft = ['Dockerfile']
 
 [[plugins]]
 repo = 'SevereOverfl0w/deoplete-github'
@@ -145,6 +151,7 @@ call deoplete#util#set_pattern(
 [[plugins]]
 repo = 'fszymanski/deoplete-emoji'
 depends = ['deoplete.nvim']
+on_ft = ['gitcommit', 'markdown']
 
 ####################
 # Language Client:
@@ -375,7 +382,7 @@ autocmd BufWritePost *.scala silent :EnTypeCheck
 # docker
 [[plugins]]
 repo = 'ekalinin/Dockerfile.vim'
-on_ft = ['dockerfile']
+on_ft = ['Dockerfile']
 
 # json
 [[plugins]]
