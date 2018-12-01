@@ -68,23 +68,6 @@ nnoremap <silent> [NERDTree]t :NERDTreeToggle<CR>
 nnoremap <silent> [NERDTree]f :NERDTreeFind<CR>
 
 "------------------------
-" fugitive keymap
-"------------------------
-" nnoremap <silent> <SPACE>gs :<C-u>Gstatus<CR>
-" nnoremap <silent> <SPACE>gv :<C-u>Gvdiff<CR>
-" nnoremap <silent> <SPACE>gB :Gblame<CR>
-" nnoremap <silent> <SPACE>ga :<C-u>Gwrite<CR>
-" nnoremap <silent> <SPACE>gC :<C-u>Gcommit-v<CR>
-nnoremap <silent> <SPACE>gp :Git push origin<SPACE>
-
-"------------------------
-" gina keymapping
-"------------------------
-nnoremap <silent> <SPACE>gs :Gina status --opener="botright split"<CR>
-nnoremap <silent> <SPACE>gc :Gina commit<CR>
-nnoremap <silent> <SPACE>gB :Gina blame<CR>
-
-"------------------------
 " merginal keymap
 "------------------------
 nnoremap <SPACE>mt :<C-u>MerginalToggle<CR>

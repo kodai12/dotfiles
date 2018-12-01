@@ -61,8 +61,23 @@
 ### Git関係
 #### gina
 - `<SPACE>gs`: Gina status
+- `<SPACE>gL`: Gina log master...HEAD
+- `<SPACE>gll`: Gina log
+- `<SPACE>grl`: Gina reflog
+- `<SPACE>gls`: Gina ls
+- `<SPACE>gT`: Gina tag
 - `<SPACE>gc`: Gina commit
-- `<SPACE>gB`: Gina blame
+- `<SPACE>gxs`: Gina stash save "XXX"
+- `<SPACE>gxx`: Gina stash show
+- `<SPACE>gP`: Gina! push origin "XXX"
+- `<SPACE>gH`: Gina! pull origin "XXX"
+- `<SPACE>gF`: Gina! fetch origin --prune
+- `<SPACE>gM`: Gina! merge --no-ff "XXX"
+- `<SPACE>gR`: Gina! rebase "XXX"
+- `<SPACE>gb`: Gina blame
+- `<SPACE>gfl`: Gina log
+- `<SPACE>dd`: Gina compare
+- `<SPACE>df`: Gina diff
 
 #### agit
 - `<SPACE>ag`: Agit
