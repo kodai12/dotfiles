@@ -75,11 +75,6 @@ source ~/dotfiles/nvim/plugins/deoplete.rc.vim
 '''
 
 [[plugins]]
-repo = 'Shougo/neoinclude.vim'
-depends = ['deoplte.nvim']
-on_if = 1
-
-[[plugins]]
 repo = 'Shougo/neopairs.vim'
 on_event = ['CompleteDone']
 hook_source = '''
