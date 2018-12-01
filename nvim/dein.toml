@@ -73,7 +73,7 @@ let g:workspace_left_trunc_icon = "\uf0a8"
 let g:workspace_right_trunc_icon = "\uf0a9"
 
 highlight WorkspaceBufferCurrent ctermfg=17 ctermbg=11 guibg=#d75f87
-highlight WorkspaceBufferActive ctermfg=256 ctermbg=237 guifg=#eeeeee guibg=#3a3a3a
+highlight WorkspaceBufferActive ctermfg=255 ctermbg=237 guifg=#eeeeee guibg=#3a3a3a
 highlight WorkspaceBufferHidden ctermfg=255 ctermbg=237 guifg=#eeeeee guibg=#3a3a3a
 highlight WorkspaceTabCurrent ctermfg=015 ctermbg=105 guifg=#ffffff guibg=#8787ff
 highlight WorkspaceTabHidden ctermfg=246 ctermbg=246 guifg=#eeeeee guibg=#1c1c1c
@@ -245,24 +245,24 @@ nnoremap <silent> <SPACE>ws :call WindowSwap#DoWindowSwap()<CR>
 nnoremap <silent> <SPACE>ww :call WindowSwap#EasyWindowSwap()<CR>
 '''
 
-[[plugins]]
-repo = 't9md/vim-choosewin'
-hook_add = '''
-nmap W <Plug>(choosewin)
-let g:choosewin_overlay_enable = 1
-let g:choosewin_blink_on_land = 0
-let g:choosewin_color_overlay = {
-      \ 'gui': ['DodgerBlue3', 'DodgerBlue3'],
-      \ 'cterm': [25, 25]
-      \ }
-let g:choosewin_color_overlay_current = {
-      \ 'gui': ['firebrick1', 'firebrick1'],
-      \ 'cterm': [124, 124]
-      \ }
-'''
+# [[plugins]]
+# repo = 't9md/vim-choosewin'
+# hook_add = '''
+# nmap W <Plug>(choosewin)
+# let g:choosewin_overlay_enable = 1
+# let g:choosewin_blink_on_land = 0
+# let g:choosewin_color_overlay = {
+#       \ 'gui': ['DodgerBlue3', 'DodgerBlue3'],
+#       \ 'cterm': [25, 25]
+#       \ }
+# let g:choosewin_color_overlay_current = {
+#       \ 'gui': ['firebrick1', 'firebrick1'],
+#       \ 'cterm': [124, 124]
+#       \ }
+# '''
 
-[[plugins]]
-repo = 'weilbith/nerdtree_choosewin-plugin'
+# [[plugins]]
+# repo = 'weilbith/nerdtree_choosewin-plugin'
 
 [[plugins]]
 repo = 'bling/vim-bufferline'
@@ -495,7 +495,32 @@ endfunction
 '''
 
 [[plugins]]
-repo = 'tpope/vim-surround'
+repo = 'rhysd/vim-operator-surround'
+hook_add = '''
+" operator mappings
+map <silent>sa <Plug>(operator-surround-append)
+map <silent>sd <Plug>(operator-surround-delete)
+map <silent>sr <Plug>(operator-surround-replace)
+
+
+" delete or replace most inner surround
+
+" if you use vim-textobj-anyblock
+nmap <silent>sdd <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
+nmap <silent>srr <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
+
+" if you use vim-textobj-between
+nmap <silent>sdb <Plug>(operator-surround-delete)<Plug>(textobj-between-a)
+nmap <silent>srb <Plug>(operator-surround-replace)<Plug>(textobj-between-a)
+'''
+[[plugins]]
+repo = 'rhysd/vim-textobj-anyblock'
+depends = ['vim-textobj-user']
+[[plugins]]
+repo = 'thinca/vim-textobj-between'
+depends = ['vim-textobj-user']
+[[plugins]]
+repo = 'kana/vim-textobj-user'
 
 [[plugins]]
 repo = 'machakann/vim-sandwich'
@@ -642,3 +667,11 @@ hook_add = '''
 source ~/dotfiles/nvim/plugins/leader_guide.rc.vim
 '''
 
+####################
+# control browser
+####################
+[[plugins]]
+repo = 'notomo/ctrlb.nvim'
+build = 'npm run setup'
+hook_add = '''
+'''
