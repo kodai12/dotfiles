@@ -182,9 +182,6 @@ source ~/dotfiles/nvim/plugins/startify.rc.vim
 '''
 
 [[plugins]]
-repo = 'osyo-manga/vim-anzu'
-
-[[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
 source ~/.config/nvim/plugins/lightline.rc.vim
