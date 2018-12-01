@@ -44,7 +44,7 @@ if executable('rg')
   call denite#custom#var('grep', 'separator', ['--'])
   call denite#custom#var('grep', 'final_opts', [])
   call denite#custom#source('grep', 'max_candidates', 10000)
-  call denite#custom#source('grep', 'matchers', ['matcher_fuzzy', 'matcher_regexp', 'matcher_ignore_globs'])
+  call denite#custom#source('grep', 'matchers', ['matcher_fuzzy', 'matcher/regexp', 'matcher_ignore_globs'])
 endif
 " let s:denite_grep_ignore=&wildignore .
 "       \ ',*.pyc,.git,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.cache,dist,target'
