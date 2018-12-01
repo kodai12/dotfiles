@@ -57,14 +57,9 @@ on_source = 'denite.nvim'
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 on_cmd = 'Denite'
-depends = ['cpsm']
-hook_source = '''
+hook_post_source = '''
 source ~/dotfiles/nvim/plugins/denite.rc.vim
 '''
-
-[[plugins]]
-repo = 'nixprime/cpsm'
-build = 'env PY3=ON ./install.sh'
 
 ####################
 # Deoplete:
