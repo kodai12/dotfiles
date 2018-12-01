@@ -92,8 +92,15 @@ let g:echodoc#enable_at_startup = 1
 
 [[plugins]]
 repo = 'carlitux/deoplete-ternjs'
-depends = ['deoplete.nvim', 'tern_for_vim']
-on_ft = ['javascript']
+on_ft = ['javascript', 'vue']
+hook_source = '''
+let g:deoplete#sources#ternjs#timeout = 1
+let g:deoplete#sources#ternjs#types = 1
+let g:deoplete#sources#ternjs#depths = 1
+let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#omit_object_prototype = 0
+let g:deoplete#sources#ternjs#include_keywords = 1
+'''
 
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
@@ -238,18 +245,6 @@ repo = 'ap/vim-css-color'
 on_ft = ['css']
 
 # javascript
-[[plugins]]
-repo = 'ternjs/tern_for_vim'
-on_ft = ['javascript']
-hook_post_update = '''
-!npm install -g tern
-'''
-hook_source = '''
-let g:deoplete#sources#ternjs#types = 1
-let g:deoplete#sources#ternjs#depths = 1
-let g:deoplete#sources#ternjs#docs = 1
-'''
-
 [[plugins]]
 repo = 'othree/yajs.vim'
 on_ft = ['javascript']
