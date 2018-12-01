@@ -1,4 +1,3 @@
-let g:deoplete#enable_at_startup = 1
 let s:deoplete_custom_option = {
       \ 'auto_complete_delay': 5,
       \ 'auto_refresh_delay': 30,

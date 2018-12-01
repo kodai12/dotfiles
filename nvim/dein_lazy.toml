@@ -71,7 +71,10 @@ build = 'env PY3=ON ./install.sh'
 ####################
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-on_event = 'InsertEnter'
+on_event = 'InsertCharPre'
+hook_add = '''
+let g:deoplete#enable_at_startup = 1
+'''
 hook_source = '''
 source ~/dotfiles/nvim/plugins/deoplete.rc.vim
 '''
