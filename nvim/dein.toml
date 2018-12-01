@@ -664,6 +664,9 @@ nmap <unique> <C-C><C-C> <Plug>(spelunker-correct)
 nmap <unique> <C-C><C-A> <Plug>(spelunker-correct-all)
 '''
 
+[[plugins]]
+repo = 'vim-scripts/gitignore'
+
 ####################
 # Reference:
 ####################
