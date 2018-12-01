@@ -287,14 +287,6 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 [[plugins]]
 repo = 'kkvh/vim-docker-tools'
 
-[[plugins]]
-repo = 'thinca/vim-quickrun'
-if = '''has('nvim')'''
-depends = ['vimproc.vim']
-hook_post_update = '''
-source ~/.config/nvim/plugins/quickrun.rc.vim
-'''
-
 # [[plugins]]
 # repo = 'sbdchd/neoformat'
 # hook_add = '''
@@ -423,7 +415,7 @@ vnoremap <silent> <SPACE>mc :MultipleCursorsFind <C-R>/<CR>
 
 [[plugins]]
 repo = 'thinca/vim-qfreplace'
-
+# hook_add = 'nnoremap <Space>q :<C-u>Qfreplace<CR>'
 
 [[plugins]]
 repo = 'junegunn/vim-easy-align'

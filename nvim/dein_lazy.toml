@@ -446,6 +446,21 @@ nnoremap <silent> <SPACE>po :PrevimOpen<cr>
 '''
 
 ####################
+# Quickrun:
+####################
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_cmd = 'QuickRun'
+depends = ['vimproc.vim']
+hook_add = '''
+nnoremap <silent> <Space>q :QuickRun<CR>
+xnoremap <silent> <Space>q :QuickRun -mode v<CR>
+'''
+hook_source = '''
+source ~/.config/nvim/plugins/quickrun.rc.vim
+'''
+
+####################
 # Reference:
 ####################
 [[plugins]]
