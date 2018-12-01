@@ -133,6 +133,7 @@ let g:alduin_Shout_Dragon_Aspect = 1
 repo = 'rhysd/vim-color-spring-night'
 hook_add = '''
 let g:spring_night_cterm_italic = 1
+let g:spring_night_high_contrast = 0
 colorscheme spring-night
 '''
 
@@ -405,6 +406,9 @@ nnoremap zz zO<CR>
 # Operation:
 ####################
 [[plugins]]
+repo = 'kana/vim-operator-user'
+
+[[plugins]]
 repo = 'terryma/vim-multiple-cursors'
 hook_add = '''
 highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
@@ -415,10 +419,7 @@ vnoremap <silent> <SPACE>mc :MultipleCursorsFind <C-R>/<CR>
 
 [[plugins]]
 repo = 'thinca/vim-qfreplace'
-# hook_add = 'nnoremap <Space>q :<C-u>Qfreplace<CR>'
-
-[[plugins]]
-repo = 'junegunn/vim-easy-align'
+hook_add = 'nnoremap <Space>Q :<C-u>Qfreplace<CR>'
 
 [[plugins]]
 repo = 'mbbill/undotree'
@@ -431,8 +432,6 @@ repo = 'cohama/lexima.vim'
 
 [[plugins]]
 repo = 'simeji/winresizer'
-hook_add = '''
-'''
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
@@ -575,9 +574,6 @@ repo = 'miyakogi/seiya.vim'
 
 [[plugins]]
 repo = 'cocopon/colorswatch.vim'
-
-[[plugins]]
-repo = 'tmhedberg/matchit'
 
 [[plugins]]
 repo = 't9md/vim-textmanip'
