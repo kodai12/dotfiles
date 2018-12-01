@@ -561,6 +561,20 @@ nmap <C-p><C-b> <Plug>(yankround-prev)
 nmap <C-p><C-f> <Plug>(yankround-next)
 '''
 
+[[plugins]]
+repo = 'kana/vim-smartword'
+hook_add = '''
+nmap w <Plug>(smartword-w)
+xmap w <Plug>(smartword-w)
+omap w <Plug>(smartword-w)
+nmap b <Plug>(smartword-b)
+xmap b <Plug>(smartword-b)
+omap b <Plug>(smartword-b)
+nmap e <Plug>(smartword-e)
+xmap e <Plug>(smartword-e)
+omap e <Plug>(smartword-e)
+'''
+
 ####################
 # Utility:
 ####################
