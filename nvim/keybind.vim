@@ -82,7 +82,7 @@ nnoremap ? :<C-u>DeniteProjectDir grep -no-empty -immediately-1<CR>
 nnoremap <C-G> :<C-u>DeniteCursorWord grep -no-empty -immediately-1<CR>
 nnoremap B :<C-u>Denite buffer -mode=insert -cursor-wrap=true -no-empty -immediately-1<CR>
 nnoremap F :<C-u>DeniteProjectDir file_rec -no-empty -immediately-1<CR>
-nnoremap <C-P> :Denite file_mru -cursor-wrap=true -no-empty -immediately-1<CR>
+nnoremap <silent> [denite]f :Denite file_mru -cursor-wrap=true -no-empty -immediately-1<CR>
 nnoremap <silent> [denite]c :<C-u>Denite change -auto-preview -no-empty<CR>
 nnoremap <silent> [denite]h :<C-u>Denite help<CR>
 nnoremap <silent> [denite]e :<C-u>Denite emoji<CR>

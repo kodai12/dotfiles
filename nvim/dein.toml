@@ -548,6 +548,19 @@ let g:Lf_RememberLastSearch = 1
 nmap <C-L> :LeaderfLine<CR>
 '''
 
+[[plugins]]
+repo = 'LeafCage/yankround.vim'
+hook_add = '''
+nmap p <Plug>(yankround-p)
+xmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+xmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+nmap <C-p><C-b> <Plug>(yankround-prev)
+nmap <C-p><C-f> <Plug>(yankround-next)
+'''
+
 ####################
 # Utility:
 ####################

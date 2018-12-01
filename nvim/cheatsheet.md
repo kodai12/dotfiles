@@ -58,6 +58,10 @@
 - `@/"(in normal mode)`: open register history
 - `<C-R>(in insert mode)`: open register history
 
+### yankround
+- `<C-p><C-b>`: 1つ前のレジスタを選択
+- `<C-p><C-f>`: 1つ先のレジスタを選択
+
 ### Git関係
 #### gina
 - `<SPACE>gs`: Gina status
