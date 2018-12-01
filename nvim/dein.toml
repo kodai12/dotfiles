@@ -1,40 +1,29 @@
 ####################
 # Develop Plugin:
 ####################
-[[plugins]]
-repo = 'kodai12/lightline-delphinus'
-depends = ['lightline', 'ale', 'tagbar', 'vim-gitgutter', 'powerline', 'sky-color-clock.vim', 'toggl.vim']
-hook_add = '''
-let g:lightline_delphinus_use_powerline_glyphs = 1
-let g:lightline_delphinus_use_nerd_fonts_glyphs = 1
-let g:lightline_delphinus_colorscheme = 'nord_improved'
-let g:lightline_delphinus_tagbar_enable = 1
-let g:lightline_delphinus_gitgutter_enable = 1
-'''
-
-[[plugins]]
-repo = 'kodai12/toggl.vim'
-depends = 'vital.vim'
-hook_add = '''
-if filereadable(expand('~/dotfiles/nvim/env.vim'))
-  source ~/dotfiles/nvim/env.vim
-endif
-nnoremap tt :TogglStop<CR>
-nnoremap ts :TogglStart
-nnoremap tag :TogglStart +aratana-gateway
-nnoremap tad :TogglStart +aratana-gateway-dashboard
-nnoremap tao :TogglStart +aratana-others
-nnoremap te :TogglStart +env-settings
-nnoremap tl :TogglStart +private-learn
-vnoremap ts :TogglSelectStart<CR>
-augroup autoTogglCacheUpdate
-  autocmd!
-  autocmd BufRead call toggl#task_cache_update()
-  autocmd BufEnter call toggl#task_cache_update()
-  autocmd VimEnter call toggl#task_cache_update()
-  autocmd QuitPre call toggl#task_cache_update()
-augroup END
-'''
+# [[plugins]]
+# repo = 'kodai12/toggl.vim'
+# depends = 'vital.vim'
+# hook_add = '''
+# if filereadable(expand('~/dotfiles/nvim/env.vim'))
+#   source ~/dotfiles/nvim/env.vim
+# endif
+# nnoremap tt :TogglStop<CR>
+# nnoremap ts :TogglStart
+# nnoremap tag :TogglStart +aratana-gateway
+# nnoremap tad :TogglStart +aratana-gateway-dashboard
+# nnoremap tao :TogglStart +aratana-others
+# nnoremap te :TogglStart +env-settings
+# nnoremap tl :TogglStart +private-learn
+# vnoremap ts :TogglSelectStart<CR>
+# augroup autoTogglCacheUpdate
+#   autocmd!
+#   autocmd BufRead call toggl#task_cache_update()
+#   autocmd BufEnter call toggl#task_cache_update()
+#   autocmd VimEnter call toggl#task_cache_update()
+#   autocmd QuitPre call toggl#task_cache_update()
+# augroup END
+# '''
 
 [[plugins]]
 repo = 'kodai12/vimify'
@@ -197,6 +186,9 @@ repo = 'osyo-manga/vim-anzu'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+hook_add = '''
+source ~/.config/nvim/plugins/lightline.rc.vim
+'''
 
 [[plugins]]
 repo = 'powerline/powerline'
