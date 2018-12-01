@@ -667,3 +667,11 @@ hook_add = '''
 source ~/dotfiles/nvim/plugins/leader_guide.rc.vim
 '''
 
+####################
+# control browser
+####################
+[[plugins]]
+repo = 'notomo/ctrlb.nvim'
+build = 'npm run setup'
+hook_add = '''
+'''
