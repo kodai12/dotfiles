@@ -279,9 +279,6 @@ endif
 # Language Plugins:
 ####################
 [[plugins]]
-repo = 'Shougo/context_filetype.vim'
-
-[[plugins]]
 repo = 'editorconfig/editorconfig-vim'
 hook_add = '''
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']

@@ -62,7 +62,6 @@ build = 'env PY3=ON ./install.sh'
 ####################
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-depends = ['context_filetype.vim']
 on_event = 'InsertEnter'
 hook_source = '''
 source ~/dotfiles/nvim/plugins/deoplete.rc.vim
@@ -252,6 +251,10 @@ autocmd FileType vue syntax sync fromstart
 set ttyfast
 set lazyredraw
 '''
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+on_ft = ['vue']
 
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
