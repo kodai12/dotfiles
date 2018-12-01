@@ -21,6 +21,12 @@ set clipboard+=unnamedplus
 set mouse-=a
 set backspace=indent,eol,start
 set backupskip+=/private/tmp/*
+set noshowmode
+set lazyredraw
+set ttyfast
+if has('nvim')
+  set inccommand=split
+endif
 
 "" about file management
 set confirm
