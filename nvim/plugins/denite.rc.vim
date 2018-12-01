@@ -27,7 +27,7 @@ if executable('rg')
   let s:denite_rg_command = ['rg', '--files', '--mmap', '--threads=12', '--hidden', '--smart-case', '--no-ignore-vcs', '--no-heading', '--glob', '!.git', '--glob', '!vendor', '']
   call denite#custom#var('file_rec', 'command', s:denite_rg_command)
 endif
-call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
+call denite#custom#source('file_rec', 'matchers', ['matcher/regexp', 'matcher_cpsm', 'matcher_ignore_globs'])
 call denite#custom#source('file_rec', 'max_candidates', 10000)
 let s:denite_file_rec_ignore=&wildignore .
       \ ',*.pyc,.git,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.cache,dist,target,.DS_Store'
@@ -44,7 +44,7 @@ if executable('rg')
   call denite#custom#var('grep', 'separator', ['--'])
   call denite#custom#var('grep', 'final_opts', [])
   call denite#custom#source('grep', 'max_candidates', 10000)
-  call denite#custom#source('grep', 'matchers', ['matcher_fuzzy', 'matcher_ignore_globs'])
+  call denite#custom#source('grep', 'matchers', ['matcher_fuzzy', 'matcher_regexp', 'matcher_ignore_globs'])
 endif
 " let s:denite_grep_ignore=&wildignore .
 "       \ ',*.pyc,.git,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.cache,dist,target'
