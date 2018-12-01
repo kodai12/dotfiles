@@ -71,7 +71,7 @@
 - `<SPACE>gxx`: Gina stash show
 - `<SPACE>gP`: Gina! push origin "XXX"
 - `<SPACE>gH`: Gina! pull origin "XXX"
-- `<SPACE>gF`: Gina! fetch origin --prune
+- `<SPACE>gg`: Gina! fetch origin --prune
 - `<SPACE>gM`: Gina! merge --no-ff "XXX"
 - `<SPACE>gR`: Gina! rebase "XXX"
 - `<SPACE>gb`: Gina blame
