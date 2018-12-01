@@ -223,6 +223,10 @@ hook_add = 'set diffexpr=py3diff#diffexpr()'
 # Language Plugins:
 ####################
 [[plugins]]
+repo = 'tmhedberg/matchit'
+on_ft = ['html', 'vim', 'sql', 'php']
+
+[[plugins]]
 repo = 'mattn/sonictemplate-vim'
 on_cmd = ['Template']
 hook_source = '''
@@ -492,6 +496,109 @@ let g:textobj_multiblock_blocks = [
 \   [ "`", "`", 1],
 \]
 '''
+
+[[plugins]]
+repo = 'kana/vim-textobj-entire'
+depends = 'vim-textobj-user'
+on_map = {ox = '<Plug>'}
+hook_add = '''
+omap ae <Plug>(textobj-entire-a)
+omap ie <Plug>(textobj-entire-i)
+xmap ae <Plug>(textobj-entire-a)
+xmap ie <Plug>(textobj-entire-i)
+'''
+
+[[plugins]]
+repo = 'osyo-manga/vim-operator-blockwise'
+depends = ['vim-operator-user', 'vim-textobj-blockwise']
+on_map = {n = '<Plug>'}
+hook_add = '''
+nmap <Space>oc <Plug>(operator-blockwise-change)
+nmap <Space>od <Plug>(operator-blockwise-delete)
+nmap <Space>oy <Plug>(operator-blockwise-yank)
+'''
+
+[[plugins]]
+repo = 'osyo-manga/vim-textobj-blockwise'
+depends = 'vim-textobj-user'
+on_map = {ox = '<Plug>'}
+
+[[plugins]]
+repo = 'kana/vim-textobj-line'
+depends = 'vim-textobj-user'
+on_map = {ox = '<Plug>'}
+hook_add = '''
+xmap ag <Plug>(textobj-line-a)
+xmap ig <Plug>(textobj-line-i)
+omap ag <Plug>(textobj-line-a)
+omap ig <Plug>(textobj-line-i)
+'''
+
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+depends = 'vim-operator-user'
+on_map = '<Plug>'
+hook_add = '''
+nmap r <Plug>(operator-replace)
+xmap r <Plug>(operator-replace)
+omap r <Plug>(operator-replace)
+onoremap <Plug>(builtin-gn) gn
+nnoremap <Plug>(builtin-/) /
+"nmap [edit]n *``<Plug>(operator-replace)<Plug>(builtin-gn)
+"xmap <expr> [edit]n "\"ry<Plug>(builtin-/)\\V\<C-r>=notomo#vimrc#escape_search_pattern(@r)\<CR>\<CR>" . "``\"+<Plug>(operator-replace)<Plug>(builtin-gn)"
+'''
+
+[[plugins]]
+repo = 'osyo-manga/vim-textobj-from_regexp'
+depends = 'vim-textobj-user'
+on_func = ['textobj#from_regexp#mapexpr']
+hook_add = '''
+omap <expr> pd textobj#from_regexp#mapexpr('\$[a-zA-Z0-9_]\+')
+xmap <expr> pd textobj#from_regexp#mapexpr('\$[a-zA-Z0-9_]\+')
+omap <expr> py textobj#from_regexp#mapexpr('\$[a-zA-Z0-9_]\+->')
+xmap <expr> py textobj#from_regexp#mapexpr('\$[a-zA-Z0-9_]\+->')
+omap <expr> iz textobj#from_regexp#mapexpr('\d\{4}-\d\{2}-\d\{2} \d\{2}:\d\{2}:\d\{2}')
+xmap <expr> iz textobj#from_regexp#mapexpr('\d\{4}-\d\{2}-\d\{2} \d\{2}:\d\{2}:\d\{2}')
+omap <expr> is textobj#from_regexp#mapexpr('_\zs.\{-}\ze_')
+xmap <expr> is textobj#from_regexp#mapexpr('_\zs.\{-}\ze_')
+omap <expr> as textobj#from_regexp#mapexpr('_.\{-1,}\(_\)\@=')
+xmap <expr> as textobj#from_regexp#mapexpr('_.\{-1,}\(_\)\@=')
+omap <expr> i, textobj#from_regexp#mapexpr(',\zs.\{-}\ze,')
+xmap <expr> i, textobj#from_regexp#mapexpr(',\zs.\{-}\ze,')
+omap <expr> a, textobj#from_regexp#mapexpr(',.\{-1,}\(,\)\@=')
+xmap <expr> a, textobj#from_regexp#mapexpr(',.\{-1,}\(,\)\@=')
+omap <expr> i. textobj#from_regexp#mapexpr('\.\zs.\{-}\ze\.')
+xmap <expr> i. textobj#from_regexp#mapexpr('\.\zs.\{-}\ze\.')
+omap <expr> a. textobj#from_regexp#mapexpr('\..\{-1,}\(\.\)\@=')
+xmap <expr> a. textobj#from_regexp#mapexpr('\..\{-1,}\(\.\)\@=')
+omap <expr> ix textobj#from_regexp#mapexpr('\v\*\zs[^*]+\ze\*')
+xmap <expr> ix textobj#from_regexp#mapexpr('\v\*\zs[^*]+\ze\*')
+omap <expr> ax textobj#from_regexp#mapexpr('\*.\{-1,}\(*\)\@=')
+xmap <expr> ax textobj#from_regexp#mapexpr('\*.\{-1,}\(*\)\@=')
+omap <expr> i/ textobj#from_regexp#mapexpr('/\zs.\{-}\ze/')
+xmap <expr> i/ textobj#from_regexp#mapexpr('/\zs.\{-}\ze/')
+omap <expr> a/ textobj#from_regexp#mapexpr('/.\{-1,}\(/\)\@=')
+xmap <expr> a/ textobj#from_regexp#mapexpr('/.\{-1,}\(/\)\@=')
+omap <expr> pl textobj#from_regexp#mapexpr('\v%#[^])}>"'']*')
+omap <expr> pL textobj#from_regexp#mapexpr('\v%#.*\ze[])}>"'']')
+'''
+
+[[plugins]]
+repo = 'kana/vim-textobj-function'
+depends = 'vim-textobj-user'
+on_map = {ox = '<Plug>(textobj-function-'}
+hook_add = '''
+omap af <Plug>(textobj-function-a)
+omap if <Plug>(textobj-function-i)
+xmap af <Plug>(textobj-function-a)
+xmap if <Plug>(textobj-function-i)
+'''
+hook_source = 'let g:textobj_function_no_default_key_mappings = 1'
+
+[[plugins]]
+repo = 'thinca/vim-textobj-function-javascript'
+depends = 'vim-textobj-function'
+on_ft = 'javascript'
 
 [[plugins]]
 repo = 'rhysd/clever-f.vim'

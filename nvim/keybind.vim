@@ -180,9 +180,8 @@ nnoremap <SPACE>doc :DockerToolsToggle<CR>
 "------------------------
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
-nmap <SPACE>ob :OpenBrowser<CR>
+nmap <SPACE>ob :OpenBrowserCurrent<CR>
 nmap <SPACE>os :OpenBrowserSmartSearch<CR>
-nmap <SPACE>oc :OpenBrowserCurrent<CR>
 nmap <SPACE>ogf :OpenGithubFile<CR>
 nmap <SPACE>ogi :OpenGithubIssue<CR>
 nmap <SPACE>ogp :OpenGithubPullReq<CR>
