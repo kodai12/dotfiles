@@ -208,6 +208,14 @@ hook_post_source = '''
 '''
 
 ####################
+# Diff:
+####################
+[[plugins]]
+repo = 'sgur/vim-py3diff'
+if = "has('python3')"
+hook_add = 'set diffexpr=py3diff#diffexpr()'
+
+####################
 # Language Plugins:
 ####################
 [[plugins]]
