@@ -19,6 +19,7 @@ export PATH=~/.local/bin:$PATH
 
 # setting gopath
 export GOPATH=$HOME/.go
+export PATH="$GOPATH/bin:$PATH"
 
 # pyenv settings
 export PYENV_ROOT="$HOME/.pyenv"
