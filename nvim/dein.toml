@@ -674,4 +674,22 @@ source ~/dotfiles/nvim/plugins/leader_guide.rc.vim
 repo = 'notomo/ctrlb.nvim'
 build = 'npm run setup'
 hook_add = '''
+" reload the active tab
+nnoremap ® :<C-u>Ctrlb tab/reload<CR>
+
+" ctrlb-ctrlb buffer mappings
+function! s:ctrl_settings()
+  nnoremap ˚ :<C-u>Ctrlb tab/next<CR>
+  nnoremap ∆ :<C-u>Ctrlb tab/previous<CR>
+  nnoremap ø :<C-u>Ctrlb tab/open<CR>
+  nnoremap † :<C-u>Ctrlb tab/tabOpen<CR>
+  nnoremap œ :<C-u>Ctrlb tab/close<CR>
+  nnoremap ˙ :<C-u>Ctrlb tab/navigation/forward<CR>
+  nnoremap ¬ :<C-u>Ctrlb tab/navigation/back<CR>
+  nnoremap ©© :<C-u>Ctrlb tab/scroll/toTop<CR>
+  nnoremap ˝ :<C-u>Ctrlb tab/scroll/toBottom<CR>
+  nnoremap ¨ :<C-u>Ctrlb tab/scroll/up<CR>
+  nnoremap ∂ :<C-u>Ctrlb tab/scroll/down<CR>
+endfunction
+call s:ctrl_settings()
 '''
