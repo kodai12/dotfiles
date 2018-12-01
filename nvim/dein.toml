@@ -409,6 +409,9 @@ nnoremap zz zO<CR>
 repo = 'kana/vim-operator-user'
 
 [[plugins]]
+repo = 'kana/vim-textobj-user'
+
+[[plugins]]
 repo = 'terryma/vim-multiple-cursors'
 hook_add = '''
 highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
@@ -470,37 +473,6 @@ function! NERDCommenter_after()
   endif
 endfunction
 '''
-
-[[plugins]]
-repo = 'rhysd/vim-operator-surround'
-hook_add = '''
-" operator mappings
-map <silent>sa <Plug>(operator-surround-append)
-map <silent>sd <Plug>(operator-surround-delete)
-map <silent>sr <Plug>(operator-surround-replace)
-
-
-" delete or replace most inner surround
-
-" if you use vim-textobj-anyblock
-nmap <silent>sdd <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
-nmap <silent>srr <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
-
-" if you use vim-textobj-between
-nmap <silent>sdb <Plug>(operator-surround-delete)<Plug>(textobj-between-a)
-nmap <silent>srb <Plug>(operator-surround-replace)<Plug>(textobj-between-a)
-'''
-[[plugins]]
-repo = 'rhysd/vim-textobj-anyblock'
-depends = ['vim-textobj-user']
-[[plugins]]
-repo = 'thinca/vim-textobj-between'
-depends = ['vim-textobj-user']
-[[plugins]]
-repo = 'kana/vim-textobj-user'
-
-[[plugins]]
-repo = 'machakann/vim-sandwich'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
@@ -601,17 +573,6 @@ if filereadable(expand('~/dotfiles/nvim/env.vim'))
   source ~/dotfiles/nvim/env.vim
 endif
 '''
-
-[[plugins]]
-repo = 'haya14busa/vim-operator-flashy'
-depends = ['vim-operator-user']
-hook_add = '''
-map y <Plug>(operator-flashy)
-nmap Y <Plug>(operator-flashy)$
-'''
-[[plugins]]
-repo = 'kana/vim-operator-user'
-
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'

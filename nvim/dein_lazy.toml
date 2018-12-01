@@ -434,6 +434,79 @@ nnoremap <silent> <SPACE>po :PrevimOpen<cr>
 '''
 
 ####################
+# Operation:
+####################
+[[plugins]]
+repo = 'haya14busa/vim-operator-flashy'
+on_map = {nox = '<Plug>'}
+hook_add = '''
+nmap y <Plug>(operator-flashy)
+xmap y <Plug>(operator-flashy)
+omap y <Plug>(operator-flashy)
+nmap Y <Plug>(operator-flashy)$
+'''
+hook_source = 'let g:operator#flashy#flash_time = 100'
+
+[[plugins]]
+repo = 'rhysd/vim-operator-surround'
+depends = ['vim-operator-user', 'vim-textobj-multiblock']
+on_map = {nox = '<Plug>'}
+hook_add = '''
+nnoremap [surround] <Nop>
+nmap s [surround]
+xnoremap [surround] <Nop>
+xmap s [surround]
+nmap <silent>[surround]a <Plug>(operator-surround-append)
+xmap <silent>[surround]a <Plug>(operator-surround-append)
+nmap <silent>[surround]d v<Plug>(textobj-multiblock-a)<Plug>(operator-surround-delete)
+xmap <silent>[surround]d <Plug>(operator-surround-delete)
+nmap <silent>[surround]r v<Plug>(textobj-multiblock-a)<Plug>(operator-surround-replace)
+xmap <silent>[surround]r <Plug>(operator-surround-replace)
+'''
+hook_source = '''
+source ~/.config/nvim/plugins/operator-surround.rc.vim
+'''
+
+[[plugins]]
+repo = 'osyo-manga/vim-textobj-multiblock'
+depends = 'vim-textobj-user'
+on_map = {ox = '<Plug>'}
+hook_add = '''
+omap aj <Plug>(textobj-multiblock-a)
+omap ij <Plug>(textobj-multiblock-i)
+xmap aj <Plug>(textobj-multiblock-a)
+xmap ij <Plug>(textobj-multiblock-i)
+'''
+hook_source = '''
+let g:textobj_multiblock_blocks = [
+\   [ "(", ")" ],
+\   [ "[", "]" ],
+\   [ "{", "}" ],
+\   [ '<', '>' ],
+\   [ '"', '"'],
+\   [ "'", "'"],
+\   [ "`", "`", 1],
+\]
+'''
+
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
+on_map = {nox = '<Plug>'}
+hook_add = '''
+let g:clever_f_across_no_line = 1
+let g:clever_f_mark_char = 0
+let g:clever_f_not_overwrites_standard_mappings = 1
+let g:clever_f_chars_match_any_signs = ';'
+let g:clever_f_ignore_case = 1
+nmap f <Plug>(clever-f-f)
+xmap f <Plug>(clever-f-f)
+omap f <Plug>(clever-f-f)
+nmap F <Plug>(clever-f-F)
+xmap F <Plug>(clever-f-F)
+omap F <Plug>(clever-f-F)
+'''
+
+####################
 # Quickrun:
 ####################
 [[plugins]]
