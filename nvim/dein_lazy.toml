@@ -43,8 +43,7 @@ depends = ['denite.nvim', 'vim-emoji']
 repo = 'junegunn/vim-emoji'
 
 [[plugins]]
-repo = 'chemzqm/unite-location'
-depends = ['denite.nvim']
+repo = 'notomo/denite-keymap'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
