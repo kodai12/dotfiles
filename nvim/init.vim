@@ -140,10 +140,11 @@ endif
 "" setting colorsheme
 filetype plugin on
 syntax on
-set t_Co=256
-set termguicolors
 set background=dark
-hi Visual guibg=#ab6560 ctermbg=95
+if has('termguicolors')
+  set termguicolors
+  hi Visual guibg=#ab6560 ctermbg=95
+endif
 " 折りたたみ時の色を設定
 highlight Folded ctermfg=131
 " ALE warningの色を調整
