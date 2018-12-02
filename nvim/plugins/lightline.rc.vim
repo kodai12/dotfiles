@@ -1,4 +1,5 @@
 let s:enable = {}
+let s:enable.tabline = 0
 let s:enable.statusline = 1
 let s:active = {}
 let s:separator = {'left': '', 'right': ''}
