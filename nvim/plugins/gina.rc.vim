@@ -12,7 +12,7 @@ nnoremap [git]c :<C-u>Gina commit<CR>
 nnoremap [git]xs :<C-u>Gina stash save ""<Left>
 nnoremap [git]xx :<C-u>Gina stash show<CR>
 
-nnoremap <expr> [git]P ':<C-u>Gina! push origin ' . gina#component#repo#branch()
+nnoremap <expr> [git]p ':<C-u>Gina! push origin ' . gina#component#repo#branch()
 nnoremap <expr> [git]g ':<C-u>Gina! pull origin ' . gina#component#repo#branch()
 nnoremap <expr> [git]F ':<C-u>Gina! fetch origin --prune'
 nnoremap [git]M :<C-u>Gina! merge --no-ff<Space>
