@@ -10,10 +10,9 @@ let s:active.left = [
       \ [ 'filepath','filename' ],
       \ ]
 let s:active.right = [
-      \ [ 'lineinfo', 'sky_color_clock' ],
+      \ [ 'position_map', 'lineinfo', 'sky_color_clock' ],
       \ [ 'ale_error', 'ale_warning', 'ale_ok' ],
       \ [ 'fileencoding', 'filetype' ],
-      \ [ 'position_map' ],
       \ ]
 let s:inactive = {}
 let s:inactive.left = [[]]
