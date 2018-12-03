@@ -296,28 +296,111 @@ augroup LightLineOnALE
 augroup end
 
 let g:lightline.colorscheme = 'spring_night'
-let s:p = {'inactive': {}, 'normal': {}, 'insert': {}, 'select': {}, 'visual': {}, 'tabline': {}}
 
-let s:inactive_base = ['#7e8d9b', '#3a4b5c']
-let s:p.inactive.middle = [s:inactive_base]
-let s:p.inactive.left = [s:inactive_base]
-let s:p.inactive.right = [s:inactive_base, s:inactive_base, s:inactive_base]
+let s:fg = '#fffeeb'
+let s:crimson = '#ff6a6f'
+let s:yellow = '#f0eaaa'
+let s:gold = '#fedf81'
+let s:dark_gold = '#484000'
+let s:light_bg = '#435060'
+let s:strong_bg = '#536273'
+let s:emphasis_bg = '#3a4b5c'
+let s:weak_fg = '#8d9eb2'
+let s:dark_purple = '#605779'
+let s:inu = '#ddbc96'
+let s:c_fg = 231
+let s:c_light_bg = 236
+let s:c_mono1 = 0
+let s:c_weak_fg = 103
+let s:c_yellow = 229
+let s:c_gold = 222
+let s:c_dark_gold = 58
+let s:c_light_bg = 7
+let s:c_strong_bg = 238
+let s:c_dark_purple = 60
 
-let s:fore = '#fffeeb'
-let s:normal_base = [s:fore, '#536273']
+let s:red      = '#a9667a'
+let s:sakura = '#a9667a'
+let s:pale_sakura = '#e996aa'
+let s:green    = '#b5bd68'
+let s:blue     = '#a8d2eb'
+let s:dark_blue = '#00091e'
+let s:pale_blue  = '#98b8e6'
+let s:orange   = '#f0aa8a'
+let s:c_red    = 9
+let s:c_sakura = 132
+let s:c_pale_sakura = 175
+let s:c_green  = 10
+let s:c_blue   = 12
+let s:c_pale_blue  = 111
+let s:c_orange = 3
 
-let s:p.normal.middle = [s:normal_base]
-let s:p.normal.left = [[s:fore, '#798fab'], s:normal_base, s:normal_base]
-let s:p.normal.right = [s:normal_base, s:normal_base, s:normal_base]
+let s:p = {
+      \ 'normal':   {},
+      \ 'inactive': {},
+      \ 'insert':   {},
+      \ 'replace':  {},
+      \ 'visual':   {},
+      \ 'tabline':  {}}
 
-let s:p.insert.middle = s:p.normal.middle
-let s:p.insert.left = [[s:fore, '#6a9681'], s:normal_base, s:normal_base]
-let s:p.insert.right = s:p.normal.right
+let s:p.normal.middle = [
+      \ [s:gold, s:light_bg, s:c_yellow, s:c_light_bg]]
+let s:p.normal.left = [
+      \ [s:yellow, s:strong_bg, s:c_yellow, s:c_strong_bg],
+      \ [s:gold, s:light_bg, s:c_yellow, s:c_light_bg],
+      \ [s:inu, s:light_bg, s:c_yellow, s:c_light_bg]]
+let s:p.normal.right = [
+      \ [s:yellow, s:strong_bg, s:c_yellow, s:c_light_bg],
+      \ [s:gold, s:light_bg, s:c_yellow, s:c_strong_bg],
+      \ [s:inu, s:light_bg, s:c_yellow, s:c_light_bg]]
 
-let s:p.select = s:p.insert
+let s:p.inactive.middle = [
+      \ [s:weak_fg, s:light_bg, s:c_weak_fg, s:c_light_bg]]
+let s:p.inactive.right = [
+      \ s:p.inactive.middle[0],
+      \ s:p.inactive.middle[0]]
+let s:p.inactive.left = [
+      \ s:p.inactive.middle[0],
+      \ s:p.inactive.middle[0]]
 
-let s:p.visual.middle = s:p.normal.middle
-let s:p.visual.left = [[s:fore, '#b0817c'], s:normal_base, s:normal_base]
-let s:p.visual.right = s:p.normal.right
+let s:p.insert.middle = [
+      \ [s:pale_blue, s:light_bg, s:c_fg, s:c_pale_blue]]
+let s:p.insert.left = [
+      \ [s:dark_blue, s:pale_blue, s:c_fg, s:c_pale_blue],
+      \ [s:pale_blue, s:strong_bg, s:c_pale_blue, s:c_fg],
+      \ [s:pale_blue, s:strong_bg, s:c_pale_blue, s:c_fg]]
+let s:p.insert.right = [
+      \ [s:dark_blue, s:pale_blue, s:c_fg, s:c_pale_blue],
+      \ [s:pale_blue, s:strong_bg, s:c_pale_blue, s:c_fg],
+      \ [s:pale_blue, s:strong_bg, s:c_pale_blue, s:c_fg]]
+let s:p.replace.middle = [
+      \ [s:dark_purple, s:light_bg, s:c_fg, s:c_dark_purple]]
+let s:p.replace.left = [
+      \ [s:dark_blue, s:dark_purple, s:c_fg, s:c_dark_purple],
+      \ [s:dark_purple, s:strong_bg, s:c_fg, s:c_dark_purple],
+      \ [s:dark_purple, s:strong_bg, s:c_fg, s:c_dark_purple]]
+let s:p.replace.right = [
+      \ [s:dark_blue, s:dark_purple, s:c_fg, s:c_dark_purple],
+      \ [s:dark_purple, s:strong_bg, s:c_fg, s:c_dark_purple],
+      \ [s:dark_purple, s:strong_bg, s:c_fg, s:c_dark_purple]]
+let s:p.visual.middle = [
+      \ [s:sakura, s:light_bg, s:c_fg, s:c_sakura]]
+let s:p.visual.left = [
+      \ [s:dark_blue, s:sakura, s:c_fg, s:c_sakura],
+      \ [s:sakura, s:strong_bg, s:c_fg, s:c_sakura],
+      \ [s:sakura, s:strong_bg, s:c_fg, s:c_sakura]]
+let s:p.visual.right = [
+      \ [s:dark_blue, s:sakura, s:c_fg, s:c_sakura],
+      \ [s:sakura, s:strong_bg, s:c_fg, s:c_sakura],
+      \ [s:sakura, s:strong_bg, s:c_fg, s:c_sakura]]
+
+let s:p.tabline.middle = [
+      \ [s:fg, s:dark_purple, s:c_fg, s:c_dark_purple]]
+let s:p.tabline.right = [
+      \ [s:fg, s:dark_purple, s:c_fg, s:c_dark_purple]]
+let s:p.tabline.left = [
+      \ [s:fg, s:dark_purple, s:c_fg, s:c_dark_purple]]
+let s:p.tabline.tabsel = [
+      \ [s:dark_purple, s:fg, s:c_dark_purple, s:c_fg]]
 
 let g:lightline#colorscheme#spring_night#palette = lightline#colorscheme#fill(s:p)
