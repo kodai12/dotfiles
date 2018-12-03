@@ -154,9 +154,9 @@ let g:deoplete#sources.gitcommit=['github']
 let g:deoplete#keyword_patterns = {}
 let g:deoplete#keyword_patterns.gitcommit = '.+'
 
-call deoplete#util#set_pattern(
-  \ g:deoplete#omni#input_patterns,
-  \ 'gitcommit', [g:deoplete#keyword_patterns.gitcommit])
+"call deoplete#util#set_pattern(
+"  \ g:deoplete#omni#input_patterns,
+"  \ 'gitcommit', [g:deoplete#keyword_patterns.gitcommit])
 '''
 
 [[plugins]]
@@ -172,7 +172,7 @@ repo = 'autozimu/LanguageClient-neovim'
 build = 'bash install.sh'
 rev = 'next'
 on_ft  = ['vue', 'javascript', 'python', 'css', 'rust']
-depends = ['fzf.vim', 'deoplete.nvim']
+depends = ['deoplete.nvim']
 hook_add = '''
 source ~/dotfiles/nvim/plugins/language_client.rc.vim
 '''
