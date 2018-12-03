@@ -297,9 +297,9 @@ hook_add = '''
 source ~/.config/nvim/plugins/gina.rc.vim
 '''
 
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-depends = ['vim-rhubarb']
+# [[plugins]]
+# repo = 'tpope/vim-fugitive'
+# depends = ['vim-rhubarb']
 
 [[plugins]]
 repo = 'idanarye/vim-merginal'
@@ -604,6 +604,14 @@ nmap <unique> <C-C><C-A> <Plug>(spelunker-correct-all)
 
 [[plugins]]
 repo = 'vim-scripts/gitignore'
+
+[[plugins]]
+repo = 'modsound/macdict-vim'
+hook_add = '''
+nnoremap <Space>sw :MacDictJapan
+nnoremap <Space>sc :MacDictCWord<CR>
+nnoremap <Space>sq :MacDictClose<CR>
+'''
 
 ####################
 # Reference:
