@@ -131,9 +131,9 @@ if dein#load_state(s:dein_dir)
     call dein#install()
   endif
 
-  " if has('nvim')
-  "   call dein#remote_plugins()
-  " endif
+  if has('nvim')
+    call dein#remote_plugins()
+  endif
 endif
 
 "" setting colorsheme
