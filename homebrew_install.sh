@@ -53,6 +53,7 @@ formulas=(
     plantuml
     reattach-to-user-namespace
     ansiweather
+    exa
 )
 
 "brew tap..."

@@ -5,7 +5,7 @@ function precmd() {
 }
 
 function chpwd() {
-  if [ `ls -Al | wc -l` -eq 0 ]; then
+  if [ `ls -al | wc -l` -eq 0 ]; then
     echo "\n\nempty directory";
   else
     ls
