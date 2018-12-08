@@ -310,10 +310,10 @@ hook_source = '''
   let g:racer_cmd='~/.cargo/bin/racer'
   let $RUST_SRC_PATH="/Users/sakochikodai/.rustup/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src"
   let g:racer_experimental_completer = 1
-  nmap <SPACE>gd <Plug>(rust-def)
-  nmap <SPACE>gs <Plug>(rust-def-split)
-  nmap <SPACE>gx <Plug>(rust-def-vertical)
-  nmap <SPACE>K <Plug>(rust-doc)
+"  nmap <SPACE>gd <Plug>(rust-def)
+"  nmap <SPACE>gs <Plug>(rust-def-split)
+"  nmap <SPACE>gx <Plug>(rust-def-vertical)
+"  nmap <SPACE>K <Plug>(rust-doc)
 '''
 
 # solidity

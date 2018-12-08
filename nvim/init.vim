@@ -136,14 +136,19 @@ if dein#load_state(s:dein_dir)
   endif
 endif
 
+filetype plugin indent on
+syntax enable
+
 "" setting colorsheme
-filetype plugin on
-syntax on
+colorscheme spring-night
+
+"" setting termguicolors
 set background=dark
 if has('termguicolors')
   set termguicolors
   hi Visual guibg=#ab6560 ctermbg=95
 endif
+
 " 折りたたみ時の色を設定
 highlight Folded ctermfg=131
 " ALE warningの色を調整
