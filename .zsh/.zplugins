@@ -3,60 +3,67 @@ source $ZPLUG_HOME/init.zsh
 
 #----------------------
 # theme settings
-# https://github.com/bhilburn/powerlevel9k
+# https://github.com/denysdovhan/spaceship-prompt
 #----------------------
-## General config
-POWERLEVEL9K_MODE='nerdfont-complete'
-
-## Custom segment "now playing"
-POWERLEVEL9K_CUSTOM_NOW_PLAYING='~/dotfiles/bin/nowplaying'
-
-## Colors
-POWERLEVEL9K_PYENV_BACKGROUND=107
-POWERLEVEL9K_PYENV_FOREGROUND='white'
-POWERLEVEL9K_CUSTOM_NOW_PLAYING_BACKGROUND='blue'
-POWERLEVEL9K_CUSTOM_NOW_PLAYING_FOREGROUND='black'
-POWERLEVEL9K_OS_ICON_BACKGROUND='white'
-POWERLEVEL9K_OS_ICON_FOREGROUND='black'
-POWERLEVEL9K_TIME_BACKGROUND='white'
-POWERLEVEL9K_TIME_FOREGROUND='black'
-
-## Battery colors
-POWERLEVEL9K_BATTERY_CHARGING='107'
-POWERLEVEL9K_BATTERY_CHARGED='blue'
-POWERLEVEL9K_BATTERY_LOW_THRESHOLD='50'
-POWERLEVEL9K_BATTERY_LOW_COLOR='red'
-POWERLEVEL9K_BATTERY_CHARGED_BACKGROUND='blue'
-POWERLEVEL9K_BATTERY_CHARGED_FOREGROUND='white'
-POWERLEVEL9K_BATTERY_CHARGING_BACKGROUND='107'
-POWERLEVEL9K_BATTERY_CHARGING_FOREGROUND='white'
-POWERLEVEL9K_BATTERY_LOW_BACKGROUND='red'
-POWERLEVEL9K_BATTERY_LOW_FOREGROUND='white'
-POWERLEVEL9K_BATTERY_DISCONNECTED_FOREGROUND='white'
-POWERLEVEL9K_BATTERY_DISCONNECTED_BACKGROUND='214'
-
-## VCS colors
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND='cyan'
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND='black'
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='white'
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='red'
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='black'
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
-
-## Prompts
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-POWERLEVEL9K_SHORTEN_DELIMITER=..
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0B4'
-POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0B6'
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-#POWERLEVEL9K_RPROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="╭"
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="╰\uF460\uF460\uF460 "
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir pyenv aws vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery custom_now_playing time)
-
+SPACESHIP_PROMPT_ORDER=(
+  time          # Time stamps section
+  dir           # Current directory section
+  user          # Username section
+  host          # Hostname section
+  git           # Git section (git_branch + git_status)
+  hg            # Mercurial section (hg_branch  + hg_status)
+  aws           # Amazon Web Services section
+  terraform     # Terraform workspace section
+  kubecontext   # Kubectl context section
+  docker        # Docker section
+  package       # Package version
+  node          # Node.js section
+  ruby          # Ruby section
+  elixir        # Elixir section
+  xcode         # Xcode section
+  swift         # Swift section
+  golang        # Go section
+  php           # PHP section
+  rust          # Rust section
+  haskell       # Haskell Stack section
+  julia         # Julia section
+  venv          # virtualenv section
+  conda         # conda virtualenv section
+  pyenv         # Pyenv section
+  dotnet        # .NET section
+  ember         # Ember.js section
+  exec_time     # Execution time
+  line_sep      # Line break
+  battery       # Battery level and status
+  vi_mode       # Vi-mode indicator
+  jobs          # Background jobs indicator
+  exit_code     # Exit code section
+  char          # Prompt character
+)
+SPACESHIP_CHAR_SYMBOL="👉 "
+SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
+SPACESHIP_DIR_TRUNC_PREFIX=".../"
+SPACESHIP_DIR_TRUNC_REPO=false
+SPACESHIP_PACKAGE_PREFIX="npm is "
+SPACESHIP_NODE_PREFIX="node is "
+SPACESHIP_RUBY_PREFIX="ruby is "
+SPACESHIP_ELM_PREFIX="elm is "
+SPACESHIP_ELIXIR_PREFIX="elixir is "
+SPACESHIP_XCODE_PREFIX="xcode is "
+SPACESHIP_SWIFT_PREFIX="swift is "
+SPACESHIP_GOLANG_PREFIX="go is "
+SPACESHIP_PHP_PREFIX="php is "
+SPACESHIP_RUST_PREFIX="rust is "
+SPACESHIP_HASKELL_PREFIX="huskell is "
+SPACESHIP_JULIA_PREFIX="julia is "
+SPACESHIP_DOCKER_PREFIX="docker on "
+SPACESHIP_AWS_PREFIX="using aws "
+SPACESHIP_VENV_PREFIX="virtualenv is "
+SPACESHIP_CONDA_PREFIX="conda is "
+SPACESHIP_PYENV_PREFIX="pyenv is "
+SPACESHIP_KUBECONTEXT_SUFFIX="kubectl is "
+SPACESHIP_TERRAFORM_PREFIX="using terraform "
+SPACESHIP_BATTERY_THRESHOLD="20"
 #----------------------
 # /theme settings
 #----------------------
@@ -64,7 +71,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery custom_now_playing time)
 #----------------------
 # plugins settings
 #----------------------
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
 zplug "carloscuesta/materialshell", use:materialshell, from:github, as:theme
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
