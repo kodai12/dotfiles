@@ -526,6 +526,9 @@ xmap e <Plug>(smartword-e)
 omap e <Plug>(smartword-e)
 '''
 
+[[plugins]]
+repo = 'AndrewRadev/linediff.vim'
+
 ####################
 # Utility:
 ####################
@@ -614,6 +617,9 @@ nnoremap <Space>sw :MacDictJapan
 nnoremap <Space>sc :MacDictCWord<CR>
 nnoremap <Space>sq :MacDictClose<CR>
 '''
+
+[[plugins]]
+repo = 'tpope/vim-sleuth'
 
 ####################
 # Reference:
