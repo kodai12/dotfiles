@@ -633,6 +633,30 @@ source ~/.config/nvim/plugins/quickrun.rc.vim
 '''
 
 ####################
+# Utility:
+####################
+[[plugins]]
+repo = 'brooth/far.vim'
+on_cmd = ['Far', 'Fardo']
+hook_source = '''
+let g:far#source = 'rgnvim'
+let g:far#file_mask_favorites = [
+      \ '%',
+      \ '**/*.*',
+      \ '**/*.py',
+      \ '**/*.html',
+      \ '**/*.js',
+      \ '**/*.vue',
+      \ '**/*.css']
+'''
+hook_add = '''
+let g:far#default_mappings = 0
+nnoremap <silent> <Space>far :Farp<cr>
+nnoremap <silent> <Space>ff :Fardo<cr>
+nnoremap <silent> <Space>fp :F
+'''
+
+####################
 # Reference:
 ####################
 [[plugins]]
