@@ -621,6 +621,9 @@ nnoremap <Space>sq :MacDictClose<CR>
 [[plugins]]
 repo = 'tpope/vim-sleuth'
 
+[[plugins]]
+repo = 'tyru/stoptypofile.vim'
+
 ####################
 # Reference:
 ####################
