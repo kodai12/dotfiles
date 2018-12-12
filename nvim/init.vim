@@ -347,28 +347,6 @@ if has('persistent_undo')
   augroup END
 endif
 
-" terminal color {{{
-if has('terminal')
-  function! s:set_default_ansi_colors() abort
-    if exists('g:terminal_ansi_colors')
-      return
-    endif
-
-    let g:terminal_ansi_colors = [
-      \ '#073642', '#fd8489', '#a9dd9d', '#fedf81',
-      \ '#7098e6', '#a8d2eb', '#98b8e6', '#fffeeb',
-      \ '#002b36', '#a9667a', '#eaf0aa', '#f0eaaa',
-      \ '#7098e6', '#a8d2eb', '#98b8e6', '#ffffff',
-      \ ]
-  endfunction
-  call s:set_default_ansi_colors()
-
-  augroup terminalAnsiColors
-    autocmd ColorScheme * call s:set_default_ansi_colors()
-  augroup END
-endif
-" }}}
-
 source ~/dotfiles/nvim/keybind.vim
 
 
