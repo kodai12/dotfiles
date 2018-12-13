@@ -330,7 +330,7 @@ hook_add = '''
 let g:jedi#force_py_version = 3
 "let g:jedi#use_splits_not_buffers = 'winwidth'
 augroup custom-jedi
-  autocmd FileType python nnoremap <silent> q :call jedi#goto()<CR>
+  autocmd FileType python nnoremap <silent> ;; :call jedi#goto()<CR>
   autocmd FileType python nnoremap <silent> K :call jedi#show_documentation()<CR>
 augroup END
 '''
@@ -444,9 +444,6 @@ nnoremap <silent> <SPACE>po :PrevimOpen<cr>
 [[plugins]]
 repo = 'metakirby5/codi.vim'
 on_cmd = ['Codi']
-hook_add = '''
-nnoremap <silent> <Space>cd :Codi<CR>
-'''
 
 ####################
 # Operation:

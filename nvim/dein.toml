@@ -490,16 +490,6 @@ nmap <SPACE>hh :HoppingStart<CR>
 repo = 'junegunn/vim-peekaboo'
 
 [[plugins]]
-repo = 'Yggdroot/LeaderF'
-hook_add = '''
-let g:Lf_DefaultExternalTool = "rg"
-let g:Lf_RememberLastSearch = 1
-
-" let g:Lf_ShortcutF = '<C-P>'
-nmap <C-L> :LeaderfLine<CR>
-'''
-
-[[plugins]]
 repo = 'LeafCage/yankround.vim'
 hook_add = '''
 nmap p <Plug>(yankround-p)
