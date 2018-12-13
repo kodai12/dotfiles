@@ -28,7 +28,6 @@ nnoremap gj j
 nnoremap gk k
 noremap <Space>h  ^
 noremap <Space>l  $
-nnoremap <Space>/  *
 noremap <Space>m  %
 noremap <Space>noh :noh<CR>
 autocmd FileType python inoremap # X<C-H>#
@@ -116,20 +115,6 @@ xmap <SPACE>cs <plug>NERDCommenterSexy
 xmap <SPACE>ci <plug>NERDCommenterToEOL
 xmap <SPACE>cA <plug>NERDCommenterAppend
 xmap <SPACE>cx <plug>NERDCommenterAltDelims
-
-"------------------------
-" anzu settings
-"------------------------
-nmap n <Plug>(anzu-n)
-nmap N <Plug>(anzu-N)
-nmap * <Plug>(anzu-star)
-nmap # <Plug>(anzu-sharp)
-augroup vim-anzu
-  " 一定時間キー入力がないとき、ウインドウを移動したとき、タブを移動したときに
-  " 検索ヒット数の表示を消去する
-  autocmd!
-  autocmd CursorHold,CursorHoldI,WinLeave,TabLeave * call anzu#clear_search_status()
-augroup END
 
 "------------------------
 " ale keymap

@@ -207,10 +207,6 @@ hook_post_source = '''
 "}}}
 '''
 
-[[plugins]]
-repo = 'osyo-manga/vim-anzu'
-on_map = {n = '<Plug>(anzu-n-with-echo)'}
-
 ####################
 # Diff:
 ####################
