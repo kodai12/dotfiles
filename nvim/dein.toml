@@ -294,11 +294,12 @@ set completeopt-=preview
 set completeopt+=longest,menuone,noselect
 set shortmess+=c   " Shut off completion messages
 set belloff+=ctrlg " If Vim beeps during completion
+let g:mucomplete#enable_auto_at_startup = 1
 let g:mucomplete#no_mappings =1
+let g:mucomplete#completion_delay = 1
 let g:jedi#popup_on_dot = 1
 let g:mucomplete#user_mappings = { 'sqla' : "\<c-c>a" }
 let g:mucomplete#chains = { 'sql' : ['file', 'sqla', 'keyn'] }
-let g:mucomplete#enable_auto_at_startup = 1
 '''
 
 ####################
