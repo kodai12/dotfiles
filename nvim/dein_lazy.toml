@@ -441,6 +441,19 @@ nnoremap <silent> <SPACE>po :PrevimOpen<cr>
 repo = 'metakirby5/codi.vim'
 on_cmd = ['Codi']
 
+# elm
+[[plugins]]
+repo = 'ElmCast/elm-vim'
+on_ft = ['elm']
+hook_add = '''
+let g:elm_setup_keybindings = 0
+'''
+
+[[plugins]]
+repo = 'pbogut/deoplete-elm'
+on_ft = ['elm']
+depends = ['deoplete.nvim']
+
 ####################
 # Operation:
 ####################
