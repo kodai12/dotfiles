@@ -288,13 +288,17 @@ repo = 'kkvh/vim-docker-tools'
 # '''
 
 [[plugins]]
-repo = 'tenfyzhong/CompleteParameter.vim'
-hook_add = '''
-inoremap <silent><expr> ( complete_parameter#pre_complete("()")
-smap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-imap <c-j> <Plug>(complete_parameter#goto_next_parameter)
-smap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
-imap <c-k> <Plug>(complete_parameter#goto_previous_parameter)
+repo = 'lifepillar/vim-mucomplete'
+hook_add =  '''
+set completeopt-=preview
+set completeopt+=longest,menuone,noselect
+set shortmess+=c   " Shut off completion messages
+set belloff+=ctrlg " If Vim beeps during completion
+let g:mucomplete#no_mappings =1
+let g:jedi#popup_on_dot = 1
+let g:mucomplete#user_mappings = { 'sqla' : "\<c-c>a" }
+let g:mucomplete#chains = { 'sql' : ['file', 'sqla', 'keyn'] }
+let g:mucomplete#enable_auto_at_startup = 1
 '''
 
 ####################
