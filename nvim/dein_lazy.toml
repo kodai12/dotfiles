@@ -617,6 +617,10 @@ xmap F <Plug>(clever-f-F)
 omap F <Plug>(clever-f-F)
 '''
 
+[[plugins]]
+repo = 'tpope/vim-repeat'
+on_map = ['<Plug>', '.']
+
 ####################
 # Quickrun:
 ####################
