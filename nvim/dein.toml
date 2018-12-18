@@ -365,6 +365,15 @@ source ~/dotfiles/nvim/plugins/ale.rc.vim
 '''
 
 ####################
+# cURL Client:
+####################
+[[plugins]]
+repo = 'diepm/vim-rest-console'
+hook_add = '''
+let g:vrc_horizontal_split = 1
+'''
+
+####################
 # Tag Config:
 ####################
 [[plugins]]
