@@ -11,9 +11,9 @@ if !exists('g:neomru#file_mru_ignore_pattern')
 endif
 '''
 
-[[plugins]]
-repo = 'Shougo/neoyank.vim'
-on_source = 'denite.nvim'
+# [[plugins]]
+# repo = 'Shougo/neoyank.vim'
+# on_source = 'denite.nvim'
 
 [[plugins]]
 repo = 'neoclide/denite-git'
@@ -41,14 +41,14 @@ call denite#custom#map(
       \)
 '''
 
-[[plugins]]
-repo = 'pocari/vim-denite-emoji'
-on_source = 'denite.nvim'
-depends = ['denite.nvim', 'vim-emoji']
+# [[plugins]]
+# repo = 'pocari/vim-denite-emoji'
+# on_source = 'denite.nvim'
+# depends = ['denite.nvim', 'vim-emoji']
 
-[[plugins]]
-repo = 'junegunn/vim-emoji'
-on_source = 'vim-denite-emoji'
+# [[plugins]]
+# repo = 'junegunn/vim-emoji'
+# on_source = 'vim-denite-emoji'
 
 [[plugins]]
 repo = 'notomo/denite-keymap'
@@ -81,14 +81,14 @@ hook_source = '''
 let g:neopairs#enable = 1
 '''
 
-[[plugins]]
-repo = 'Shougo/echodoc.vim'
-depends = ['deoplte.nvim']
-on_event = 'InsertEnter'
-hook_source = '''
-set cmdheight=2
-let g:echodoc#enable_at_startup = 1
-'''
+# [[plugins]]
+# repo = 'Shougo/echodoc.vim'
+# depends = ['deoplte.nvim']
+# on_event = 'InsertEnter'
+# hook_source = '''
+# set cmdheight=2
+# let g:echodoc#enable_at_startup = 1
+# '''
 
 [[plugins]]
 repo = 'carlitux/deoplete-ternjs'
@@ -111,16 +111,16 @@ hook_source = '''
   let g:deoplete#sources#jedi#show_docstring = 1
 '''
 
-[[plugins]]
-repo = 'padawan-php/deoplete-padawan'
-on_event = 'InsertEnter'
-on_ft = ['php']
-depends = ['deoplete.nvim']
-hook_source = '''
-  augroup padawan-setting
-    autocmd! FileType php setlocal completeopt-=preview
-  augroup END
-'''
+# [[plugins]]
+# repo = 'padawan-php/deoplete-padawan'
+# on_event = 'InsertEnter'
+# on_ft = ['php']
+# depends = ['deoplete.nvim']
+# hook_source = '''
+#   augroup padawan-setting
+#     autocmd! FileType php setlocal completeopt-=preview
+#   augroup END
+# '''
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
@@ -159,10 +159,10 @@ let g:deoplete#keyword_patterns.gitcommit = '.+'
 "  \ 'gitcommit', [g:deoplete#keyword_patterns.gitcommit])
 '''
 
-[[plugins]]
-repo = 'fszymanski/deoplete-emoji'
-depends = ['deoplete.nvim']
-on_ft = ['gitcommit', 'markdown']
+# [[plugins]]
+# repo = 'fszymanski/deoplete-emoji'
+# depends = ['deoplete.nvim']
+# on_ft = ['gitcommit', 'markdown']
 
 ####################
 # Language Client:
@@ -210,10 +210,10 @@ hook_post_source = '''
 ####################
 # Diff:
 ####################
-[[plugins]]
-repo = 'sgur/vim-py3diff'
-if = "has('python3')"
-hook_add = 'set diffexpr=py3diff#diffexpr()'
+# [[plugins]]
+# repo = 'sgur/vim-py3diff'
+# if = "has('python3')"
+# hook_add = 'set diffexpr=py3diff#diffexpr()'
 
 ####################
 # Language Plugins:
@@ -222,43 +222,43 @@ hook_add = 'set diffexpr=py3diff#diffexpr()'
 repo = 'tmhedberg/matchit'
 on_ft = ['html', 'vim', 'sql', 'php']
 
-[[plugins]]
-repo = 'mattn/sonictemplate-vim'
-on_cmd = ['Template']
-hook_source = '''
-let g:sonictemplate_vim_template_dir = [expand($XDG_CONFIG_HOME.'/nvim/template')]
-'''
+# [[plugins]]
+# repo = 'mattn/sonictemplate-vim'
+# on_cmd = ['Template']
+# hook_source = '''
+# let g:sonictemplate_vim_template_dir = [expand($XDG_CONFIG_HOME.'/nvim/template')]
+# '''
 
 # html, css
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['css', 'html', 'xhtml', 'php']
 
-[[plugins]]
-repo = 'hail2u/vim-css3-syntax'
-on_ft = ['css']
-hook_add = '''
-augroup VimCSS3Syntax
-  autocmd!
-  autocmd FileType css setlocal iskeyword+=-
-augroup END
-'''
+# [[plugins]]
+# repo = 'hail2u/vim-css3-syntax'
+# on_ft = ['css']
+# hook_add = '''
+# augroup VimCSS3Syntax
+#   autocmd!
+#   autocmd FileType css setlocal iskeyword+=-
+# augroup END
+# '''
 
-[[plugins]]
-repo = 'ap/vim-css-color'
-on_ft = ['css']
+# [[plugins]]
+# repo = 'ap/vim-css-color'
+# on_ft = ['css']
 
 # javascript
 [[plugins]]
 repo = 'othree/yajs.vim'
 on_ft = ['javascript']
 
-[[plugins]]
-repo = 'heavenshell/vim-jsdoc'
-on_ft = ['javascript']
-hook_add = '''
-autocmd FileType javascript nmap <silent> <C-_> ?function<cr>:noh<cr><Plug>(jsdoc)
-'''
+# [[plugins]]
+# repo = 'heavenshell/vim-jsdoc'
+# on_ft = ['javascript']
+# hook_add = '''
+# autocmd FileType javascript nmap <silent> <C-_> ?function<cr>:noh<cr><Plug>(jsdoc)
+# '''
 
 # vue
 [[plugins]]
@@ -313,9 +313,9 @@ hook_source = '''
 '''
 
 # solidity
-[[plugins]]
-repo = 'tomlion/vim-solidity'
-on_ft = ['solidity']
+# [[plugins]]
+# repo = 'tomlion/vim-solidity'
+# on_ft = ['solidity']
 
 # python
 [[plugins]]
@@ -331,42 +331,42 @@ augroup custom-jedi
 augroup END
 '''
 
-[[plugins]]
-repo = 'heavenshell/vim-pydocstring'
-on_ft = ['python']
-hook_add = '''
-autocmd FileType python nmap <silent> <C-_> <Plug>(pydocstring)
-'''
+# [[plugins]]
+# repo = 'heavenshell/vim-pydocstring'
+# on_ft = ['python']
+# hook_add = '''
+# autocmd FileType python nmap <silent> <C-_> <Plug>(pydocstring)
+# '''
 
 # python(test settings)
-[[plugins]]
-repo = 'tpope/vim-dispatch'
-on_ft = ['python']
+# [[plugins]]
+# repo = 'tpope/vim-dispatch'
+# on_ft = ['python']
 
-[[plugins]]
-repo = 'radenling/vim-dispatch-neovim'
-if ='''has('nvim')'''
-on_ft = ['python']
+# [[plugins]]
+# repo = 'radenling/vim-dispatch-neovim'
+# if ='''has('nvim')'''
+# on_ft = ['python']
 
-[[plugins]]
-repo = 'aliev/vim-compiler-python'
-on_ft = ['python']
-hook_add = '''
-let g:python_compiler_fixqflist = 1
-'''
+# [[plugins]]
+# repo = 'aliev/vim-compiler-python'
+# on_ft = ['python']
+# hook_add = '''
+# let g:python_compiler_fixqflist = 1
+# '''
 
-[[plugins]]
-repo = 'janko-m/vim-test'
-on_ft = ['python']
-depends = ['vim-dispatch', 'vim-dispatch-neovim']
-hook_add = '''
-let g:test#strategy = 'dispatch'
-let g:test#python#runner = 'nose'
-let g:test#javascript#runner = 'jest'
-let g:test#rust#runner = 'cargo'
-let g:test#runner_commands = ['Nose', 'Jest','Mocha', 'Cargo']
-let g:test#preserve_screen = 1
-'''
+# [[plugins]]
+# repo = 'janko-m/vim-test'
+# on_ft = ['python']
+# depends = ['vim-dispatch', 'vim-dispatch-neovim']
+# hook_add = '''
+# let g:test#strategy = 'dispatch'
+# let g:test#python#runner = 'nose'
+# let g:test#javascript#runner = 'jest'
+# let g:test#rust#runner = 'cargo'
+# let g:test#runner_commands = ['Nose', 'Jest','Mocha', 'Cargo']
+# let g:test#preserve_screen = 1
+# '''
 
 # go
 [[plugins]]
@@ -419,40 +419,40 @@ repo = 'mechatroner/rainbow_csv'
 on_ft = ['csv']
 
 # (plant)uml
-[[plugins]]
-repo = 'aklt/plantuml-syntax'
-on_ft = ['plantuml']
-hook_add = '''
-au FileType plantuml command! OpenUml :!plantuml %
-'''
-[[plugins]]
-repo = 'scrooloose/vim-slumlord'
-on_ft = ['plantuml']
+# [[plugins]]
+# repo = 'aklt/plantuml-syntax'
+# on_ft = ['plantuml']
+# hook_add = '''
+# au FileType plantuml command! OpenUml :!plantuml %
+# '''
+# [[plugins]]
+# repo = 'scrooloose/vim-slumlord'
+# on_ft = ['plantuml']
 
-[[plugins]]
-repo = 'kannokanno/previm'
-on_cmd = 'PrevimOpen'
-depends = 'open-browser.vim'
-hook_add = '''
-nnoremap <silent> <SPACE>po :PrevimOpen<cr>
-'''
+# [[plugins]]
+# repo = 'kannokanno/previm'
+# on_cmd = 'PrevimOpen'
+# depends = 'open-browser.vim'
+# hook_add = '''
+# nnoremap <silent> <SPACE>po :PrevimOpen<cr>
+# '''
 
-[[plugins]]
-repo = 'metakirby5/codi.vim'
-on_cmd = ['Codi']
+# [[plugins]]
+# repo = 'metakirby5/codi.vim'
+# on_cmd = ['Codi']
 
 # elm
-[[plugins]]
-repo = 'ElmCast/elm-vim'
-on_ft = ['elm']
-hook_add = '''
-let g:elm_setup_keybindings = 0
-'''
+# [[plugins]]
+# repo = 'ElmCast/elm-vim'
+# on_ft = ['elm']
+# hook_add = '''
+# let g:elm_setup_keybindings = 0
+# '''
 
-[[plugins]]
-repo = 'pbogut/deoplete-elm'
-on_ft = ['elm']
-depends = ['deoplete.nvim']
+# [[plugins]]
+# repo = 'pbogut/deoplete-elm'
+# on_ft = ['elm']
+# depends = ['deoplete.nvim']
 
 ####################
 # Operation:
@@ -652,26 +652,26 @@ source ~/.config/nvim/plugins/quickrun.rc.vim
 ####################
 # Utility:
 ####################
-[[plugins]]
-repo = 'brooth/far.vim'
-on_cmd = ['Far', 'Fardo']
-hook_source = '''
-let g:far#source = 'rgnvim'
-let g:far#file_mask_favorites = [
-      \ '%',
-      \ '**/*.*',
-      \ '**/*.py',
-      \ '**/*.html',
-      \ '**/*.js',
-      \ '**/*.vue',
-      \ '**/*.css']
-'''
-hook_add = '''
-let g:far#default_mappings = 0
-nnoremap <silent> <Space>far :Farp<cr>
-nnoremap <silent> <Space>ff :Fardo<cr>
-nnoremap <silent> <Space>fp :F
-'''
+# [[plugins]]
+# repo = 'brooth/far.vim'
+# on_cmd = ['Far', 'Fardo']
+# hook_source = '''
+# let g:far#source = 'rgnvim'
+# let g:far#file_mask_favorites = [
+#       \ '%',
+#       \ '**/*.*',
+#       \ '**/*.py',
+#       \ '**/*.html',
+#       \ '**/*.js',
+#       \ '**/*.vue',
+#       \ '**/*.css']
+# '''
+# hook_add = '''
+# let g:far#default_mappings = 0
+# nnoremap <silent> <Space>far :Farp<cr>
+# nnoremap <silent> <Space>ff :Fardo<cr>
+# nnoremap <silent> <Space>fp :F
+# '''
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'

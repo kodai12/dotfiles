@@ -39,10 +39,10 @@ source ~/dotfiles/nvim/env.vim
 # endif
 # '''
 
-[[plugins]]
-repo = 'vim-jp/vital.vim'
-[[plugins]]
-repo = 'mattn/webapi-vim'
+# [[plugins]]
+# repo = 'vim-jp/vital.vim'
+# [[plugins]]
+# repo = 'mattn/webapi-vim'
 
 [[plugins]]
 repo = 'kodai12/vim-workspace'
@@ -75,9 +75,9 @@ highlight WorkspaceFill ctermfg=246 ctermbg=246 guifg=#eeeeee guibg=#1c1c1c
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-[[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
+# [[plugins]]
+# repo = 'Shougo/vimproc.vim'
+# build = 'make'
 # hook_post_update = '''
 #   if dein#util#_is_windows()
 #     let cmd = 'tools\\update-dll-mingw'
@@ -97,26 +97,17 @@ repo = 'haya14busa/dein-command.vim'
 ####################
 # Terminal
 ####################
-[[plugins]]
-repo = 'Shougo/deol.nvim'
-hook_add = '''
-nmap T :Deol<CR>
-'''
+# [[plugins]]
+# repo = 'Shougo/deol.nvim'
+# hook_add = '''
+# nmap T :Deol<CR>
+# '''
 
 ####################
 # Colorsheme:
 ####################
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
-
-[[plugins]]
-repo = 'ajmwagar/vim-deus'
-
-[[plugins]]
-repo = 'AlessandroYorba/Alduin'
-hook_add = '''
-let g:alduin_Shout_Dragon_Aspect = 1
-'''
 
 [[plugins]]
 repo = 'rhysd/vim-color-spring-night'
@@ -225,14 +216,14 @@ let g:rainbow_conf = {
       \}
 '''
 
-[[plugins]]
-repo = 'wesQ3/vim-windowswap'
-hook_add = '''
-let g:windowswap_map_keys = 0 "prevent default bindings
-nnoremap <silent> <SPACE>wm :call WindowSwap#MarkWindowSwap()<CR>
-nnoremap <silent> <SPACE>ws :call WindowSwap#DoWindowSwap()<CR>
-nnoremap <silent> <SPACE>ww :call WindowSwap#EasyWindowSwap()<CR>
-'''
+# [[plugins]]
+# repo = 'wesQ3/vim-windowswap'
+# hook_add = '''
+# let g:windowswap_map_keys = 0 "prevent default bindings
+# nnoremap <silent> <SPACE>wm :call WindowSwap#MarkWindowSwap()<CR>
+# nnoremap <silent> <SPACE>ws :call WindowSwap#DoWindowSwap()<CR>
+# nnoremap <silent> <SPACE>ww :call WindowSwap#EasyWindowSwap()<CR>
+# '''
 
 # [[plugins]]
 # repo = 't9md/vim-choosewin'
@@ -287,19 +278,19 @@ repo = 'kkvh/vim-docker-tools'
 # augroup END
 # '''
 
-[[plugins]]
-repo = 'lifepillar/vim-mucomplete'
-hook_add =  '''
-set completeopt-=preview
-set completeopt+=longest,menuone,noselect
-set shortmess+=c   " Shut off completion messages
-set belloff+=ctrlg " If Vim beeps during completion
-let g:mucomplete#no_mappings =1
-let g:mucomplete#completion_delay = 1
-let g:jedi#popup_on_dot = 1
-let g:mucomplete#user_mappings = { 'sqla' : "\<c-c>a" }
-let g:mucomplete#chains = { 'sql' : ['file', 'sqla', 'keyn'] }
-'''
+# [[plugins]]
+# repo = 'lifepillar/vim-mucomplete'
+# hook_add =  '''
+# set completeopt-=preview
+# set completeopt+=longest,menuone,noselect
+# set shortmess+=c   " Shut off completion messages
+# set belloff+=ctrlg " If Vim beeps during completion
+# let g:mucomplete#no_mappings =1
+# let g:mucomplete#completion_delay = 1
+# let g:jedi#popup_on_dot = 1
+# let g:mucomplete#user_mappings = { 'sqla' : "\<c-c>a" }
+# let g:mucomplete#chains = { 'sql' : ['file', 'sqla', 'keyn'] }
+# '''
 
 ####################
 # Git:
@@ -500,14 +491,14 @@ repo = 'itchyny/vim-cursorword'
 # let g:rooter_resolve_links = 1
 # '''
 
-[[plugins]]
-repo = 'AndrewRadev/splitjoin.vim'
+# [[plugins]]
+# repo = 'AndrewRadev/splitjoin.vim'
 
-[[plugins]]
-repo = 'osyo-manga/vim-hopping'
-hook_add = '''
-nmap <SPACE>hh :HoppingStart<CR>
-'''
+# [[plugins]]
+# repo = 'osyo-manga/vim-hopping'
+# hook_add = '''
+# nmap <SPACE>hh :HoppingStart<CR>
+# '''
 
 [[plugins]]
 repo = 'junegunn/vim-peekaboo'
@@ -545,14 +536,11 @@ repo = 'AndrewRadev/linediff.vim'
 ####################
 # Utility:
 ####################
-[[plugins]]
-repo = 'miyakogi/seiya.vim'
-
-[[plugins]]
-repo = 'cocopon/colorswatch.vim'
-hook_add = '''
-let g:colorswatch_exclusion_pattern = 'LightLine.\+'
-'''
+# [[plugins]]
+# repo = 'cocopon/colorswatch.vim'
+# hook_add = '''
+# let g:colorswatch_exclusion_pattern = 'LightLine.\+'
+# '''
 
 [[plugins]]
 repo = 't9md/vim-textmanip'
@@ -563,35 +551,17 @@ hook_add = '''
   xmap <C-l> <Plug>(textmanip-move-right)
 '''
 
-[[plugins]]
-repo = 'mopp/sky-color-clock.vim'
-hook_add = '''
-let g:sky_color_clock#openweathermap_city_id = '1856717' " 宮崎市
-'''
+# [[plugins]]
+# repo = 'tyru/open-browser.vim'
+# hook_add = '''
+# let g:netrw_nogx = 1 " disable netrw's gx mapping.
+# " TODO change default open browser
+# command! OpenBrowserCurrent execute "OpenBrowser" "file:///" . expand('%:p:gs?\\?/?')
+# '''
 
-[[plugins]]
-repo = 'wakatime/vim-wakatime'
-
-[[plugins]]
-repo = 'tsuyoshiwada/slack-memo-vim'
-depends = 'webapi-vim'
-hook_add = '''
-if filereadable(expand('~/dotfiles/nvim/env.vim'))
-  source ~/dotfiles/nvim/env.vim
-endif
-'''
-
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-hook_add = '''
-let g:netrw_nogx = 1 " disable netrw's gx mapping.
-" TODO change default open browser
-command! OpenBrowserCurrent execute "OpenBrowser" "file:///" . expand('%:p:gs?\\?/?')
-'''
-
-[[plugins]]
-repo = 'tyru/open-browser-github.vim'
-depends = ['open-browser.vim']
+# [[plugins]]
+# repo = 'tyru/open-browser-github.vim'
+# depends = ['open-browser.vim']
 
 [[plugins]]
 repo = 'itchyny/calendar.vim'
@@ -608,28 +578,28 @@ let g:lastplace_ignore = "gitcommit,gitrebase,svn,hgcommit"
 let g:lastplace_ignore_buftype = "quickfix,nofile,help"
 '''
 
-[[plugins]]
-repo = 'tpope/vim-speeddating'
+# [[plugins]]
+# repo = 'tpope/vim-speeddating'
 
-[[plugins]]
-repo = 'kamykn/spelunker.vim'
-hook_add = '''
-nmap <unique> <C-W><C-W> <Plug>(spelunker-correct-from-list)
-nmap <unique> <C-W><C-A> <Plug>(spelunker-correct-all-from-list)
-nmap <unique> <C-C><C-C> <Plug>(spelunker-correct)
-nmap <unique> <C-C><C-A> <Plug>(spelunker-correct-all)
-'''
+# [[plugins]]
+# repo = 'kamykn/spelunker.vim'
+# hook_add = '''
+# nmap <unique> <C-W><C-W> <Plug>(spelunker-correct-from-list)
+# nmap <unique> <C-W><C-A> <Plug>(spelunker-correct-all-from-list)
+# nmap <unique> <C-C><C-C> <Plug>(spelunker-correct)
+# nmap <unique> <C-C><C-A> <Plug>(spelunker-correct-all)
+# '''
 
 [[plugins]]
 repo = 'vim-scripts/gitignore'
 
-[[plugins]]
-repo = 'modsound/macdict-vim'
-hook_add = '''
-nnoremap <Space>sw :MacDictJapan
-nnoremap <Space>sc :MacDictCWord<CR>
-nnoremap <Space>sq :MacDictClose<CR>
-'''
+# [[plugins]]
+# repo = 'modsound/macdict-vim'
+# hook_add = '''
+# nnoremap <Space>sw :MacDictJapan
+# nnoremap <Space>sc :MacDictCWord<CR>
+# nnoremap <Space>sq :MacDictClose<CR>
+# '''
 
 [[plugins]]
 repo = 'tpope/vim-sleuth'
