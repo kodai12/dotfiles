@@ -40,7 +40,7 @@ SPACESHIP_PROMPT_ORDER=(
   exit_code     # Exit code section
   char          # Prompt character
 )
-SPACESHIP_CHAR_SYMBOL="👉 "
+SPACESHIP_CHAR_SYMBOL="➜ "
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
 SPACESHIP_DIR_TRUNC_PREFIX=".../"
 SPACESHIP_DIR_TRUNC_REPO=false
