@@ -86,7 +86,7 @@ nnoremap <silent> [denite]f :Denite file_mru -cursor-wrap=true -no-empty -immedi
 nnoremap <silent> [denite]d :Denite directory_mru -no-empty -immediately-1 -default-action=open<CR>
 nnoremap <silent> <Space>cd :Denite directory_mru -no-empty -immediately-1 -default-action=cd<CR>
 nnoremap <silent> <C-l> :<C-u>Denite line -no-empty -immediately-1 -auto-highlight<CR>
-nnoremap <silent> * :<C-u>DeniteCursorWord line -immediately-1 -auto-highlight<CR>
+" nnoremap <silent> * :<C-u>DeniteCursorWord line -immediately-1 -auto-highlight<CR>
 nnoremap <silent> [denite]j :<C-u>Denite jump -no-empty -immediately-1<CR>
 nnoremap <silent> [denite]c :<C-u>Denite command_history<CR>
 nnoremap <silent> [denite]h :<C-u>Denite help<CR>

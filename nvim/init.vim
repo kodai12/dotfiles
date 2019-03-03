@@ -144,10 +144,10 @@ colorscheme spring-night
 
 "" setting termguicolors
 set background=dark
-if has('termguicolors')
-  set termguicolors
-  hi Visual guibg=#ab6560 ctermbg=95
-endif
+" if has('termguicolors')
+"   set termguicolors
+"   hi Visual guibg=#ab6560 ctermbg=95
+" endif
 
 " 折りたたみ時の色を設定
 highlight Folded ctermfg=131
