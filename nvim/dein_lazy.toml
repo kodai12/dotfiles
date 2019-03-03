@@ -547,19 +547,19 @@ omap ag <Plug>(textobj-line-a)
 omap ig <Plug>(textobj-line-i)
 '''
 
-[[plugins]]
-repo = 'kana/vim-operator-replace'
-depends = 'vim-operator-user'
-on_map = '<Plug>'
-hook_add = '''
-nmap r <Plug>(operator-replace)
-xmap r <Plug>(operator-replace)
-omap r <Plug>(operator-replace)
-onoremap <Plug>(builtin-gn) gn
-nnoremap <Plug>(builtin-/) /
-"nmap [edit]n *``<Plug>(operator-replace)<Plug>(builtin-gn)
-"xmap <expr> [edit]n "\"ry<Plug>(builtin-/)\\V\<C-r>=notomo#vimrc#escape_search_pattern(@r)\<CR>\<CR>" . "``\"+<Plug>(operator-replace)<Plug>(builtin-gn)"
-'''
+# [[plugins]]
+# repo = 'kana/vim-operator-replace'
+# depends = 'vim-operator-user'
+# on_map = '<Plug>'
+# hook_add = '''
+# nmap r <Plug>(operator-replace)
+# xmap r <Plug>(operator-replace)
+# omap r <Plug>(operator-replace)
+# onoremap <Plug>(builtin-gn) gn
+# nnoremap <Plug>(builtin-/) /
+# "nmap [edit]n *``<Plug>(operator-replace)<Plug>(builtin-gn)
+# "xmap <expr> [edit]n "\"ry<Plug>(builtin-/)\\V\<C-r>=notomo#vimrc#escape_search_pattern(@r)\<CR>\<CR>" . "``\"+<Plug>(operator-replace)<Plug>(builtin-gn)"
+# '''
 
 [[plugins]]
 repo = 'osyo-manga/vim-textobj-from_regexp'
