@@ -207,6 +207,16 @@ hook_post_source = '''
 "}}}
 '''
 
+[[plugins]]
+repo = 'rhysd/git-messenger.vim'
+on_cmd = 'GitMessenger'
+on_map = '<Plug>(git-messenger)'
+hook_add = '''
+let g:git_messenger_no_default_mappings = v:true
+let g:git_messenger_into_popup_after_show = v:false
+nmap mm <Plug>(git-messenger)
+'''
+
 ####################
 # Diff:
 ####################
