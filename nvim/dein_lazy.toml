@@ -215,6 +215,9 @@ hook_add = '''
 let g:git_messenger_no_default_mappings = v:true
 let g:git_messenger_into_popup_after_show = v:false
 nmap mm <Plug>(git-messenger)
+
+hi gitmessengerPopupNormal term=None guifg=#eeeeee guibg=#333333 ctermfg=255 ctermbg=240
+hi gitmessengerEndOfBuffer term=None guifg=#333333 guibg=#333333 ctermfg=234 ctermbg=234
 '''
 
 ####################
@@ -392,13 +395,13 @@ on_ft = ['go']
 repo = 'derekwyatt/vim-scala'
 on_ft = ['scala']
 
-[[plugins]]
-repo = 'ensime/ensime-vim'
-on_ft = ['scala']
-depends = ['vim-scala']
-hook_add = '''
-autocmd BufWritePost *.scala silent :EnTypeCheck
-'''
+# [[plugins]]
+# repo = 'ensime/ensime-vim'
+# on_ft = ['scala']
+# depends = ['vim-scala']
+# hook_add = '''
+# autocmd BufWritePost *.scala silent :EnTypeCheck
+# '''
 
 # docker
 [[plugins]]
