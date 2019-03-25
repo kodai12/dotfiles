@@ -369,6 +369,17 @@ if has('terminal')
 endif
 " }}}
 
+
+" CUSTOM ALIASE
+command -nargs=1 Differ call Differ(<f-args>)
+function! Differ(file)
+  execute "vertical diffsplit " . a:file
+endfunction
+command -nargs=1 WrapText call WrapText(<f-args>)
+function! WrapText(delimiter)
+  execute "%s/" . a:delimiter . "/\r/"
+endfunction
+
 source ~/dotfiles/nvim/keybind.vim
 
 
