@@ -274,6 +274,20 @@ on_ft = ['javascript']
 # autocmd FileType javascript nmap <silent> <C-_> ?function<cr>:noh<cr><Plug>(jsdoc)
 # '''
 
+# ruby
+[[plugins]]
+repo = 'Shougo/deoplete-rct'
+on_ft = ['ruby']
+
+[[plugins]]
+repo = 'fishbullet/deoplete-ruby'
+on_ft = ['ruby']
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_i = 1
+on_ft = ['ruby']
+
 # vue
 [[plugins]]
 repo = 'posva/vim-vue'
