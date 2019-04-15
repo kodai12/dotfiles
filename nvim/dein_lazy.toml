@@ -274,6 +274,17 @@ on_ft = ['javascript']
 # autocmd FileType javascript nmap <silent> <C-_> ?function<cr>:noh<cr><Plug>(jsdoc)
 # '''
 
+# typescript
+[[plugins]]
+repo = 'Quramy/tsuquyomi'
+on_ft = ['ts', 'typescript']
+hook_source = '''
+let g:tsuquyomi_completion_detail = 1
+'''
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
 # ruby
 [[plugins]]
 repo = 'Shougo/deoplete-rct'

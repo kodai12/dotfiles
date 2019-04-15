@@ -76,6 +76,7 @@ if has('autocmd')
   autocmd FileType scss        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType sass        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType javascript  setlocal sw=2 sts=2 ts=2 et
+  autocmd BufRead,BufNewFile *.ts set filetype=typescript
   autocmd FileType rust        setlocal sw=2 sts=2 ts=2 et
 endif
 
