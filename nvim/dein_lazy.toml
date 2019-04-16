@@ -370,21 +370,21 @@ augroup custom-jedi
 augroup END
 '''
 
-[[plugins]]
-repo = 'python-mode/python-mode'
-on_i = 1
-on_ft = ['python']
-hook_add = '''
-let g:pymode_python = 'python3'
-let g:pymode_rope = 1
-let g:pymode_indent = 1
-let g:pymode_rope_autoimport = 1
-let g:pymode_warnings = 0
-let g:pymode_rope_regenerate_on_write = 0
-let g:pymode_rope_lookup_project = 0
-let g:pymode_rope_complete_on_dot = 0
-autocmd FileType python nnoremap <C-p> :PymodeRopeAutoImport<CR>
-'''
+# [[plugins]]
+# repo = 'python-mode/python-mode'
+# on_i = 1
+# on_ft = ['python']
+# hook_add = '''
+# let g:pymode_python = 'python3'
+# let g:pymode_rope = 1
+# let g:pymode_indent = 1
+# let g:pymode_rope_autoimport = 1
+# let g:pymode_warnings = 0
+# let g:pymode_rope_regenerate_on_write = 0
+# let g:pymode_rope_lookup_project = 0
+# let g:pymode_rope_complete_on_dot = 0
+# autocmd FileType python nnoremap <C-p> :PymodeRopeAutoImport<CR>
+# '''
 
 # [[plugins]]
 # repo = 'heavenshell/vim-pydocstring'

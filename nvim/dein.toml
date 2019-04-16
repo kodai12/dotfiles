@@ -267,6 +267,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 [[plugins]]
 repo = 'kkvh/vim-docker-tools'
 
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+
 # [[plugins]]
 # repo = 'sbdchd/neoformat'
 # hook_add = '''
