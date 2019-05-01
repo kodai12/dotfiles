@@ -15,6 +15,7 @@ let g:LanguageClient_serverCommands = {
       \ 'javascript': ['javascript-typescript-stdio'],
       \ 'python': ['pyls'],
       \ 'css': ['css-languageserver', '--stdio'],
+      \ 'ruby': ['solargraph', 'stdio'],
       \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
       \ }
 
