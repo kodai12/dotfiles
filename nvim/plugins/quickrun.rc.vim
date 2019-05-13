@@ -42,3 +42,8 @@ let g:quickrun_config['vim'] = {
 let g:quickrun_config['sh'] = {
 \   'hook/output_encode/encoding': 'utf-8',
 \}
+
+let g:quickrun_config['ruby'] = {
+\   'command': 'ruby',
+\   'hook/output_encode/encoding': 'utf-8',
+\}

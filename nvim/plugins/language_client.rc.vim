@@ -29,7 +29,7 @@ endfunction
 
 augroup my-lsp-cmd
   autocmd!
-  autocmd FileType vue,javascript,python,css,rust :call s:lsp()
+  autocmd FileType vue,javascript,python,css,rust,ruby :call s:lsp()
 augroup END
 
 let g:LanguageClient_rootMarkers = {
