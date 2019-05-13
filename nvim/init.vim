@@ -64,6 +64,8 @@ if has('autocmd')
   "ファイルタイプに合わせたインデントを利用
   filetype indent on
   "sw=softtabstop, sts=shiftwidth, ts=tabstop, et=expandtabの略
+  autocmd BufNewFile,BufRead *.ts     set filetype=typescript
+  autocmd BufNewFile,BufRead *.tsx    set filetype=typescript
   autocmd FileType c           setlocal sw=4 sts=4 ts=4 et
   autocmd FileType html        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 et

@@ -92,7 +92,7 @@ let g:neopairs#enable = 1
 
 [[plugins]]
 repo = 'carlitux/deoplete-ternjs'
-on_ft = ['javascript', 'vue']
+on_ft = ['javascript', 'vue', 'ts', 'typescript', 'jsx']
 hook_source = '''
 let g:deoplete#sources#ternjs#timeout = 1
 let g:deoplete#sources#ternjs#types = 1
@@ -101,6 +101,11 @@ let g:deoplete#sources#ternjs#docs = 1
 let g:deoplete#sources#ternjs#omit_object_prototype = 0
 let g:deoplete#sources#ternjs#include_keywords = 1
 '''
+
+[[plugins]]
+repo = 'ternjs/tern_for_vim'
+on_ft = ['javascript', 'vue', 'ts', 'typescript', 'jsx']
+build = 'npm install'
 
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
@@ -246,7 +251,14 @@ on_ft = ['html', 'vim', 'sql', 'php']
 # html, css
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['css', 'html', 'xhtml', 'php']
+on_ft = ['css', 'html', 'xhtml', 'php', 'ruby', 'eruby', 'vue']
+hook_add = '''
+let g:user_emmet_settings = {
+      \  'javascript.jsx' : {
+      \      'extends' : 'jsx',
+      \  },
+      \}
+'''
 
 # [[plugins]]
 # repo = 'hail2u/vim-css3-syntax'
@@ -265,25 +277,48 @@ on_ft = ['css', 'html', 'xhtml', 'php']
 # javascript
 [[plugins]]
 repo = 'othree/yajs.vim'
-on_ft = ['javascript']
+on_ft = ['javascript', 'ts', 'typescript', 'jsx']
 
 # [[plugins]]
 # repo = 'heavenshell/vim-jsdoc'
-# on_ft = ['javascript']
+# on_ft = ['javascript', 'ts', 'typescript']
 # hook_add = '''
 # autocmd FileType javascript nmap <silent> <C-_> ?function<cr>:noh<cr><Plug>(jsdoc)
 # '''
 
+[[plugins]]
+repo = 'MaxMEllon/vim-jsx-pretty'
+on_ft = ['javascript', 'ts', 'typescript']
+hook_add = '''
+let g:vim_jsx_pretty_colorful_config = 1
+'''
+
+[[plugins]]
+repo = 'skywind3000/asyncrun.vim'
+on_ft = ['javascript', 'ts', 'typescript']
+hook_add = '''
+autocmd BufWritePost *.js, *.jsx, *.ts, *.tsx AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
+'''
+
 # typescript
 [[plugins]]
 repo = 'Quramy/tsuquyomi'
-on_ft = ['ts', 'typescript']
+on_ft = ['javascript', 'ts', 'typescript', 'jsx']
+build = 'make -f make_mac.mak'
 hook_source = '''
 let g:tsuquyomi_completion_detail = 1
+let g:tsuquyomi_shortest_import_path = 1
+augroup custom-tsuquyomi
+  autocmd!
+  autocmd BufReadPre typescript TsuStartServer
+  autocmd FileType typescript nnoremap <silent> ;; :TsuDefinition<CR>
+  autocmd FileType typescript nnoremap <silent> K :TsuReferences<CR>
+augroup END
 '''
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
+on_ft = ['ts', 'typescript']
 
 # ruby
 [[plugins]]
