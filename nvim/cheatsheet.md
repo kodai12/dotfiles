@@ -80,8 +80,8 @@
 - `<SPACE>gR`: Gina! rebase "XXX"
 - `<SPACE>gb`: Gina blame
 - `<SPACE>gfl`: Gina log
-- `<SPACE>dd`: Gina compare
-- `<SPACE>df`: Gina diff
+- `<SPACE>gdd`: Gina compare
+- `<SPACE>gdf`: Gina diff
 
 #### agit
 - `<SPACE>ag`: Agit

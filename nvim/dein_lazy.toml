@@ -212,19 +212,19 @@ hook_post_source = '''
 "}}}
 '''
 
-[[plugins]]
-repo = 'rhysd/git-messenger.vim'
-on_cmd = 'GitMessenger'
-on_map = '<Plug>(git-messenger)'
-hook_add = '''
-let g:git_messenger_no_default_mappings = v:true
-let g:git_messenger_into_popup_after_show = v:false
-let g:git_messenger_always_into_popup = v:true
-nmap mm <Plug>(git-messenger)
+# [[plugins]]
+# repo = 'rhysd/git-messenger.vim'
+# on_cmd = 'GitMessenger'
+# on_map = '<Plug>(git-messenger)'
+# hook_add = '''
+# let g:git_messenger_no_default_mappings = v:true
+# let g:git_messenger_into_popup_after_show = v:false
+# let g:git_messenger_always_into_popup = v:true
+# nmap mm <Plug>(git-messenger)
 
-hi gitmessengerPopupNormal term=None guifg=#eeeeee guibg=#333333 ctermfg=255 ctermbg=240
-hi gitmessengerEndOfBuffer term=None guifg=#333333 guibg=#333333 ctermfg=234 ctermbg=234
-'''
+# hi gitmessengerPopupNormal term=None guifg=#eeeeee guibg=#333333 ctermfg=255 ctermbg=240
+# hi gitmessengerEndOfBuffer term=None guifg=#333333 guibg=#333333 ctermfg=234 ctermbg=234
+# '''
 
 ####################
 # Diff:
