@@ -16,10 +16,10 @@ call denite#custom#option('file_rec', {
       \ })
 
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs', [
-      \ '.git/', '.ropeproject/', '__pycache__/', 'tags', 'tags.*',
+      \ '.git/', '.github/', '.ropeproject/', '__pycache__/', 'tags', 'tags.*',
       \ 'venv/', 'images/', '*.min.*', 'img/', 'fonts/',
       \ 'node_modules/', 'target/', '.nuxt/', 'dist/', '.serverless/',
-      \ '.serverless_plugins', '.cache/', 'direnv', 'configstore'
+      \ '.serverless_plugins', '.cache/', 'direnv', 'configstore', '.local_requirements/', '.ropeproject/'
       \ ])
 
 "" file_rec
@@ -30,7 +30,7 @@ endif
 call denite#custom#source('file_rec', 'matchers', ['matcher/regexp', 'matcher_cpsm', 'matcher_ignore_globs'])
 call denite#custom#source('file_rec', 'max_candidates', 10000)
 let s:denite_file_rec_ignore=&wildignore .
-      \ ',*.pyc,.git,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.cache,dist,target,.DS_Store'
+      \ ',*.pyc,.git,.github,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.cache,dist,target,.DS_Store, .local_requirements'
 call denite#custom#var('file_rec', 'command',
       \ ['scantree.py', '--ignore', s:denite_file_rec_ignore])
 

@@ -67,6 +67,7 @@ if has('autocmd')
   autocmd BufNewFile,BufRead *.ts     set filetype=typescript
   autocmd BufNewFile,BufRead *.tsx    set filetype=typescript
   autocmd FileType c           setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType go          setlocal sw=2 sts=2 ts=2 et
   autocmd FileType html        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType zsh         setlocal sw=4 sts=4 ts=4 et

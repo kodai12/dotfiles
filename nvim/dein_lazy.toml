@@ -56,7 +56,8 @@ on_source = 'denite.nvim'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-on_cmd = 'Denite'
+on_cmd = ['Denite', 'DeniteBufferDir', 'DeniteCursorWord']
+on_func = ['denite#']
 hook_post_source = '''
 source ~/dotfiles/nvim/plugins/denite.rc.vim
 '''
@@ -293,12 +294,12 @@ hook_add = '''
 let g:vim_jsx_pretty_colorful_config = 1
 '''
 
-[[plugins]]
-repo = 'skywind3000/asyncrun.vim'
-on_ft = ['javascript', 'ts', 'typescript']
-hook_add = '''
-autocmd BufWritePost *.js, *.jsx, *.ts, *.tsx AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
-'''
+# [[plugins]]
+# repo = 'skywind3000/asyncrun.vim'
+# on_ft = ['javascript', 'ts', 'typescript']
+# hook_add = '''
+# autocmd BufWritePost *.js, *.jsx, *.ts, *.tsx AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
+# '''
 
 # typescript
 [[plugins]]
