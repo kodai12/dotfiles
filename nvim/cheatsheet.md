@@ -145,3 +145,11 @@
 
 ### markdown
 - `<SPACE>md`: switch status
+
+### rails
+- `<SPACE>r` :R
+- `<SPACE>a` :A
+- `<SPACE>m` :Rmodel
+- `<SPACE>c` :Rcontroller
+- `<SPACE>v` :Rview
+- `<SPACE>p` :Rpreview

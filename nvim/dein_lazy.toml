@@ -252,7 +252,7 @@ on_ft = ['html', 'vim', 'sql', 'php', 'ruby']
 # html, css
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['css', 'html', 'xhtml', 'php', 'ruby', 'eruby', 'vue']
+on_ft = ['css', 'html', 'xhtml', 'php', 'ruby', 'eruby', 'vue', 'tsx', 'jsx', 'js', 'ts']
 hook_add = '''
 let g:user_emmet_settings = {
       \  'javascript.jsx' : {

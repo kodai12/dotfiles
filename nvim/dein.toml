@@ -287,6 +287,9 @@ hook_add = '''
   endfunction
 '''
 
+[[plugins]]
+repo = 'kkvh/vim-docker-tools'
+
 # [[plugins]]
 # repo = 'sbdchd/neoformat'
 # hook_add = '''
