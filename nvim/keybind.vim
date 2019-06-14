@@ -77,21 +77,19 @@ nnoremap <SPACE>mt :<C-u>MerginalToggle<CR>
 nnoremap [denite] <Nop>
 nmap <Space>d [denite]
 
-nnoremap <silent> ? :<C-u>DeniteProjectDir grep -no-empty -immediately-1 -max-dynamic-update-candidates=0<CR>
+nnoremap <silent> ? :<C-u>DeniteProjectDir grep -immediately-1 -max-dynamic-update-candidates=0<CR>
 nnoremap <silent> <C-G> :<C-u>DeniteCursorWord grep -no-empty -immediately-1 -max-dynamic-update-candidates=0<CR>
-nnoremap <silent> B :<C-u>Denite buffer -mode=insert -cursor-wrap=true -no-empty -immediately-1<CR>
-nnoremap <silent> [denite]b :<C-u>Denite buffer -mode=insert -cursor-wrap=true -no-empty -default-action=delete<CR>
-nnoremap <silent> F :<C-u>DeniteProjectDir file_rec -no-empty -immediately-1<CR>
-nnoremap <silent> [denite]f :Denite file_mru -cursor-wrap=true -no-empty -immediately-1<CR>
+nnoremap <silent> B :<C-u>Denite buffer -no-empty -immediately-1<CR>
+nnoremap <silent> [denite]b :<C-u>Denite buffer -no-empty -default-action=delete<CR>
+nnoremap <silent> F :<C-u>DeniteProjectDir file/rec -no-empty -immediately-1<CR>
+nnoremap <silent> [denite]f :Denite file/mru -no-empty -immediately-1<CR>
 nnoremap <silent> [denite]d :Denite directory_mru -no-empty -immediately-1 -default-action=open<CR>
 nnoremap <silent> <Space>cd :Denite directory_mru -no-empty -immediately-1 -default-action=cd<CR>
-nnoremap <silent> <C-l> :<C-u>Denite line -no-empty -immediately-1 -auto-highlight<CR>
-" nnoremap <silent> * :<C-u>DeniteCursorWord line -immediately-1 -auto-highlight<CR>
+nnoremap <silent> <C-l> :<C-u>Denite line -no-empty -immediately-1<CR>
 nnoremap <silent> [denite]j :<C-u>Denite jump -no-empty -immediately-1<CR>
 nnoremap <silent> [denite]c :<C-u>Denite command_history<CR>
 nnoremap <silent> [denite]h :<C-u>Denite help<CR>
-nnoremap <silent> [denite]e :<C-u>Denite emoji<CR>
-nnoremap <silent> gb :<C-u>Denite gitbranch<CR>
+nnoremap <silent> [denite]m :<C-u>Denite menu<CR>
 nnoremap <silent> gc :<C-u>Denite gitchanged<CR>
 nnoremap <silent> gl :<C-u>Denite gitlog<CR>
 
