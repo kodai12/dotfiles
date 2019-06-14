@@ -7,6 +7,9 @@ set number
 set cursorline
 set laststatus=2
 set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
 set showmatch
 set helpheight=999
 set list
@@ -33,6 +36,8 @@ set confirm
 set hidden
 set autoread
 set noswapfile
+set nobackup
+set nowritebackup
 "{{{ cf. https://gist.github.com/nepsilon/003dd7cfefc20ce1e894db9c94749755
 " set backup
 " set backupdir=~/.config/nvim/backup//
@@ -98,10 +103,6 @@ autocmd QuickfixCmdPost vimgrep call OpenModifiableQF()
 
 "" 現在のファイル名を表示する時にフルパスで表示する
 nnoremap <c-g> 1<c-g>
-"" ファイルを開いた時にファイルのフルパスをコマンドラインに表示
-augroup EchoFilePath
-  autocmd WinEnter * execute "normal! 1\<C-g>"
-augroup END
 
 " プラグインがインストールされるディレクトリ
 let s:dein_dir = expand('~/.cache/dein')

@@ -1,5 +1,5 @@
 # alias
-alias v="nvim"
+alias v="~/nvim-osx64/bin/nvim"
 alias del-dsstore="find . -name '.DS_Store' -type f -ls -delete"
 alias rm="rm -i"
 alias gs="git st"
