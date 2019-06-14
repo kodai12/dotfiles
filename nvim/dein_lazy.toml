@@ -615,6 +615,19 @@ on_ft = ['csv']
 # Operation:
 ####################
 [[plugins]]
+repo = 'rhysd/git-messenger.vim'
+on_cmd = ['GitMessenger']
+on_map = ['<Plug>(git-messenger']
+hook_add = '''
+nnoremap <silent>mm :GitMessenger<CR>
+
+hi link gitmessengerPopupNormal CursorLine
+hi link gitmessengerHeader Statement
+hi link gitmessengerHash Special
+hi link gitmessengerHistory Title
+'''
+
+[[plugins]]
 repo = 'haya14busa/vim-operator-flashy'
 on_map = {nox = '<Plug>'}
 hook_add = '''
