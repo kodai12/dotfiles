@@ -11,10 +11,6 @@ if !exists('g:neomru#file_mru_ignore_pattern')
 endif
 '''
 
-# [[plugins]]
-# repo = 'Shougo/neoyank.vim'
-# on_source = 'denite.nvim'
-
 [[plugins]]
 repo = 'neoclide/denite-git'
 on_source = 'denite.nvim'
@@ -41,18 +37,14 @@ call denite#custom#map(
       \)
 '''
 
-# [[plugins]]
-# repo = 'pocari/vim-denite-emoji'
-# on_source = 'denite.nvim'
-# depends = ['denite.nvim', 'vim-emoji']
-
-# [[plugins]]
-# repo = 'junegunn/vim-emoji'
-# on_source = 'vim-denite-emoji'
+[[plugins]]
+repo = 'pocari/vim-denite-emoji'
+on_source = 'denite.nvim'
+depends = ['denite.nvim', 'vim-emoji']
 
 [[plugins]]
-repo = 'notomo/denite-keymap'
-on_source = 'denite.nvim'
+repo = 'junegunn/vim-emoji'
+on_source = 'vim-denite-emoji'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -105,14 +97,14 @@ hook_source = '''
 let g:neopairs#enable = 1
 '''
 
-# [[plugins]]
-# repo = 'Shougo/echodoc.vim'
-# depends = ['deoplte.nvim']
-# on_event = 'InsertEnter'
-# hook_source = '''
-# set cmdheight=2
-# let g:echodoc#enable_at_startup = 1
-# '''
+[[plugins]]
+repo = 'Shougo/echodoc.vim'
+depends = ['deoplte.nvim']
+on_event = 'InsertEnter'
+hook_source = '''
+set cmdheight=2
+let g:echodoc#enable_at_startup = 1
+'''
 
 # [[plugins]]
 # repo = 'carlitux/deoplete-ternjs'
@@ -188,10 +180,10 @@ let g:deoplete#keyword_patterns.gitcommit = '.+'
 "  \ 'gitcommit', [g:deoplete#keyword_patterns.gitcommit])
 '''
 
-# [[plugins]]
-# repo = 'fszymanski/deoplete-emoji'
-# depends = ['deoplete.nvim']
-# on_ft = ['gitcommit', 'markdown']
+[[plugins]]
+repo = 'fszymanski/deoplete-emoji'
+depends = ['deoplete.nvim']
+on_ft = ['gitcommit', 'markdown']
 
 ####################
 # Language Client:
@@ -236,28 +228,6 @@ hook_post_source = '''
 "}}}
 '''
 
-# [[plugins]]
-# repo = 'rhysd/git-messenger.vim'
-# on_cmd = 'GitMessenger'
-# on_map = '<Plug>(git-messenger)'
-# hook_add = '''
-# let g:git_messenger_no_default_mappings = v:true
-# let g:git_messenger_into_popup_after_show = v:false
-# let g:git_messenger_always_into_popup = v:true
-# nmap mm <Plug>(git-messenger)
-
-# hi gitmessengerPopupNormal term=None guifg=#eeeeee guibg=#333333 ctermfg=255 ctermbg=240
-# hi gitmessengerEndOfBuffer term=None guifg=#333333 guibg=#333333 ctermfg=234 ctermbg=234
-# '''
-
-####################
-# Diff:
-####################
-# [[plugins]]
-# repo = 'sgur/vim-py3diff'
-# if = "has('python3')"
-# hook_add = 'set diffexpr=py3diff#diffexpr()'
-
 ####################
 # Language Plugins:
 ####################
@@ -284,31 +254,10 @@ let g:user_emmet_settings = {
       \}
 '''
 
-# [[plugins]]
-# repo = 'hail2u/vim-css3-syntax'
-# on_ft = ['css']
-# hook_add = '''
-# augroup VimCSS3Syntax
-#   autocmd!
-#   autocmd FileType css setlocal iskeyword+=-
-# augroup END
-# '''
-
-# [[plugins]]
-# repo = 'ap/vim-css-color'
-# on_ft = ['css']
-
 # javascript
 [[plugins]]
 repo = 'othree/yajs.vim'
 on_ft = ['javascript', 'ts', 'typescript', 'jsx']
-
-# [[plugins]]
-# repo = 'heavenshell/vim-jsdoc'
-# on_ft = ['javascript', 'ts', 'typescript']
-# hook_add = '''
-# autocmd FileType javascript nmap <silent> <C-_> ?function<cr>:noh<cr><Plug>(jsdoc)
-# '''
 
 [[plugins]]
 repo = 'MaxMEllon/vim-jsx-pretty'
@@ -317,28 +266,21 @@ hook_add = '''
 let g:vim_jsx_pretty_colorful_config = 1
 '''
 
-# [[plugins]]
-# repo = 'skywind3000/asyncrun.vim'
-# on_ft = ['javascript', 'ts', 'typescript']
-# hook_add = '''
-# autocmd BufWritePost *.js, *.jsx, *.ts, *.tsx AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
-# '''
-
 # typescript
-[[plugins]]
-repo = 'Quramy/tsuquyomi'
-on_ft = ['javascript', 'ts', 'typescript', 'jsx']
-build = 'make -f make_mac.mak'
-hook_source = '''
-let g:tsuquyomi_completion_detail = 1
-let g:tsuquyomi_shortest_import_path = 1
-augroup custom-tsuquyomi
-  autocmd!
-  autocmd BufReadPre typescript TsuStartServer
-  autocmd FileType typescript nnoremap <silent> ;; :TsuDefinition<CR>
-  autocmd FileType typescript nnoremap <silent> K :TsuReferences<CR>
-augroup END
-'''
+# [[plugins]]
+# repo = 'Quramy/tsuquyomi'
+# on_ft = ['javascript', 'ts', 'typescript', 'jsx']
+# build = 'make -f make_mac.mak'
+# hook_source = '''
+# let g:tsuquyomi_completion_detail = 1
+# let g:tsuquyomi_shortest_import_path = 1
+# augroup custom-tsuquyomi
+#   autocmd!
+#   autocmd BufReadPre typescript TsuStartServer
+#   autocmd FileType typescript nnoremap <silent> ;; :TsuDefinition<CR>
+#   autocmd FileType typescript nnoremap <silent> K :TsuReferences<CR>
+# augroup END
+# '''
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
@@ -388,13 +330,6 @@ source ~/dotfiles/nvim/plugins/switch.rc.vim
 [[plugins]]
 repo = 'skwp/vim-rspec'
 on_ft = ['ruby']
-# [[plugins]]
-# repo = 'Shougo/deoplete-rct'
-# on_ft = ['ruby']
-
-# [[plugins]]
-# repo = 'fishbullet/deoplete-ruby'
-# on_ft = ['ruby']
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
@@ -453,11 +388,6 @@ hook_source = '''
 "  nmap <SPACE>K <Plug>(rust-doc)
 '''
 
-# solidity
-# [[plugins]]
-# repo = 'tomlion/vim-solidity'
-# on_ft = ['solidity']
-
 # python
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
@@ -471,59 +401,6 @@ augroup custom-jedi
   autocmd FileType python nnoremap <silent> K :call jedi#show_documentation()<CR>
 augroup END
 '''
-
-# [[plugins]]
-# repo = 'python-mode/python-mode'
-# on_i = 1
-# on_ft = ['python']
-# hook_add = '''
-# let g:pymode_python = 'python3'
-# let g:pymode_rope = 1
-# let g:pymode_indent = 1
-# let g:pymode_rope_autoimport = 1
-# let g:pymode_warnings = 0
-# let g:pymode_rope_regenerate_on_write = 0
-# let g:pymode_rope_lookup_project = 0
-# let g:pymode_rope_complete_on_dot = 0
-# autocmd FileType python nnoremap <C-p> :PymodeRopeAutoImport<CR>
-# '''
-
-# [[plugins]]
-# repo = 'heavenshell/vim-pydocstring'
-# on_ft = ['python']
-# hook_add = '''
-# autocmd FileType python nmap <silent> <C-_> <Plug>(pydocstring)
-# '''
-
-# python(test settings)
-# [[plugins]]
-# repo = 'tpope/vim-dispatch'
-# on_ft = ['python']
-
-# [[plugins]]
-# repo = 'radenling/vim-dispatch-neovim'
-# if ='''has('nvim')'''
-# on_ft = ['python']
-
-# [[plugins]]
-# repo = 'aliev/vim-compiler-python'
-# on_ft = ['python']
-# hook_add = '''
-# let g:python_compiler_fixqflist = 1
-# '''
-
-# [[plugins]]
-# repo = 'janko-m/vim-test'
-# on_ft = ['python']
-# depends = ['vim-dispatch', 'vim-dispatch-neovim']
-# hook_add = '''
-# let g:test#strategy = 'dispatch'
-# let g:test#python#runner = 'nose'
-# let g:test#javascript#runner = 'jest'
-# let g:test#rust#runner = 'cargo'
-# let g:test#runner_commands = ['Nose', 'Jest','Mocha', 'Cargo']
-# let g:test#preserve_screen = 1
-# '''
 
 # go
 [[plugins]]
@@ -575,42 +452,6 @@ on_ft = ['yaml']
 repo = 'mechatroner/rainbow_csv'
 on_ft = ['csv']
 
-# (plant)uml
-# [[plugins]]
-# repo = 'aklt/plantuml-syntax'
-# on_ft = ['plantuml']
-# hook_add = '''
-# au FileType plantuml command! OpenUml :!plantuml %
-# '''
-# [[plugins]]
-# repo = 'scrooloose/vim-slumlord'
-# on_ft = ['plantuml']
-
-# [[plugins]]
-# repo = 'kannokanno/previm'
-# on_cmd = 'PrevimOpen'
-# depends = 'open-browser.vim'
-# hook_add = '''
-# nnoremap <silent> <SPACE>po :PrevimOpen<cr>
-# '''
-
-# [[plugins]]
-# repo = 'metakirby5/codi.vim'
-# on_cmd = ['Codi']
-
-# elm
-# [[plugins]]
-# repo = 'ElmCast/elm-vim'
-# on_ft = ['elm']
-# hook_add = '''
-# let g:elm_setup_keybindings = 0
-# '''
-
-# [[plugins]]
-# repo = 'pbogut/deoplete-elm'
-# on_ft = ['elm']
-# depends = ['deoplete.nvim']
-
 ####################
 # Operation:
 ####################
@@ -625,7 +466,59 @@ hi link gitmessengerPopupNormal CursorLine
 hi link gitmessengerHeader Statement
 hi link gitmessengerHash Special
 hi link gitmessengerHistory Title
+hi gitmessengerPopupNormal term=None guifg=#eeeeee guibg=#333333 ctermfg=255 ctermbg=240
+hi gitmessengerEndOfBuffer term=None guifg=#333333 guibg=#333333 ctermfg=234 ctermbg=234
 '''
+
+[[plugins]]
+repo = 'junegunn/goyo.vim'
+hook_source = '''
+let g:goyo_width = 104
+function! s:goyo_enter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+
+  if has('gui_running')
+    set fullscreen
+    set background=light
+    set linespace=7
+  elseif exists('$TMUX')
+    silent !tmux set status off
+  endif
+endfunction
+
+function! s:goyo_leave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+
+  if has('gui_running')
+    set nofullscreen
+    set background=dark
+    set linespace=0
+  elseif exists('$TMUX')
+    silent !tmux set status on
+  endif
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+'''
+
+[[plugins]]
+repo = 'kana/vim-operator-user'
+on_map = {nox = '<Plug>'}
+
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+on_map = {nox = '<Plug>'}
 
 [[plugins]]
 repo = 'haya14busa/vim-operator-flashy'
@@ -822,27 +715,6 @@ source ~/.config/nvim/plugins/quickrun.rc.vim
 ####################
 # Utility:
 ####################
-# [[plugins]]
-# repo = 'brooth/far.vim'
-# on_cmd = ['Far', 'Fardo']
-# hook_source = '''
-# let g:far#source = 'rgnvim'
-# let g:far#file_mask_favorites = [
-#       \ '%',
-#       \ '**/*.*',
-#       \ '**/*.py',
-#       \ '**/*.html',
-#       \ '**/*.js',
-#       \ '**/*.vue',
-#       \ '**/*.css']
-# '''
-# hook_add = '''
-# let g:far#default_mappings = 0
-# nnoremap <silent> <Space>far :Farp<cr>
-# nnoremap <silent> <Space>ff :Fardo<cr>
-# nnoremap <silent> <Space>fp :F
-# '''
-
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
 on_map = '<Plug>'
