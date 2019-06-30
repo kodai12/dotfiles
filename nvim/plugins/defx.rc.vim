@@ -33,9 +33,9 @@ function! s:defx_my_settings() abort
     \ defx#do_action('paste')
     nnoremap <silent><buffer><expr> l
     \ defx#do_action('drop')
-    nnoremap <silent><buffer><expr> E
+    nnoremap <silent><buffer><expr> v
     \ defx#do_action('open', 'vsplit')
-    nnoremap <silent><buffer><expr> P
+    nnoremap <silent><buffer><expr> s
     \ defx#do_action('open', 'pedit')
     nnoremap <silent><buffer><expr> o
     \ defx#do_action('open_or_close_tree')
