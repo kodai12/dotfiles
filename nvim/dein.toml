@@ -237,6 +237,13 @@ hi! link CocErrorSign WarningMsg
 hi! link CocWarningSign Number
 hi! link CocInfoSign Type
 '''
+hook_source = '''
+augroup HTMLANDXML
+  autocmd!
+  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o><ESC>F<i
+  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o><ESC>F<i
+augroup END
+'''
 
 # [[plugins]]
 # repo = 'kkvh/vim-docker-tools'
