@@ -190,3 +190,26 @@ eval "$(hub alias -s)"
 export PATH="/usr/local/opt/avr-gcc@7/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/avr-gcc@7/lib"
 
+# ruby
+eval "$(rbenv init -)"
+
+# node_modules
+export PATH=$PATH:./node_modules/.bin
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/kodai.sakochi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kodai.sakochi/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/kodai.sakochi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kodai.sakochi/google-cloud-sdk/completion.zsh.inc'; fi
+
+eval "$(goenv init -)"
+
+eval "$(anyenv init -)"
+
+echo 'export PATH="/usr/local/sbin:$PATH"'
+
+# load zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# load zsh-completions
+fpath=(path/to/zsh-completions/src $fpath)
+

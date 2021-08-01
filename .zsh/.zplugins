@@ -7,29 +7,32 @@ source $ZPLUG_HOME/init.zsh
 #----------------------
 SPACESHIP_PROMPT_ORDER=(
   time          # Time stamps section
-  dir           # Current directory section
   user          # Username section
+  dir           # Current directory section
   host          # Hostname section
   git           # Git section (git_branch + git_status)
   hg            # Mercurial section (hg_branch  + hg_status)
-  aws           # Amazon Web Services section
-  terraform     # Terraform workspace section
-  kubecontext   # Kubectl context section
-  docker        # Docker section
   package       # Package version
+  terraform     # Terraform workspace section
+  kubectl       # Kubectl context section
+  docker        # Docker section
+  aws           # Amazon Web Services section
+  gcloud        # Google Cloud Platform section
   node          # Node.js section
+  golang        # Go section
   ruby          # Ruby section
-  elixir        # Elixir section
+  pyenv         # Pyenv section
+  rust          # Rust section
   xcode         # Xcode section
   swift         # Swift section
-  golang        # Go section
+  gradle        # Gradle section
+  maven         # Maven section
+  elixir        # Elixir section
   php           # PHP section
-  rust          # Rust section
   haskell       # Haskell Stack section
   julia         # Julia section
   venv          # virtualenv section
   conda         # conda virtualenv section
-  pyenv         # Pyenv section
   dotnet        # .NET section
   ember         # Ember.js section
   exec_time     # Execution time
@@ -40,29 +43,7 @@ SPACESHIP_PROMPT_ORDER=(
   exit_code     # Exit code section
   char          # Prompt character
 )
-SPACESHIP_CHAR_SYMBOL="➜ "
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
-SPACESHIP_DIR_TRUNC_PREFIX=".../"
-SPACESHIP_DIR_TRUNC_REPO=false
-SPACESHIP_PACKAGE_PREFIX="npm is "
-SPACESHIP_NODE_PREFIX="node is "
-SPACESHIP_RUBY_PREFIX="ruby is "
-SPACESHIP_ELM_PREFIX="elm is "
-SPACESHIP_ELIXIR_PREFIX="elixir is "
-SPACESHIP_XCODE_PREFIX="xcode is "
-SPACESHIP_SWIFT_PREFIX="swift is "
-SPACESHIP_GOLANG_PREFIX="go is "
-SPACESHIP_PHP_PREFIX="php is "
-SPACESHIP_RUST_PREFIX="rust is "
-SPACESHIP_HASKELL_PREFIX="huskell is "
-SPACESHIP_JULIA_PREFIX="julia is "
-SPACESHIP_DOCKER_PREFIX="docker on "
-SPACESHIP_AWS_PREFIX="using aws "
-SPACESHIP_VENV_PREFIX="virtualenv is "
-SPACESHIP_CONDA_PREFIX="conda is "
-SPACESHIP_PYENV_PREFIX="pyenv is "
-SPACESHIP_KUBECONTEXT_SUFFIX="kubectl is "
-SPACESHIP_TERRAFORM_PREFIX="using terraform "
 SPACESHIP_BATTERY_THRESHOLD="20"
 #----------------------
 # /theme settings
@@ -71,24 +52,12 @@ SPACESHIP_BATTERY_THRESHOLD="20"
 #----------------------
 # plugins settings
 #----------------------
-zplug denysdovhan/spaceship-prompt, use:spaceship.zsh, from:github, as:theme
+zplug "spaceship-prompt/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 zplug "carloscuesta/materialshell", use:materialshell, from:github, as:theme
-zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-completions"
 zplug "willghatch/zsh-hooks"
-zplug "unixorn/warhol.plugin.zsh"
-zplug "mafredri/zsh-async", from:github
-zplug "stedolan/jq", \
-    from:gh-r, \
-    as:command, \
-    rename-to:jq
-zplug "b4b4r07/emoji-cli", \
-    on:"stedolan/jq"
-export EMOJI_CLI_DICT="/usr/local/Cellar/zplug/2.4.2/repos/b4b4r07/emoji-cli/dict/emoji.json"
-export EMOJI_CLI_KEYBIND="emo"
-zplug "b4b4r07/enhancd", use:enhancd.sh
-source /usr/local/Cellar/zplug/2.4.2/repos/b4b4r07/enhancd/init.sh
+zplug "mafredri/zsh-async", from:"github", use:"async.zsh"
+zplug "b4b4r07/enhancd", use:init.sh
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then

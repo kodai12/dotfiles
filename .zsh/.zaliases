@@ -13,3 +13,4 @@ alias dc="docker"
 alias yapf="yapf -i --style="{indent_dictionary_value=True}""
 alias isort="isort -sl"
 eval "$(thefuck --alias)"
+alias brew='PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew'
