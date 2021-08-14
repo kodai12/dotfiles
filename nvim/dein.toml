@@ -1,11 +1,6 @@
 ####################
 # Develop Plugin:
 ####################
-[[plugins]]
-repo = 'kodai12/vimify'
-hook_add = '''
-source ~/dotfiles/nvim/env.vim
-'''
 
 [[plugins]]
 repo = 'kodai12/vim-workspace'
@@ -38,33 +33,9 @@ highlight WorkspaceFill ctermfg=246 ctermbg=246 guifg=#eeeeee guibg=#1c1c1c
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# [[plugins]]
-# repo = 'Shougo/vimproc.vim'
-# build = 'make'
-# hook_post_update = '''
-#   if dein#util#_is_windows()
-#     let cmd = 'tools\\update-dll-mingw'
-#   elseif dein#util#_is_cygwin()
-#     let cmd = 'make -f make_cygwin.mak'
-#   elseif executable('gmake')
-#     let cmd = 'gmake'
-#   else
-#     let cmd = 'make'
-#   endif
-#   let g:dein#plugin.build = cmd
-# '''
 
 [[plugins]]
 repo = 'haya14busa/dein-command.vim'
-
-####################
-# Terminal
-####################
-# [[plugins]]
-# repo = 'Shougo/deol.nvim'
-# hook_add = '''
-# nmap T :Deol<CR>
-# '''
 
 ####################
 # Colorsheme:
@@ -103,8 +74,8 @@ build = ':UpdateRemotePlugins'
 depends = ['defx-git', 'defx-icons']
 on_cmd = 'Defx'
 hook_add = '''
-nnoremap <silent> <SPACE>ftt :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft -ignored-files='.git' -toggle -resume<CR>
-nnoremap <silent> <SPACE>ftf :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft -ignored-files='.git' `expand('%:p:h')` -search=`expand('%:p')`<CR>
+" nnoremap <silent> <SPACE>ftt :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft -ignored-files='.git' -toggle -resume<CR>
+" nnoremap <silent> <SPACE>ftf :<C-u>Defx -split=vertical -winwidth=40 -direction=topleft -ignored-files='.git' `expand('%:p:h')` -search=`expand('%:p')`<CR>
 '''
 hook_source = 'source ~/dotfiles/nvim/plugins/defx.rc.vim'
 
@@ -348,28 +319,6 @@ augroup END
 [[plugins]]
 repo = 'fuenor/qfixhowm'
 
-####################
-# Folding:
-####################
-# [[plugins]]
-# repo = 'pseewald/vim-anyfold'
-# hook_add = '''
-# nnoremap zq zC<CR>
-# nnoremap zz zO<CR>
-# '''
-
-####################
-# Operation:
-####################
-# [[plugins]]
-# repo = 'terryma/vim-multiple-cursors'
-# hook_add = '''
-# highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
-# highlight link multiple_cursors_visual Visual
-# nnoremap <silent> <SPACE>mc :MultipleCursorsFind <C-R>/<CR>
-# vnoremap <silent> <SPACE>mc :MultipleCursorsFind <C-R>/<CR>
-# '''
-
 [[plugins]]
 repo = 'thinca/vim-qfreplace'
 hook_add = 'nnoremap <Space>Q :<C-u>Qfreplace<CR>'
@@ -479,14 +428,6 @@ hook_add = '''
   xmap <C-h> <Plug>(textmanip-move-left)
   xmap <C-l> <Plug>(textmanip-move-right)
 '''
-
-# [[plugins]]
-# repo = 'itchyny/calendar.vim'
-# hook_add = '''
-# let g:calendar_google_calendar = 1
-# let g:calendar_google_task = 1
-# " TODO: todayのkeymapを変更する(togglとバッティング中)
-# '''
 
 [[plugins]]
 repo = 'farmergreg/vim-lastplace'

@@ -108,23 +108,6 @@ set cmdheight=2
 let g:echodoc#enable_at_startup = 1
 '''
 
-# [[plugins]]
-# repo = 'carlitux/deoplete-ternjs'
-# on_ft = ['javascript', 'vue', 'ts', 'typescript', 'jsx']
-# hook_source = '''
-# let g:deoplete#sources#ternjs#timeout = 1
-# let g:deoplete#sources#ternjs#types = 1
-# let g:deoplete#sources#ternjs#depths = 1
-# let g:deoplete#sources#ternjs#docs = 1
-# let g:deoplete#sources#ternjs#omit_object_prototype = 0
-# let g:deoplete#sources#ternjs#include_keywords = 1
-# '''
-
-# [[plugins]]
-# repo = 'ternjs/tern_for_vim'
-# on_ft = ['javascript', 'vue', 'ts', 'typescript', 'jsx']
-# build = 'npm install'
-
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
 on_ft   = ['python']
@@ -133,17 +116,6 @@ hook_source = '''
   let g:deoplete#sources#jedi#enable_cache   = 1
   let g:deoplete#sources#jedi#show_docstring = 1
 '''
-
-# [[plugins]]
-# repo = 'padawan-php/deoplete-padawan'
-# on_event = 'InsertEnter'
-# on_ft = ['php']
-# depends = ['deoplete.nvim']
-# hook_source = '''
-#   augroup padawan-setting
-#     autocmd! FileType php setlocal completeopt-=preview
-#   augroup END
-# '''
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
@@ -237,13 +209,6 @@ hook_post_source = '''
 repo = 'tmhedberg/matchit'
 on_ft = ['html', 'vim', 'sql', 'php', 'ruby']
 
-# [[plugins]]
-# repo = 'mattn/sonictemplate-vim'
-# on_cmd = ['Template']
-# hook_source = '''
-# let g:sonictemplate_vim_template_dir = [expand($XDG_CONFIG_HOME.'/nvim/template')]
-# '''
-
 # html, css
 [[plugins]]
 repo = 'mattn/emmet-vim'
@@ -267,22 +232,6 @@ on_ft = ['javascript', 'ts', 'typescript']
 hook_add = '''
 let g:vim_jsx_pretty_colorful_config = 1
 '''
-
-# typescript
-# [[plugins]]
-# repo = 'Quramy/tsuquyomi'
-# on_ft = ['javascript', 'ts', 'typescript', 'jsx']
-# build = 'make -f make_mac.mak'
-# hook_source = '''
-# let g:tsuquyomi_completion_detail = 1
-# let g:tsuquyomi_shortest_import_path = 1
-# augroup custom-tsuquyomi
-#   autocmd!
-#   autocmd BufReadPre typescript TsuStartServer
-#   autocmd FileType typescript nnoremap <silent> ;; :TsuDefinition<CR>
-#   autocmd FileType typescript nnoremap <silent> K :TsuReferences<CR>
-# augroup END
-# '''
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
@@ -418,14 +367,6 @@ on_ft = ['go']
 repo = 'derekwyatt/vim-scala'
 on_ft = ['scala']
 
-# [[plugins]]
-# repo = 'ensime/ensime-vim'
-# on_ft = ['scala']
-# depends = ['vim-scala']
-# hook_add = '''
-# autocmd BufWritePost *.scala silent :EnTypeCheck
-# '''
-
 # docker
 [[plugins]]
 repo = 'ekalinin/Dockerfile.vim'
@@ -523,17 +464,6 @@ repo = 'kana/vim-textobj-user'
 on_map = {nox = '<Plug>'}
 
 [[plugins]]
-repo = 'haya14busa/vim-operator-flashy'
-on_map = {nox = '<Plug>'}
-hook_add = '''
-nmap y <Plug>(operator-flashy)
-xmap y <Plug>(operator-flashy)
-omap y <Plug>(operator-flashy)
-nmap Y <Plug>(operator-flashy)$
-'''
-hook_source = 'let g:operator#flashy#flash_time = 100'
-
-[[plugins]]
 repo = 'rhysd/vim-operator-surround'
 depends = ['vim-operator-user', 'vim-textobj-multiblock']
 on_map = {nox = '<Plug>'}
@@ -611,20 +541,6 @@ xmap ig <Plug>(textobj-line-i)
 omap ag <Plug>(textobj-line-a)
 omap ig <Plug>(textobj-line-i)
 '''
-
-# [[plugins]]
-# repo = 'kana/vim-operator-replace'
-# depends = 'vim-operator-user'
-# on_map = '<Plug>'
-# hook_add = '''
-# nmap r <Plug>(operator-replace)
-# xmap r <Plug>(operator-replace)
-# omap r <Plug>(operator-replace)
-# onoremap <Plug>(builtin-gn) gn
-# nnoremap <Plug>(builtin-/) /
-# "nmap [edit]n *``<Plug>(operator-replace)<Plug>(builtin-gn)
-# "xmap <expr> [edit]n "\"ry<Plug>(builtin-/)\\V\<C-r>=notomo#vimrc#escape_search_pattern(@r)\<CR>\<CR>" . "``\"+<Plug>(operator-replace)<Plug>(builtin-gn)"
-# '''
 
 [[plugins]]
 repo = 'osyo-manga/vim-textobj-from_regexp'

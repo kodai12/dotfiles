@@ -42,7 +42,7 @@ endfunction
 
 "" grep
 if executable('rg')
-  let s:denite_grep_ops = ['--mmap', '--threads=12', '--hidden', '--smart-case', '--vimgrep', '--no-ignore-vcs', '--no-heading', '--ignore=.git', '--ignore=dist', '--ignore=node_modules']
+  let s:denite_grep_ops = ['--mmap', '--threads=12', '--hidden', '--smart-case', '--vimgrep', '--no-ignore-vcs', '--no-heading', '--glob=!.git', '--glob=!dist', '--glob=!node_modules', '--glob=!vendor', '--glob="storage"']
   call denite#custom#var('grep', 'command', ['rg'])
   call denite#custom#var('grep', 'default_opts', s:denite_grep_ops)
   call denite#custom#var('grep', 'recursive_opts', [])
@@ -62,7 +62,7 @@ call denite#custom#action('buffer,directory,file,openable', 'my_file_rec', funct
 call denite#custom#action('buffer,directory,file,openable', 'grep', function('s:candidate_grep'))
 call denite#custom#action('file', 'grep', function('s:narrow_grep'))
 
-call denite#custom#option('file_rec', {
+call denite#custom#option('file/rec', {
       \ 'sorter': 'sorter/sublime',
       \ })
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs', [
@@ -72,16 +72,16 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs', [
       \ '.serverless_plugins', '.cache/', 'direnv', 'configstore', '.local_requirements/', '.ropeproject/'
       \ ])
 
-"" file_rec
+"" file/rec
 if executable('rg')
   let s:denite_rg_command = ['rg', '--files', '--mmap', '--threads=12', '--hidden', '--smart-case', '--no-ignore-vcs', '--no-heading', '--glob', '!.git', '--glob', '!vendor', '']
-  call denite#custom#var('file_rec', 'command', s:denite_rg_command)
+  call denite#custom#var('file/rec', 'command', s:denite_rg_command)
 endif
-call denite#custom#source('file_rec', 'matchers', ['matcher/regexp', 'matcher_cpsm', 'matcher_ignore_globs'])
-call denite#custom#source('file_rec', 'max_candidates', 10000)
+call denite#custom#source('file/rec', 'matchers', ['matcher/regexp', 'matcher_cpsm', 'matcher_ignore_globs'])
+call denite#custom#source('file/rec', 'max_candidates', 10000)
 let s:denite_file_rec_ignore=&wildignore .
       \ ',*.pyc,.git,.github,.hg,.svn,.serverless,__pycache__,.serverless_plugins,.nuxt,tags,node_modules,.cache,dist,target,.DS_Store, .local_requirements'
-call denite#custom#var('file_rec', 'command',
+call denite#custom#var('file/rec', 'command',
       \ ['scantree.py', '--ignore', s:denite_file_rec_ignore])
 
 "" emoji
