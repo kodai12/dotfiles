@@ -77,8 +77,8 @@ nnoremap <SPACE>mt :<C-u>MerginalToggle<CR>
 nnoremap [denite] <Nop>
 nmap <Space>d [denite]
 
-nnoremap <silent> ? :<C-u>DeniteProjectDir grep -immediately-1 -max-dynamic-update-candidates=0<CR>
-nnoremap <silent> <C-G> :<C-u>DeniteCursorWord grep -no-empty -immediately-1 -max-dynamic-update-candidates=0<CR>
+nnoremap <silent> ? :<C-u>DeniteProjectDir grep -immediately-1 -max-dynamic-update-candidates=0 -ignorecase<CR>
+nnoremap <silent> <C-G> :<C-u>DeniteCursorWord grep -no-empty -immediately-1 -max-dynamic-update-candidates=0 -ignorecase<CR>
 nnoremap <silent> B :<C-u>Denite buffer -no-empty -immediately-1<CR>
 nnoremap <silent> [denite]b :<C-u>Denite buffer -no-empty -default-action=delete<CR>
 nnoremap <silent> F :<C-u>DeniteProjectDir file/rec -no-empty -immediately-1<CR>

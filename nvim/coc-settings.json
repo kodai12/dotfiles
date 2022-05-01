@@ -1,4 +1,6 @@
 {
+  "suggest.noselect": true,
+  "suggest.preferCompleteThanJumpPlaceholder": true,
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 20,
   "suggest.completionItemKindLabels": {

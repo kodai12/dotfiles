@@ -1,4 +1,34 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Created by sakochik for 5.4.2 H18/10/31
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
 
 # {{ cf. https://qiita.com/b4b4r07/items/01359e8a3066d1c37edc
 function is_exists() { type "$1" >/dev/null 2>&1; return $?; }
@@ -84,24 +114,18 @@ export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
 # cd した先のディレクトリをディレクトリスタックに追加する
 setopt auto_pushd
-
 # pushd したとき、ディレクトリがすでにスタックに含まれていればスタックに追加しない
 setopt pushd_ignore_dups
-
 # 拡張 glob を有効にする
 # glob とはパス名にマッチするワイルドカードパターンのこと
 setopt extended_glob
-
 # 入力したコマンドがすでにコマンド履歴に含まれる場合、履歴から古いほうのコマンドを削除する
 setopt hist_ignore_all_dups
-
 # コマンドがスペースで始まる場合、コマンド履歴に追加しない
 setopt hist_ignore_space
-
 # <Tab> でパス名の補完候補を表示したあと、
 # 続けて <Tab> を押すと候補からパス名を選択できるようになる
 zstyle ':completion:*:default' menu select=1
-
 # 単語の一部として扱われる文字のセットを指定する
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
@@ -142,35 +166,7 @@ bindkey "^S" history-incremental-search-forward
 function history-all { history -E 1 }
 
 
-# export PATH="$(brew --prefix homebrew/php/php7.1)/bin:$PATH"
-
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-
-#----------------------
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-#----------------------
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-
-#----------------------
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-#----------------------
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-
-#----------------------
-# python setup
-#----------------------
-export PYENV_ROOT=$HOME/.pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
-#----------------------
-# direnv setting
-#----------------------
-export EDITOR=nvim
-eval "$(direnv hook zsh)"
+#export PATH="/usr/local/sbin:$PATH"
 
 #----------------------
 # fzf settings
@@ -180,36 +176,25 @@ set rtp+=/usr/local/opt/fzf
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 #----------------------
-# hub
-#----------------------
-eval "$(hub alias -s)"
-
-#----------------------
 # gcc setting(for my keyboard settings)
 #----------------------
 export PATH="/usr/local/opt/avr-gcc@7/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/avr-gcc@7/lib"
-
-# ruby
-eval "$(rbenv init -)"
 
 # node_modules
 export PATH=$PATH:./node_modules/.bin
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/kodai.sakochi/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kodai.sakochi/google-cloud-sdk/path.zsh.inc'; fi
-
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/kodai.sakochi/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kodai.sakochi/google-cloud-sdk/completion.zsh.inc'; fi
-
-eval "$(goenv init -)"
-
-eval "$(anyenv init -)"
-
-echo 'export PATH="/usr/local/sbin:$PATH"'
 
 # load zsh-autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # load zsh-completions
 fpath=(path/to/zsh-completions/src $fpath)
 
+# llvm
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+# binutils
+export PATH="/usr/local/opt/binutils/bin:$PATH"

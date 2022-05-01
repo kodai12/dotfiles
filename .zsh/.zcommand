@@ -13,27 +13,12 @@ function chpwd() {
 }
 
 #----------------------
-# zmv
-#----------------------
-autoload -Uz zmv
-alias zmv='noglob zmv -W'
-
-#----------------------
 # fzf
 #----------------------
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
 
-#----------------------
-# fbr - checkout git branch
-#----------------------
-fbr() {
-  local branches branch
-  branches=$(git branch -vv) &&
-  branch=$(echo "$branches" | fzf +m) &&
-  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
-}
 
 #----------------------
 # fshow - git commit browser
@@ -60,30 +45,27 @@ fd() {
 }
 
 
-function ghq-new() {
-    local REPONAME=$1
-
-    if [ -z "$REPONAME" ]; then
-        echo 'Repository name must be specified.'
-        return
-    fi
-
-    local TMPDIR=/tmp/ghq_new
-    local TMPREPODIR=$TMPDIR/$REPONAME
-
-    mkdir -p $TMPREPODIR
-    cd $TMPREPODIR
-
-    hub init
-    hub create
-
-    local REPOURL=$(git remote get-url origin)
-    local REPOPATH=$(echo $REPOURL | sed -e 's/^https:\/\///' -e 's/^git@//' -e 's/\.git$//' -e 's/github.com:/github.com\//')
-    local USER_REPO_NAME=$(echo $REPOPATH | sed -e 's/^github\.com\///')
-
-    ghq get $USER_REPO_NAME
-
-    cd $(ghq root)/$REPOPATH
-
-    rm -rf $TMPREPODIR
+#----------------------
+# gcloud completions
+#----------------------
+function gcloud-activate() {
+  name="$1"
+  project="$2"
+  echo "gcloud config configurations activate \"${name}\""
+  gcloud config configurations activate "${name}"
 }
+function gx-complete() {
+  _values $(gcloud config configurations list | awk '{print $1}')
+}
+function gx() {
+  name="$1"
+  if [ -z "$name" ]; then
+    line=$(gcloud config configurations list | peco)
+    name=$(echo "${line}" | awk '{print $1}')
+  else
+    line=$(gcloud config configurations list | grep "$name")
+  fi
+  project=$(echo "${line}" | awk '{print $4}')
+  gcloud-activate "${name}" "${project}"
+}
+compdef gx-complete gx

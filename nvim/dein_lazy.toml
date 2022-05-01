@@ -687,3 +687,12 @@ map ;l <Plug>(easymotion-lineforward)
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 on_ft = ['help']
+
+####################
+# Markdown viewer
+####################
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build = 'sh -c "cd app && yarn install"'
+
